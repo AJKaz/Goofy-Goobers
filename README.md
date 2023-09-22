@@ -14,5 +14,5 @@ Unity Version: 2023.1.14f1
 
 
 ## Developers
-Arthur Powers
+Arthur Powers\n
 AJ Kazazian
