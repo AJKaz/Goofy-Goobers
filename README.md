@@ -11,3 +11,7 @@ Unity Version: 2023.1.14f1
 - WebGL Support
 - Universal Windows Platform
 - (Optional) Android SDK, IOS
+
+
+## Developers
+Arthur Powers
