@@ -11,7 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
 
     [SerializeField] private Rigidbody2D rigidbody;
-    [SerializeField] private SpriteRenderer playerSprite;
+    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Animator animator;
 
     private Vector2 direction = Vector2.zero;
     private Vector2 inputDirection = Vector2.zero;
@@ -45,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
             // This is to prevent jittery oscillation when velocity is close to 0
             Vector2 deceleration = direction * 2 * accelerationK * Time.deltaTime;
             Vector2 newVelocity = velocity - deceleration;
-            velocity = velocity.sqrMagnitude > newVelocity.sqrMagnitude? newVelocity : Vector2.zero;
+            velocity = Vector2.Dot(newVelocity, direction) > 0? newVelocity : Vector2.zero;
         }
 
         // Constrain velocity
@@ -62,7 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
 
         // Update sprite
-        playerSprite.flipX = direction.x < -0.1f;
+        sprite.flipX = direction.x < -0.1f;
+        animator.SetBool("isWalking", inputDirection.sqrMagnitude > 0.01f);
     }
 
     public void OnMove(InputAction.CallbackContext callback)

@@ -174,7 +174,8 @@ MonoBehaviour:
   speed: 5
   accelerationK: 50
   rigidbody: {fileID: 420721668}
-  playerSprite: {fileID: 1188807956}
+  sprite: {fileID: 1188807956}
+  animator: {fileID: 420721670}
 --- !u!50 &420721668
 Rigidbody2D:
   serializedVersion: 4
@@ -252,7 +253,7 @@ Animator:
   m_GameObject: {fileID: 420721665}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3a48e65e4c565a34cb3d2c5989c6c451, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -356,7 +357,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1188807955}
   - component: {fileID: 1188807956}
-  - component: {fileID: 1188807957}
   m_Layer: 0
   m_Name: wizard
   m_TagString: Untagged
@@ -431,26 +431,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &1188807957
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1188807954}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3a48e65e4c565a34cb3d2c5989c6c451, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1291320327
 GameObject:
   m_ObjectHideFlags: 0
