@@ -1,0 +1,34 @@
+{
+    "name": "DebugControls",
+    "maps": [
+        {
+            "name": "DebugCanvas",
+            "id": "faac85e8-b349-44c7-9898-de4216952bb0",
+            "actions": [
+                {
+                    "name": "ToggleCanvas",
+                    "type": "Button",
+                    "id": "f7f93eb7-4a3b-4eae-8b05-0f70eba7c868",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "c21d3672-b759-4860-8bec-97739ec71088",
+                    "path": "<Keyboard>/backquote",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleCanvas",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

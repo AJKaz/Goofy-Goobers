@@ -65,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
         // Update sprite
         sprite.flipX = direction.x < -0.1f;
         animator.SetBool("isWalking", inputDirection.sqrMagnitude > 0.01f);
+        DebugCanvas.AddDebugText("Is walking", $"{inputDirection.sqrMagnitude > 0.01f}");
     }
 
     public void OnMove(InputAction.CallbackContext callback)
