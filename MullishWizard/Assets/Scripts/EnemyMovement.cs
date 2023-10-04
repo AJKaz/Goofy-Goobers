@@ -9,6 +9,7 @@ public class EnemyMovement : MonoBehaviour
 
     private Vector3 direction;
     private Vector3 velocity;
+    [SerializeField]
     private float moveSpeed = 2f;
 
     // Start is called before the first frame update
