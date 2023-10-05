@@ -17,6 +17,7 @@ public class Resource : MonoBehaviour {
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        if (collision.gameObject.tag != "Player") return;
         Debug.Log($"collision with resource {resourceType}");
         playerInventory.AddResources(resourceType, quantity);
         Debug.Log($"Now have {playerInventory.GetResourceQuantity(resourceType)} {resourceType}");

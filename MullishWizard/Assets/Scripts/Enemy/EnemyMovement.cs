@@ -37,4 +37,19 @@ public class EnemyMovement : MonoBehaviour
         velocity = direction.normalized * moveSpeed * Time.deltaTime;
         transform.position += velocity;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        // Can be used if we end up having an enemy that "rams" towers for more damage on itial hit
+        if (collision.gameObject.CompareTag("Tower")) {
+            Debug.Log("enemy tower enter");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Tower")) {
+            Debug.Log("enemy tower stay");
+            // Have tower take damage here, called every frame that enemy is in contact w/ tower,
+            // so use deltaTime either here prob in tower damage method
+        }
+    }
 }
