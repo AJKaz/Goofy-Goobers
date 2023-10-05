@@ -46,8 +46,6 @@ public class Grid
     {
         x = Mathf.FloorToInt((worldPosition - originPosition).x / cellSize);
         y = Mathf.FloorToInt((worldPosition - originPosition).y / cellSize);
-
-
     }
 
     /// <summary>
