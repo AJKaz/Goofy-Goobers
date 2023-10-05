@@ -25,7 +25,8 @@ public class TowerManager : MonoBehaviour
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             int gridX, gridY;
             grid.GetXY(worldMousePosition, out gridX, out gridY);
-            if(towerPrefab != null && !towers[gridX, gridY])
+            // If the tower prefab exists and there is not currently a tower there, create one
+            if(towerPrefab != null && towers[gridX, gridY] == null)
             {
                 GameObject tower = Instantiate(towerPrefab, grid.GetWorldPosition(gridX, gridY) + new Vector3(grid.cellSize / 2f, grid.cellSize / 2f), Quaternion.identity);
                 tower.transform.SetParent(transform, true);
@@ -37,7 +38,11 @@ public class TowerManager : MonoBehaviour
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             int gridX, gridY;
             grid.GetXY(worldMousePosition, out gridX, out gridY);
-            Destroy(towers[gridX, gridY]);
+            // If a tower is there, destroy it
+            if (towers[gridX, gridY] != null)
+            {
+                Destroy(towers[gridX, gridY]);
+            }
         }
     }
 }
