@@ -12,12 +12,15 @@ public class SimpleEnemySpawner : MonoBehaviour
     [SerializeField]
     float previousFrameElapsedTime;
 
-    private List<GameObject> enemies = new List<GameObject>();
+    private List<GameObject> enemies;
+
+    public List<GameObject> Enemies { get { return enemies; } }
 
     // Start is called before the first frame update
     void Start()
     {
         elapsedTime = 0;
+        enemies = new List<GameObject>();
     }
 
     // Update is called once per frame

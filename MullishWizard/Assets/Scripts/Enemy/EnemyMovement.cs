@@ -12,9 +12,6 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 2f;
 
-    private float health = 10;
-    public float Health { get { return health; } set { health = value; } }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -52,10 +49,10 @@ public class EnemyMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Tower")) {
             Debug.Log("Tower health: " + collision.gameObject.GetComponent<Tower>().Health);
             collision.gameObject.GetComponent<Tower>().Health -= 1 * Time.deltaTime;
-            collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
+            //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             // Have tower take damage here, called every frame that enemy is in contact w/ tower,
             // so use deltaTime either here prob in tower damage method
         }
-        collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
+        //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.white;
     }
 }
