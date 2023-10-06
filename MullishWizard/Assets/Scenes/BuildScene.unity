@@ -1597,6 +1597,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1470381676}
+    - target: {fileID: 4549979267932894630, guid: 800fd8d6a28341342b755e5ac666ee08, type: 3}
+      propertyPath: smoothness
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 8349653426550404760, guid: 800fd8d6a28341342b755e5ac666ee08, type: 3}
       propertyPath: m_Name
       value: Main Camera
