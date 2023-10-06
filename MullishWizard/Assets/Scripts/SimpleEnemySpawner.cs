@@ -11,6 +11,9 @@ public class SimpleEnemySpawner : MonoBehaviour
     float elapsedTime;
     [SerializeField]
     float previousFrameElapsedTime;
+
+    private List<GameObject> enemies = new List<GameObject>();
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class SimpleEnemySpawner : MonoBehaviour
             // Spawn enemy 15 units away in the generated direction
             float x = 15 * Mathf.Cos(angleRadians);
             float y = 15 * Mathf.Sin(angleRadians);
-            Instantiate(prefabToInstantiate, new Vector3(x, y, 0.0f), new Quaternion());
+            enemies.Add(Instantiate(prefabToInstantiate, new Vector3(x, y, 0.0f), new Quaternion()));
         }
     }
 }
