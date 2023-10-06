@@ -4,14 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Grid
+public class Grid : MonoBehaviour
 {
-    public int width;
-    public int height;
+    [SerializeField]
     private Vector3 originPosition;
-    private int[,] gridArray;
-
+    [SerializeField]
+    public int width;
+    [SerializeField]
+    public int height;
+    [SerializeField]
     public float cellSize;
+
+    private int[,] gridArray;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition)
     {

@@ -3,58 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Grid))]
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField] private GameObject towerPrefab;
-
+    [SerializeField]
     private Grid grid;
+
     private GameObject[,] towers;
 
     // Start is called before the first frame update
     void Start()
     {
-        grid = new Grid(9, 9, 1, new Vector3(-4.5f, -4.5f));
         towers = new GameObject[grid.width, grid.height];
     }
 
-    // Update is called once per frame
-    void Update()
+    public void CreateTower(GameObject towerPrefab, int gridX, int gridY)
     {
-        if (PauseControl.isPaused) return;
-
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        // If grid coordinates are within bounds
+        if (gridX < grid.width && gridX >= 0 && gridY < grid.height && gridY >= 0)
         {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            int gridX, gridY;
-            grid.GetXY(worldMousePosition, out gridX, out gridY);
-
-            // If grid coordinates are within bounds
-            if(gridX < grid.width && gridX >= 0 && gridY < grid.height && gridY >= 0)
+            // If the tower prefab exists and there is not currently a tower there, create one
+            if (towerPrefab != null && towers[gridX, gridY] == null)
             {
-                // If the tower prefab exists and there is not currently a tower there, create one
-                if(towerPrefab != null && towers[gridX, gridY] == null)
-                {
-                    GameObject tower = Instantiate(towerPrefab, grid.GetWorldPosition(gridX, gridY) + new Vector3(grid.cellSize / 2f, grid.cellSize / 2f), Quaternion.identity);
-                    tower.transform.SetParent(transform, true);
-                    towers[gridX, gridY] = tower;
-                }
+                GameObject tower = Instantiate(towerPrefab, grid.GetWorldPosition(gridX, gridY) + new Vector3(grid.cellSize / 2f, grid.cellSize / 2f), Quaternion.identity);
+                tower.transform.SetParent(transform, true);
+                towers[gridX, gridY] = tower;
             }
-
         }
-        else if(Mouse.current.rightButton.wasPressedThisFrame)
-        {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            int gridX, gridY;
-            grid.GetXY(worldMousePosition, out gridX, out gridY);
+    }
 
-            // If the grid coordinates are within bounds
-            if (gridX < grid.width && gridX >= 0 && gridY < grid.height && gridY >= 0)
+    public void DestroyTower(int gridX, int gridY)
+    {
+        // If the grid coordinates are within bounds
+        if (gridX < grid.width && gridX >= 0 && gridY < grid.height && gridY >= 0)
+        {
+            // If a tower is there, destroy it
+            if (towers[gridX, gridY] != null)
             {
-                // If a tower is there, destroy it
-                if (towers[gridX, gridY] != null)
-                {
-                    Destroy(towers[gridX, gridY]);
-                }
+                Destroy(towers[gridX, gridY]);
             }
         }
     }
