@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        position = transform.position;
 
         // Apply acceleration
         acceleration = inputDirection.normalized;
@@ -58,14 +59,15 @@ public class PlayerMovement : MonoBehaviour
             direction = velocity.normalized;
 
         // Update position
-        position += velocity * Time.deltaTime;
-        rigidbody.MovePosition(position);
+        //position += velocity * Time.deltaTime;
+        //rigidbody.MovePosition(position);
+        rigidbody.velocity = velocity;
 
 
         // Update sprite
         sprite.flipX = direction.x < -0.1f;
-        animator.SetBool("isWalking", inputDirection.sqrMagnitude > 0.01f);
-        DebugCanvas.AddDebugText("Is walking", $"{inputDirection.sqrMagnitude > 0.01f}");
+        animator.SetBool("isWalking", rigidbody.velocity.sqrMagnitude > 0.01f);
+        DebugCanvas.AddDebugText("Is walking", $"{rigidbody.velocity.sqrMagnitude > 0.01f}");
     }
 
     public void OnMove(InputAction.CallbackContext callback)
