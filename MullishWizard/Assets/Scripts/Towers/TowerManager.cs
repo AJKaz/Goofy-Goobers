@@ -20,6 +20,8 @@ public class TowerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (PauseControl.isPaused) return;
+
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());

@@ -105,5 +105,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9b9e561f5fd5147925de4c48d67215, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  smoothness: 20
+  player: {fileID: 8554656650338617829, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
+  smoothness: 10

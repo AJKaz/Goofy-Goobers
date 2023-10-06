@@ -12,7 +12,7 @@ public class PauseControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (isPaused) Time.timeScale = 0.0f;
     }
 
     // Update is called once per frame
