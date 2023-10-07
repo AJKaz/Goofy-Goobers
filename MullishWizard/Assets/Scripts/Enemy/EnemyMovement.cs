@@ -47,7 +47,7 @@ public class EnemyMovement : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Tower")) {
-            Debug.Log("Tower health: " + collision.gameObject.GetComponent<Tower>().Health);
+            //Debug.Log("Tower health: " + collision.gameObject.GetComponent<Tower>().Health);
             collision.gameObject.GetComponent<Tower>().Health -= 1 * Time.deltaTime;
             //collision.gameObject.GetComponent<SpriteRenderer>().color = Color.red;
             // Have tower take damage here, called every frame that enemy is in contact w/ tower,

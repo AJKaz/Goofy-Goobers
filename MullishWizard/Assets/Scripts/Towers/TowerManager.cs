@@ -9,6 +9,9 @@ public class TowerManager : MonoBehaviour
     [SerializeField]
     private Grid grid;
 
+    [SerializeField]
+    private SimpleEnemySpawner spawner;
+
     private GameObject[,] towers;
 
     // Start is called before the first frame update
@@ -26,6 +29,7 @@ public class TowerManager : MonoBehaviour
             if (towerPrefab != null && towers[gridX, gridY] == null)
             {
                 GameObject tower = Instantiate(towerPrefab, grid.GetWorldPosition(gridX, gridY) + new Vector3(grid.cellSize / 2f, grid.cellSize / 2f), Quaternion.identity);
+                tower.GetComponent<Tower>().spawner = spawner;
                 tower.transform.SetParent(transform, true);
                 towers[gridX, gridY] = tower;
             }

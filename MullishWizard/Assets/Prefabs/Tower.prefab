@@ -177,3 +177,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectilePrefab: {fileID: 955120252803827381, guid: ca09abe45bfcb0348a7d5f091443303b, type: 3}
+  spawner: {fileID: 2809088076948760075, guid: 919c403cc1b426f448a53d3d657a585c, type: 3}

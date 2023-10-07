@@ -12,6 +12,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private TowerManager towerManager;
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private PlayerInventory playerInventory;
+    
 
     // 1 scrap, 1 wood
     [SerializeField] private int[] towerResourceCost = { 1, 1 };
