@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     private float health = 10;
-    private float range = 55;
+    private float range = 5;
     private float shootTimer = 0.5f;
     [SerializeField] GameObject projectilePrefab;
     //[SerializeField] GameObject spawner;
