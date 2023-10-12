@@ -12,7 +12,12 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private TowerManager towerManager;
     [SerializeField] private GameObject towerPrefab;
     [SerializeField] private PlayerInventory playerInventory;
-    
+    [SerializeField] private PlayerMovement playerMovement;
+
+    // Building mode switch and tower to place
+    private bool isBuilding = false;
+    private GameObject currentTower;
+    public bool IsBuilding { get { return isBuilding; } }
 
     // 1 scrap, 1 wood
     [SerializeField] private int[] towerResourceCost = { 1, 1 };
@@ -30,6 +35,13 @@ public class TowerPlacement : MonoBehaviour
     {
         if (PauseControl.isPaused) return;
 
+        // Check if building mode is being activated
+        if (Keyboard.current.bKey.wasPressedThisFrame)
+        {
+            Debug.Log("b");
+            isBuilding = !isBuilding;
+        }
+
         // Does the player have enough resources?
         canAffordTower =
             playerInventory.GetResourceQuantity(ResourceType.Scrap) >= towerResourceCost[0]
@@ -39,7 +51,7 @@ public class TowerPlacement : MonoBehaviour
         DebugCanvas.AddDebugText("Can Afford Tower", $"{canAffordTower}");
 
         // left click places a tower
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding)
         {
             if(canAffordTower) {
                 // Get mouse position
@@ -56,7 +68,7 @@ public class TowerPlacement : MonoBehaviour
             }
         }
         // right click destroys a tower
-        else if (Mouse.current.rightButton.wasPressedThisFrame)
+        else if (Mouse.current.rightButton.wasPressedThisFrame && isBuilding)
         {
             Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             int gridX, gridY;

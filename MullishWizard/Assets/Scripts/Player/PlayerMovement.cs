@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 velocity = Vector2.zero;
     private Vector2 acceleration = Vector2.zero;
 
+    
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         position = transform.position;
 
         // Apply acceleration
@@ -74,4 +78,6 @@ public class PlayerMovement : MonoBehaviour
     {
         inputDirection = callback.ReadValue<Vector2>();
     }
+
+      
 }
