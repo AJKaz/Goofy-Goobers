@@ -10,9 +10,12 @@ public class ThingSpawner : MonoBehaviour
     float elapsedTime;
     [SerializeField]
     float previousFrameElapsedTime;
-
+    [SerializeField]
+    short nightsSurvived;
+    [SerializeField]
+    bool isNight;
+    short wavesToSpawn;
     Camera camera;
-
     private List<GameObject> enemies;
     public List<GameObject> Enemies { get { return enemies; } }
 
@@ -20,22 +23,36 @@ public class ThingSpawner : MonoBehaviour
     void Start()
     {
         elapsedTime = 0;
-        enemies = new List<GameObject>();
+        nightsSurvived = 0;
+        // Day not implemented yet!
+        // isNight = false;
+        isNight = true;
+        // Debug initialization because day/night cycle is not done yet
+        wavesToSpawn = 5;
         camera = Camera.main;
+        enemies = new List<GameObject>();
     }
 
     // Update is called once per frame
     void Update()
     {
         previousFrameElapsedTime = elapsedTime;
-        elapsedTime += Time.deltaTime;
-        // If the previous frame was before the 10s mark and the current frame is
-        // after it, spawn enemies once. (Does not break on low FPS)
-        if (previousFrameElapsedTime % 10 > elapsedTime % 10)
+        elapsedTime += Time.deltaTime;        
+        if (!isNight)
         {
-            // TODO: if (night)
-            SpawnWave((int)elapsedTime);
+            // SpawnResource()
+            wavesToSpawn = (short)(nightsSurvived + 1);
         }
+        if (isNight)
+        {
+            if (wavesToSpawn > 0 && previousFrameElapsedTime % 5 > elapsedTime % 5)
+            {
+                SpawnWave((int)elapsedTime);
+                wavesToSpawn--;
+                Debug.Log(wavesToSpawn + " waves left for this night!");
+            }
+        }
+
     }
 
     /// <summary>
@@ -47,7 +64,7 @@ public class ThingSpawner : MonoBehaviour
         // Selects a random direction for the wave to spawn
         float waveDirectionRad = Random.Range(0, 360) * (Mathf.PI / 180);
         Vector2 waveCenterPoint = new Vector2(
-            Mathf.Cos(waveDirectionRad) * 15, 
+            Mathf.Cos(waveDirectionRad) * 15,
             Mathf.Sin(waveDirectionRad) * 15);
 
         // If the wave spawn center is within 3 units of any camera boundary, move it away
@@ -61,17 +78,25 @@ public class ThingSpawner : MonoBehaviour
         while (budget > 0)
         {
             short id = (short)Random.Range(0, enemyPrefabs.Count - 1);
-            Debug.Log("Wave budget: " + budget + "Spending " + enemyPrefabs[id].GetComponent<EnemyInfo>().SpawnPoints + " on new enemy.");
-
             budget -= enemyPrefabs[id].GetComponent<EnemyInfo>().SpawnPoints;
             enemies.Add(
                 Instantiate(
-                    enemyPrefabs[id], 
+                    enemyPrefabs[id],
                     new Vector3(
-                        waveCenterPoint.x + (float)Random.Range(0, 300) / 100, 
-                        waveCenterPoint.y + (float)Random.Range(0, 300) / 100, 
-                        0.0f), 
+                        waveCenterPoint.x + (float)Random.Range(0, 300) / 100,
+                        waveCenterPoint.y + (float)Random.Range(0, 300) / 100,
+                        0.0f),
                     new Quaternion()));
         }
+        //Debug.Log("Spawned wave with budget: " + budget);
+    }
+
+    /// <summary>
+    /// Spawns resources at random locations around the map.
+    /// </summary>
+    /// <param name="budget">The amount of allocated spawn points. More points = more resources.</param>
+    void SpawnResources(int budget)
+    {
+        // TODO
     }
 }
