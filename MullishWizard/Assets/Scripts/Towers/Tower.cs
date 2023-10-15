@@ -10,7 +10,7 @@ public class Tower : MonoBehaviour
     [SerializeField] GameObject projectilePrefab;
     //[SerializeField] GameObject spawner;
 
-    public SimpleEnemySpawner spawner;
+    public ThingSpawner spawner;
 
     public float Health { get { return health; } set { health = value; } }
 

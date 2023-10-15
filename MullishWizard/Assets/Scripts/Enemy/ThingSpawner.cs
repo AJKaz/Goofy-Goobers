@@ -2,14 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleEnemySpawner : MonoBehaviour
+public class ThingSpawner : MonoBehaviour
 {
     [SerializeField]
     GameObject prefabToInstantiate;
-    //Random random = new System.Random();
-    [SerializeField]
+    //[SerializeField]
     float elapsedTime;
-    [SerializeField]
+    //[SerializeField]
     float previousFrameElapsedTime;
 
     private List<GameObject> enemies;
