@@ -54,6 +54,7 @@ public class ThingSpawner : MonoBehaviour
 
         if (!isNight)
         {
+            // Probably only want to call this once, not every update()
             // SpawnResources();
             // wavesToSpawn = (short)(nightsSurvived + 1);
         }
@@ -112,5 +113,6 @@ public class ThingSpawner : MonoBehaviour
     void SpawnResources(int budget)
     {
         // TODO
+        Debug.Log("SpawnResources() called, but the function is not yet implemented!");
     }
 }
