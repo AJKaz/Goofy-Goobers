@@ -14,7 +14,9 @@ public class ThingSpawner : MonoBehaviour
     short nightsSurvived;
     [SerializeField]
     bool isNight;
+    
     short wavesToSpawn;
+    float nightCycleChangeTimestamp;
     Camera camera;
     private List<GameObject> enemies;
     public List<GameObject> Enemies { get { return enemies; } }
@@ -24,11 +26,12 @@ public class ThingSpawner : MonoBehaviour
     {
         elapsedTime = 0;
         nightsSurvived = 0;
-        // Day not implemented yet!
-        // isNight = false;
-        isNight = true;
-        // Debug initialization because day/night cycle is not done yet
-        wavesToSpawn = 5;
+        isNight = false;
+        Debug.Log("isNight variable initialized to: " + !isNight + ". It is day.");
+        // Debug initalization, night ends when all enemies die but turrets dont work yet
+        // And since waves spawned scale with nights, this allows me to test multiple waves
+        wavesToSpawn = 12;
+        nightCycleChangeTimestamp = 0;
         camera = Camera.main;
         enemies = new List<GameObject>();
     }
@@ -37,22 +40,32 @@ public class ThingSpawner : MonoBehaviour
     void Update()
     {
         previousFrameElapsedTime = elapsedTime;
-        elapsedTime += Time.deltaTime;        
+        elapsedTime += Time.deltaTime;
+
+        // Day/Night cycle handling, day is 15s, night ends when all enemies die
+        // Enemies can not die in the current build haha
+        if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15 ||
+            isNight && enemies.Count == 0)
+        { 
+            isNight = !isNight;
+            //Debug.Log("isNight variable changed to: " + !isNight + ".");
+        }
+
         if (!isNight)
         {
-            // SpawnResource()
-            wavesToSpawn = (short)(nightsSurvived + 1);
+            // SpawnResources();
+            // wavesToSpawn = (short)(nightsSurvived + 1);
         }
         if (isNight)
         {
+            // A queued wave spawns every 5 seconds
             if (wavesToSpawn > 0 && previousFrameElapsedTime % 5 > elapsedTime % 5)
             {
-                SpawnWave((int)elapsedTime);
+                SpawnWave(40);
                 wavesToSpawn--;
-                Debug.Log(wavesToSpawn + " waves left for this night!");
+                //Debug.Log(wavesToSpawn + " waves left for this night!");
             }
         }
-
     }
 
     /// <summary>
