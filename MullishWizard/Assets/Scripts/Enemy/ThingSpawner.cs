@@ -48,7 +48,8 @@ public class ThingSpawner : MonoBehaviour
             isNight && enemies.Count == 0)
         { 
             isNight = !isNight;
-            //Debug.Log("isNight variable changed to: " + !isNight + ".");
+            // Debug.Log("isNight variable changed to: " + !isNight + ".");
+            
         }
 
         if (!isNight)
@@ -63,7 +64,7 @@ public class ThingSpawner : MonoBehaviour
             {
                 SpawnWave(40);
                 wavesToSpawn--;
-                //Debug.Log(wavesToSpawn + " waves left for this night!");
+                // Debug.Log(wavesToSpawn + " waves left for this night!");
             }
         }
     }
