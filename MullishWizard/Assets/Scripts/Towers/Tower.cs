@@ -17,9 +17,8 @@ public class Tower : MonoBehaviour
 
     [SerializeField] 
     GameObject projectilePrefab;
-    //[SerializeField] GameObject spawner;
 
-    public ThingSpawner spawner;
+    private int x, y;
 
     public float Health { get { return health; } set { health = value; } }
 
@@ -27,27 +26,26 @@ public class Tower : MonoBehaviour
         shootTimer = SHOOT_DELAY;
     }
 
-    protected virtual void Update()
+    public virtual void Update()
     {
         if (health <= 0)
         {
             TowerDestroyed();
         }
 
-        GameObject target = GetTarget();
-
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0) {
-            Shoot(target);
+            Shoot();
         }
     }
 
     protected virtual void TowerDestroyed() {
-        GameManager.Instance.RemoveTower(this);
+        //GameManager.Instance.RemoveTower(x, y);
         Destroy(gameObject);
     }
 
-    protected virtual void Shoot(GameObject target) {
+    protected virtual void Shoot() {
+        GameObject target = GetTarget();
         shootTimer = SHOOT_DELAY;
         if (target != null) {
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);

@@ -14,7 +14,6 @@ public class TowerManager : MonoBehaviour
 
     private GameObject[,] towers;
 
-    // Start is called before the first frame update
     void Start()
     {
         towers = new GameObject[grid.width, grid.height];
@@ -29,7 +28,7 @@ public class TowerManager : MonoBehaviour
             if (towerPrefab != null && towers[gridX, gridY] == null)
             {
                 GameObject tower = Instantiate(towerPrefab, grid.GetWorldPosition(gridX, gridY) + new Vector3(grid.cellSize / 2f, grid.cellSize / 2f), Quaternion.identity);
-                tower.GetComponent<Tower>().spawner = spawner;
+                //tower.GetComponent<Tower>().spawner = spawner;
                 tower.transform.SetParent(transform, true);
                 towers[gridX, gridY] = tower;
             }

@@ -18,8 +18,8 @@ public class ThingSpawner : MonoBehaviour
     short wavesToSpawn;
     float nightCycleChangeTimestamp;
     Camera camera;
-    private List<GameObject> enemies;
-    public List<GameObject> Enemies { get { return enemies; } }
+    //private List<GameObject> enemies;
+    //public List<GameObject> Enemies { get { return enemies; } }
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +33,7 @@ public class ThingSpawner : MonoBehaviour
         wavesToSpawn = 12;
         nightCycleChangeTimestamp = 0;
         camera = Camera.main;
-        enemies = new List<GameObject>();
+        //enemies = new List<GameObject>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class ThingSpawner : MonoBehaviour
         // Day/Night cycle handling, day is 15s, night ends when all enemies die
         // Enemies can not die in the current build haha
         if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15 ||
-            isNight && enemies.Count == 0)
+            isNight && GameManager.Instance.enemies.Count == 0)
         { 
             isNight = !isNight;
             // Debug.Log("isNight variable changed to: " + !isNight + ".");
@@ -93,7 +93,7 @@ public class ThingSpawner : MonoBehaviour
         {
             short id = (short)Random.Range(0, enemyPrefabs.Count - 1);
             budget -= enemyPrefabs[id].GetComponent<EnemyInfo>().SpawnPoints;
-            enemies.Add(
+            GameManager.Instance.enemies.Add(
                 Instantiate(
                     enemyPrefabs[id],
                     new Vector3(
