@@ -10,7 +10,7 @@ public class TowerManager : MonoBehaviour
     private Grid grid;
 
     [SerializeField]
-    private SimpleEnemySpawner spawner;
+    private ThingSpawner spawner;
 
     private GameObject[,] towers;
 

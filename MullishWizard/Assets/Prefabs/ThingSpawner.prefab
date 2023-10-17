@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1448024104221805872}
-  - component: {fileID: 2809088076948760075}
+  - component: {fileID: -5247539123379789518}
   m_Layer: 0
-  m_Name: SimpleEnemySpawner
+  m_Name: ThingSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2809088076948760075
+--- !u!114 &-5247539123379789518
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,6 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6be6063875b7554a9267529ad7eee14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToInstantiate: {fileID: 4083196851631437222, guid: edf42b79524fcc748a9d479f6dc03b95, type: 3}
+  prefabToInstantiate: {fileID: 0}
   elapsedTime: 0
   previousFrameElapsedTime: 0

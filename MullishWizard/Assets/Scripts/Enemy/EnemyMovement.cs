@@ -41,7 +41,7 @@ public class EnemyMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         // Can be used if we end up having an enemy that "rams" towers for more damage on itial hit
         if (collision.gameObject.CompareTag("Tower")) {
-            Debug.Log("enemy tower enter");
+            //Debug.Log("enemy tower enter");
         }
     }
 
