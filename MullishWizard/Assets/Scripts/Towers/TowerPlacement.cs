@@ -8,11 +8,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Grid), typeof(GameManager))]
 public class TowerPlacement : MonoBehaviour
 {
+    public enum TowerType { regTower, wall };
     [SerializeField] private Grid grid;
     //[SerializeField] private TowerManager towerManager;
     [SerializeField] private GameObject towerPrefab;
-    [SerializeField] private PlayerInventory playerInventory;   // Should use GameManager in the future
-    //[SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerInventory playerInventory;
+    [SerializeField] private PlayerMovement playerMovement;
+    private GameObject towerTobuild;
+    public TowerType currentTowerType;
+
+    //public TowerType CurrentTowerType { get { return currentTowerType; } }
 
     // Building mode switch and tower to place
     private bool isBuilding = false;
@@ -46,14 +51,27 @@ public class TowerPlacement : MonoBehaviour
         // left click places a tower
         if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding && canAffordTower)
         {
-            // Get mouse position
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            int gridX, gridY;
-            // Get grid position
-            grid.GetXY(worldMousePosition, out gridX, out gridY);
+            switch (currentTowerType)
+            {
+                case TowerType.regTower:
+                    towerTobuild = towerPrefab;
+                    break;
+                case TowerType.wall:
+                    // Add wall Reference and set towerToBuild to be the wall
+                    break;
+                default:
+                    towerTobuild = null;
+                    break;
+            }
+            if(canAffordTower && towerTobuild != null) {
+                // Get mouse position
+                Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                int gridX, gridY;
+                // Get grid position
+                grid.GetXY(worldMousePosition, out gridX, out gridY);
 
-            // Create tower
-            GameManager.Instance.CreateTower(towerPrefab, gridX, gridY);
+                // Create tower
+                towerManager.CreateTower(towerTobuild, gridX, gridY);
 
             playerInventory.RemoveResources(ResourceType.Scrap, towerResourceCost[0]);
             playerInventory.RemoveResources(ResourceType.Wood, towerResourceCost[1]);
