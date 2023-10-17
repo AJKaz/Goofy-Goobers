@@ -6,14 +6,12 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Grid), typeof(GameManager))]
-public class TowerPlacement : MonoBehaviour
-{
+public class TowerPlacement : MonoBehaviour {
     public enum TowerType { regTower, wall };
     [SerializeField] private Grid grid;
     //[SerializeField] private TowerManager towerManager;
     [SerializeField] private GameObject towerPrefab;
-    [SerializeField] private PlayerInventory playerInventory;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerInventory playerInventory;   // should use GameManager playerInventory in future (it doens't exist yet)
     private GameObject towerTobuild;
     public TowerType currentTowerType;
 
@@ -29,13 +27,11 @@ public class TowerPlacement : MonoBehaviour
 
     private bool canAffordTower = false;
 
-    void Update()
-    {
+    void Update() {
         if (PauseControl.isPaused) return;
 
         // Check if building mode is being activated
-        if (Keyboard.current.bKey.wasPressedThisFrame)
-        {
+        if (Keyboard.current.bKey.wasPressedThisFrame) {
             Debug.Log("b");
             isBuilding = !isBuilding;
         }
@@ -49,10 +45,8 @@ public class TowerPlacement : MonoBehaviour
         DebugCanvas.AddDebugText("Can Afford Tower", $"{canAffordTower}");
 
         // left click places a tower
-        if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding && canAffordTower)
-        {
-            switch (currentTowerType)
-            {
+        if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding && canAffordTower) {
+            switch (currentTowerType) {
                 case TowerType.regTower:
                     towerTobuild = towerPrefab;
                     break;
@@ -63,7 +57,7 @@ public class TowerPlacement : MonoBehaviour
                     towerTobuild = null;
                     break;
             }
-            if(canAffordTower && towerTobuild != null) {
+            if (canAffordTower && towerTobuild != null) {
                 // Get mouse position
                 Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 int gridX, gridY;
@@ -71,18 +65,18 @@ public class TowerPlacement : MonoBehaviour
                 grid.GetXY(worldMousePosition, out gridX, out gridY);
 
                 // Create tower
-                towerManager.CreateTower(towerTobuild, gridX, gridY);
+                GameManager.Instance.CreateTower(towerTobuild, gridX, gridY);
 
-            playerInventory.RemoveResources(ResourceType.Scrap, towerResourceCost[0]);
-            playerInventory.RemoveResources(ResourceType.Wood, towerResourceCost[1]);
-        }
-        // right click destroys a tower
-        else if (Mouse.current.rightButton.wasPressedThisFrame && isBuilding)
-        {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            int gridX, gridY;
-            grid.GetXY(worldMousePosition, out gridX, out gridY);
-            GameManager.Instance.DestroyTower(gridX, gridY);
+                playerInventory.RemoveResources(ResourceType.Scrap, towerResourceCost[0]);
+                playerInventory.RemoveResources(ResourceType.Wood, towerResourceCost[1]);
+            }
+            // right click destroys a tower
+            else if (Mouse.current.rightButton.wasPressedThisFrame && isBuilding) {
+                Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                int gridX, gridY;
+                grid.GetXY(worldMousePosition, out gridX, out gridY);
+                GameManager.Instance.DestroyTower(gridX, gridY);
+            }
         }
     }
 }
