@@ -10,6 +10,9 @@ public class Resource : MonoBehaviour {
     [SerializeField]
     private PlayerInventory playerInventory;
 
+    // This is the "cost" of ThingManager spawning this resource.
+    private const short spawnPoints = 10;
+    public short SpawnPoints { get { return spawnPoints; } }
 
     private void Awake() {
         // TODO: THIS DOESN'T WORK

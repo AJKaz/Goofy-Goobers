@@ -7,7 +7,7 @@ public class EnemyInfo : MonoBehaviour
     private float health = 10;
     // This is the "cost" of ThingManager spawning this unit. ThingManager has a limited
     // budget for each wave, with more expensive units being more powerful.
-    private short spawnPoints = 10;
+    private const short spawnPoints = 10;
     private bool isDead = false;
 
     public float Health { get { return health; } set { health = value; } }
