@@ -11,7 +11,7 @@ public class Tower : MonoBehaviour
     private float range = 5;
 
     [SerializeField]
-    private const float SHOOT_DELAY = 0.5f;
+    private float SHOOT_DELAY = 0.5f;
 
     private float shootTimer;
 

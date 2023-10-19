@@ -30,14 +30,6 @@ public class GameManager : MonoBehaviour
         towers = new GameObject[grid.width, grid.height];
     }
 
-    private void Update() {
-        foreach (var tower in towers) {
-            if (tower != null) {
-                tower.GetComponent<Tower>().Update();
-            }
-        }
-    }
-
     public void CreateTower(GameObject towerPrefab, int gridX, int gridY) {
         // If grid coordinates are within bounds
         if (gridX < grid.width && gridX >= 0 && gridY < grid.height && gridY >= 0) {

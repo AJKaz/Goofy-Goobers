@@ -24,7 +24,7 @@ public class BuildingPanelControl : MonoBehaviour
         if (callback.phase == InputActionPhase.Performed && !PauseControl.isPaused)
         {
             BuildingPanel.enabled = !BuildingPanel.enabled;
-            Debug.Log("B");
+            // Debug.Log("B");
         }
     }
 }

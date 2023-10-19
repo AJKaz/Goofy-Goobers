@@ -32,7 +32,7 @@ public class TowerPlacement : MonoBehaviour {
 
         // Check if building mode is being activated
         if (Keyboard.current.bKey.wasPressedThisFrame) {
-            Debug.Log("b");
+            //Debug.Log("b");
             isBuilding = !isBuilding;
         }
 
