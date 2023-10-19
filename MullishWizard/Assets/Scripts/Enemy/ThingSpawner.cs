@@ -21,7 +21,6 @@ public class ThingSpawner : MonoBehaviour
     private List<GameObject> enemies;
     public List<GameObject> Enemies { get { return enemies; } }
 
-    // Start is called before the first frame update
     void Start()
     {
         elapsedTime = 0;
@@ -36,20 +35,22 @@ public class ThingSpawner : MonoBehaviour
         enemies = new List<GameObject>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         previousFrameElapsedTime = elapsedTime;
         elapsedTime += Time.deltaTime;
 
-        // Day/Night cycle handling, day is 15s, night ends when all enemies die
-        // Enemies can not die in the current build haha
-        if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15 ||
-            isNight && enemies.Count == 0)
+        // Day ends after 15s
+        if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15)
         { 
             isNight = !isNight;
             // Debug.Log("isNight variable changed to: " + !isNight + ".");
-            
+        }
+
+        // Night ends when all enemies are killed
+        if (isNight && enemies.Count == 0)
+        {
+            isNight = !isNight;
         }
 
         if (!isNight)
@@ -83,10 +84,10 @@ public class ThingSpawner : MonoBehaviour
             Mathf.Sin(waveDirectionRad) * 15);
 
         // If the wave spawn center is within 3 units of any camera boundary, move it away
-        if (Mathf.Abs(waveCenterPoint.x - camera.transform.position.x) < 12 &&
+        while (Mathf.Abs(waveCenterPoint.x - camera.transform.position.x) < 12 &&
             Mathf.Abs(waveCenterPoint.y - camera.transform.position.y) < 8)
         {
-            waveCenterPoint = 1.25f * waveCenterPoint;
+            waveCenterPoint = waveCenterPoint * 1.1f;
         }
 
         // Spawn loop
@@ -113,6 +114,7 @@ public class ThingSpawner : MonoBehaviour
     void SpawnResources(int budget)
     {
         // TODO
-        Debug.Log("SpawnResources() called, but the function is not yet implemented!");
+        Debug.Log("SpawnResources() called");
+
     }
 }
