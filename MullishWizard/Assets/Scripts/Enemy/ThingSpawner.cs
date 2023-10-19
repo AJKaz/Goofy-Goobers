@@ -14,7 +14,9 @@ public class ThingSpawner : MonoBehaviour
     short nightsSurvived;
     [SerializeField]
     bool isNight;
-    
+    [SerializeField]
+    GameObject lightSource;
+
     short wavesToSpawn;
     float nightCycleChangeTimestamp;
     Camera camera;
@@ -40,24 +42,24 @@ public class ThingSpawner : MonoBehaviour
         previousFrameElapsedTime = elapsedTime;
         elapsedTime += Time.deltaTime;
 
-        // Day ends after 15s
+        // One time events for when night begins
         if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15)
         { 
             isNight = !isNight;
-            // Debug.Log("isNight variable changed to: " + !isNight + ".");
+            lightSource.GetComponent<Light>().intensity = 0.0f;
         }
 
-        // Night ends when all enemies are killed
+        // One time events for when day begins
         if (isNight && enemies.Count == 0)
         {
             isNight = !isNight;
+            lightSource.GetComponent<Light>().intensity = 0.4f;
+            SpawnResources(160);
         }
 
         if (!isNight)
         {
-            // Probably only want to call this once, not every update()
-            // SpawnResources();
-            // wavesToSpawn = (short)(nightsSurvived + 1);
+            // Nothing needs to run every update() during the day (yet)
         }
         if (isNight)
         {
@@ -113,8 +115,33 @@ public class ThingSpawner : MonoBehaviour
     /// <param name="budget">The amount of allocated spawn points. More points = more resources.</param>
     void SpawnResources(int budget)
     {
-        // TODO
-        Debug.Log("SpawnResources() called");
+        // Selects a random direction for the wave to spawn
+        float waveDirectionRad = Random.Range(0, 360) * (Mathf.PI / 180);
+        Vector2 waveCenterPoint = new Vector2(
+            Mathf.Cos(waveDirectionRad) * 15,
+            Mathf.Sin(waveDirectionRad) * 15);
 
+        // If the wave spawn center is within 3 units of any camera boundary, move it away
+        while (Mathf.Abs(waveCenterPoint.x - camera.transform.position.x) < 12 &&
+            Mathf.Abs(waveCenterPoint.y - camera.transform.position.y) < 8)
+        {
+            waveCenterPoint = waveCenterPoint * 1.1f;
+        }
+
+        // Spawn loop
+        while (budget > 0)
+        {
+            short id = (short)Random.Range(0, enemyPrefabs.Count - 1);
+            budget -= enemyPrefabs[id].GetComponent<EnemyInfo>().SpawnPoints;
+            enemies.Add(
+                Instantiate(
+                    enemyPrefabs[id],
+                    new Vector3(
+                        waveCenterPoint.x + (float)Random.Range(0, 300) / 100,
+                        waveCenterPoint.y + (float)Random.Range(0, 300) / 100,
+                        0.0f),
+                    new Quaternion()));
+        }
+        //Debug.Log("Spawned wave with budget: " + budget);
     }
 }
