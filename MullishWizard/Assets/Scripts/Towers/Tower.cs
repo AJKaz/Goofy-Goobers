@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tower : MonoBehaviour
+public class Tower : Entity
 {
-    [SerializeField]
-    private float health = 10;
 
     [SerializeField]
     private float range = 5;
@@ -20,26 +18,19 @@ public class Tower : MonoBehaviour
 
     private int x, y;
 
-    public float Health { get { return health; } set { health = value; } }
-
     private void Awake() {
         shootTimer = SHOOT_DELAY;
     }
 
     public virtual void Update()
     {
-        if (health <= 0)
-        {
-            TowerDestroyed();
-        }
-
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0) {
             Shoot();
         }
     }
 
-    protected virtual void TowerDestroyed() {
+    protected override void Die() {
         //GameManager.Instance.RemoveTower(x, y);
         Destroy(gameObject);
     }
