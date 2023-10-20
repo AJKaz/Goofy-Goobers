@@ -1377,6 +1377,18 @@ PrefabInstance:
       propertyPath: 'enemyPrefabs.Array.data[0]'
       value: 
       objectReference: {fileID: 4083196851631437222, guid: edf42b79524fcc748a9d479f6dc03b95, type: 3}
+    - target: {fileID: -5247539123379789518, guid: 919c403cc1b426f448a53d3d657a585c, type: 3}
+      propertyPath: resourcePrefabs.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -5247539123379789518, guid: 919c403cc1b426f448a53d3d657a585c, type: 3}
+      propertyPath: 'resourcePrefabs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3580995276826191287, guid: ad5c95b028b1da94fb1d9bb90b02ea9c, type: 3}
+    - target: {fileID: -5247539123379789518, guid: 919c403cc1b426f448a53d3d657a585c, type: 3}
+      propertyPath: 'resourcePrefabs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 7343675246129100419, guid: f915de9609348e54cacf65726fe5a991, type: 3}
     - target: {fileID: 892726579856395497, guid: 919c403cc1b426f448a53d3d657a585c, type: 3}
       propertyPath: m_Name
       value: ThingSpawner

@@ -5,14 +5,17 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(Grid), typeof(TowerManager))]
-public class TowerPlacement : MonoBehaviour
-{
+[RequireComponent(typeof(Grid), typeof(GameManager))]
+public class TowerPlacement : MonoBehaviour {
+    public enum TowerType { regTower, wall };
     [SerializeField] private Grid grid;
-    [SerializeField] private TowerManager towerManager;
+    //[SerializeField] private TowerManager towerManager;
     [SerializeField] private GameObject towerPrefab;
-    [SerializeField] private PlayerInventory playerInventory;
-    [SerializeField] private PlayerMovement playerMovement;
+    [SerializeField] private PlayerInventory playerInventory;   // should use GameManager playerInventory in future (it doens't exist yet)
+    private GameObject towerTobuild;
+    public TowerType currentTowerType;
+
+    //public TowerType CurrentTowerType { get { return currentTowerType; } }
 
     // Building mode switch and tower to place
     private bool isBuilding = false;
@@ -24,21 +27,12 @@ public class TowerPlacement : MonoBehaviour
 
     private bool canAffordTower = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         if (PauseControl.isPaused) return;
 
         // Check if building mode is being activated
-        if (Keyboard.current.bKey.wasPressedThisFrame)
-        {
-            Debug.Log("b");
+        if (Keyboard.current.bKey.wasPressedThisFrame) {
+            //Debug.Log("b");
             isBuilding = !isBuilding;
         }
 
@@ -51,9 +45,19 @@ public class TowerPlacement : MonoBehaviour
         DebugCanvas.AddDebugText("Can Afford Tower", $"{canAffordTower}");
 
         // left click places a tower
-        if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding)
-        {
-            if(canAffordTower) {
+        if (Mouse.current.leftButton.wasPressedThisFrame && isBuilding && canAffordTower) {
+            switch (currentTowerType) {
+                case TowerType.regTower:
+                    towerTobuild = towerPrefab;
+                    break;
+                case TowerType.wall:
+                    // Add wall Reference and set towerToBuild to be the wall
+                    break;
+                default:
+                    towerTobuild = null;
+                    break;
+            }
+            if (canAffordTower && towerTobuild != null) {
                 // Get mouse position
                 Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
                 int gridX, gridY;
@@ -61,19 +65,18 @@ public class TowerPlacement : MonoBehaviour
                 grid.GetXY(worldMousePosition, out gridX, out gridY);
 
                 // Create tower
-                towerManager.CreateTower(towerPrefab, gridX, gridY);
+                GameManager.Instance.CreateTower(towerTobuild, gridX, gridY);
 
                 playerInventory.RemoveResources(ResourceType.Scrap, towerResourceCost[0]);
                 playerInventory.RemoveResources(ResourceType.Wood, towerResourceCost[1]);
             }
-        }
-        // right click destroys a tower
-        else if (Mouse.current.rightButton.wasPressedThisFrame && isBuilding)
-        {
-            Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-            int gridX, gridY;
-            grid.GetXY(worldMousePosition, out gridX, out gridY);
-            towerManager.DestroyTower(gridX, gridY);
+            // right click destroys a tower
+            else if (Mouse.current.rightButton.wasPressedThisFrame && isBuilding) {
+                Vector3 worldMousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+                int gridX, gridY;
+                grid.GetXY(worldMousePosition, out gridX, out gridY);
+                GameManager.Instance.DestroyTower(gridX, gridY);
+            }
         }
     }
 }
