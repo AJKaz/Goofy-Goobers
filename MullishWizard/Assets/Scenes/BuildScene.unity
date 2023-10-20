@@ -1860,7 +1860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7343675246129100416, guid: f915de9609348e54cacf65726fe5a991, type: 3}
       propertyPath: quantity
-      value: 55
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 7343675246129100416, guid: f915de9609348e54cacf65726fe5a991, type: 3}
       propertyPath: playerInventory
@@ -2410,7 +2410,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3580995276826191289, guid: ad5c95b028b1da94fb1d9bb90b02ea9c, type: 3}
       propertyPath: quantity
-      value: 55
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 3580995276826191289, guid: ad5c95b028b1da94fb1d9bb90b02ea9c, type: 3}
       propertyPath: playerInventory
