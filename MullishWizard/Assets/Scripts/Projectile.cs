@@ -5,33 +5,31 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public Vector3 targetPosition;
+    [SerializeField] float damage = 5;
+    [SerializeField] GameObject prefab;
+    private float despawnTimer = 1;
 
-    [SerializeField]
-    private float damage = 5;
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-    [SerializeField]
-    private float speed = 15f;
-
-    [SerializeField]
-    private GameObject prefab;
-
-    [SerializeField]
-    private float despawnTimer = 0.9f;
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         Vector3 direction = (targetPosition - transform.position).normalized;
+        float moveSpeed = 10f;
 
-        // TODO: Projectile should shoot in a straight line and keep going for a limited range defined via variables
-        transform.position += direction * speed * Time.deltaTime;
+        transform.position += direction * moveSpeed * Time.deltaTime;
 
-        //float angle = Mathf.Atan(direction.y / direction.x) * Mathf.Rad2Deg - 90;
+        float angle = Mathf.Atan(direction.y / direction.x) * Mathf.Rad2Deg - 90;
         //transform.eulerAngles = transform.forward * angle;
 
         despawnTimer -= Time.deltaTime;
         if (despawnTimer <= 0)
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 
@@ -39,8 +37,9 @@ public class Projectile : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
+            Debug.Log("Enemy Hit");
             collision.gameObject.GetComponent<EnemyInfo>().TakeDamage(damage);
-            Destroy(gameObject);
+            gameObject.SetActive(true);
         }
     }
 }

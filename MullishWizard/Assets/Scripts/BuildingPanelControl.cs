@@ -21,10 +21,10 @@ public class BuildingPanelControl : MonoBehaviour
 
     public void OnBuild(InputAction.CallbackContext callback)
     {
-        if (callback.phase == InputActionPhase.Performed && !PauseControl.isPaused)
+        if (callback.phase == InputActionPhase.Performed)
         {
             BuildingPanel.enabled = !BuildingPanel.enabled;
-            // Debug.Log("B");
+            Debug.Log("B");
         }
     }
 }

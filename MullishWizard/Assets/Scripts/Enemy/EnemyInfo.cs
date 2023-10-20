@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class EnemyInfo : MonoBehaviour
 {
-    [SerializeField]
     private float health = 10;
-
     // This is the "cost" of ThingManager spawning this unit. ThingManager has a limited
     // budget for each wave, with more expensive units being more powerful.
-    [SerializeField]
-    private short spawnPoints = 10;
-
+    private const short spawnPoints = 10;
     private bool isDead = false;
 
     public float Health { get { return health; } set { health = value; } }
     public short SpawnPoints { get { return spawnPoints; } }
     public bool IsDead { get { return isDead; } set { isDead = value; } }
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
 
-
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (health <= 0)
         {
-            Die();
+            isDead = true;
+            gameObject.SetActive(false);
         }
-    }
-
-    private void Die() {
-        isDead = true;
-        Destroy(gameObject);
-        GameManager.Instance.RemoveEnemy(gameObject);
     }
 
     public void TakeDamage(float damage)

@@ -209,5 +209,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1487c87110f6584794aa09d0f500076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
-  spawnPoints: 10

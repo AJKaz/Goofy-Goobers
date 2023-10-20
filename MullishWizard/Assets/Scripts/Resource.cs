@@ -10,6 +10,9 @@ public class Resource : MonoBehaviour {
     [SerializeField]
     private PlayerInventory playerInventory;
 
+    // This is the "cost" of ThingManager spawning this resource.
+    private const short spawnPoints = 10;
+    public short SpawnPoints { get { return spawnPoints; } }
 
     private void Awake() {
         // TODO: THIS DOESN'T WORK
@@ -18,7 +21,9 @@ public class Resource : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.tag != "Player") return;
+        Debug.Log($"collision with resource {resourceType}");
         playerInventory.AddResources(resourceType, quantity);
+        Debug.Log($"Now have {playerInventory.GetResourceQuantity(resourceType)} {resourceType}");
         Destroy(gameObject);
     }
 }
