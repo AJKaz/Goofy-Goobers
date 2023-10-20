@@ -5,14 +5,14 @@ using UnityEngine.InputSystem;
 
 public class PauseControl : MonoBehaviour
 {
-    public static bool isPaused = true;
+    public static bool isPaused = false;
 
     [SerializeField] private Canvas pauseMenu;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (isPaused) Time.timeScale = 0.0f;
+        Pause(isPaused);
     }
 
     // Update is called once per frame
@@ -25,9 +25,14 @@ public class PauseControl : MonoBehaviour
     {
         if (callback.phase == InputActionPhase.Performed)
         {
-            isPaused = !isPaused;
-            Time.timeScale = isPaused ? 0.0f : 1.0f;
-            pauseMenu.enabled = isPaused;
+            Pause(!isPaused);
         }
+    }
+
+    private void Pause(bool pause)
+    {
+        isPaused = pause;
+        Time.timeScale = isPaused ? 0.0f : 1.0f;
+        pauseMenu.enabled = isPaused;
     }
 }

@@ -7,7 +7,8 @@ public class MainMenu : MonoBehaviour
 {
  
     public void PlayGame() {
-        SceneManager.LoadSceneAsync(1); // game scene is index 1
+        //SceneManager.LoadSceneAsync(1); // game scene is index 1
+        SceneManager.LoadSceneAsync("BuildScene");
     }
 
     public void QuitGame() {
