@@ -9,11 +9,15 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public List<GameObject> enemies;
     [HideInInspector] public GameObject[,] towers;
+    #region References to other objects and components
     private Grid grid;
     private ThingSpawner thingSpawner;
     private Light lightSource;
     // This isnt used yet, so I've commented it out.
     //public PlayerMovement playerMovement;
+    private PlayerInventory playerInventory;
+    public PlayerInventory PlayerInventory { get { return playerInventory; } }
+    #endregion
 
     #region Day/Night Cycle variables
     [SerializeField] private float elapsedTime;
@@ -30,6 +34,7 @@ public class GameManager : MonoBehaviour
         lightSource = GameObject.Find("DirectionalLight").GetComponent<Light>();
         // This isnt used yet, so I've commented it out.
         //playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
 
         if (Instance == null) {
             Instance = this;
