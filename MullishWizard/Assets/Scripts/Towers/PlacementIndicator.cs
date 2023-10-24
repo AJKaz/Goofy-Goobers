@@ -6,10 +6,14 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Grid))]
 public class PlacementIndicator : MonoBehaviour
 {
-    [SerializeField]
     private Grid grid;
     private Vector2 mousePosition;
     int gridX, gridY;
+
+    private void Awake()
+    {
+        grid = GetComponent<Grid>();
+    }
 
     // Update is called once per frame
     void Update()

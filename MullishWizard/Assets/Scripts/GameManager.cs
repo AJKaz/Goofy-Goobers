@@ -4,30 +4,54 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    
+
     public static GameManager Instance;
 
-    [SerializeField]
+    [HideInInspector] public List<GameObject> enemies;
+    [HideInInspector] public GameObject[,] towers;
     private Grid grid;
+    private ThingSpawner thingSpawner;
+    private Light lightSource;
+    // This isnt used yet, so I've commented it out.
+    //public PlayerMovement playerMovement;
 
-    [SerializeField]
-    private ThingSpawner spawner;
+    #region Day/Night Cycle variables
+    [SerializeField] private float elapsedTime;
+    public float ElapsedTime { get { return elapsedTime; } }
+    [SerializeField] private float dayNightCycleChangeTimestamp;
+    public float DayNightCycleChangeTimestamp { get { return dayNightCycleChangeTimestamp; } }
+    [SerializeField] private bool isNight;
+    public bool IsNight { get {  return isNight; } }
+    #endregion
 
-    [HideInInspector]
-    public List<GameObject> enemies;
-    // public List<Enemy> Enemies;
-
-    [HideInInspector]
-    public GameObject[,] towers;
-
-    public PlayerMovement player;
-    
     private void Awake() {
+        grid = GameObject.Find("TowerManager").GetComponent<Grid>();
+        thingSpawner = GameObject.Find("ThingSpawner").GetComponent<ThingSpawner>();
+        lightSource = GameObject.Find("DirectionalLight").GetComponent<Light>();
+        // This isnt used yet, so I've commented it out.
+        //playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
+
         if (Instance == null) {
             Instance = this;
         }
+    }
+
+    private void Start() 
+    {
         enemies = new List<GameObject>();
         towers = new GameObject[grid.width, grid.height];
+        elapsedTime = 0;
+        dayNightCycleChangeTimestamp = 0;
+        lightSource.intensity = 0.4f;
+        thingSpawner.BeginDay();
+        isNight = false;
+        Debug.Log("isNight variable initialized to: " + isNight + ".");
+    }
+
+    private void Update()
+    {
+        elapsedTime += Time.deltaTime;
+        DayNightCycleUpdate();
     }
 
     public void CreateTower(GameObject towerPrefab, int gridX, int gridY) {
@@ -60,4 +84,25 @@ public class GameManager : MonoBehaviour
         return enemies.Remove(enemy);
     }
 
+    private void DayNightCycleUpdate()
+    {
+        if (!isNight && elapsedTime > dayNightCycleChangeTimestamp + 15)
+        {
+            Debug.Log("Night is beginning");
+            thingSpawner.BeginNight();
+            lightSource.intensity = 0.0f;
+            dayNightCycleChangeTimestamp = elapsedTime;
+            isNight = true;
+            Debug.Log("Night has begun");
+        } 
+        else if (isNight && thingSpawner.AllWavesSpawned && enemies.Count == 0)
+        {
+            Debug.Log("Day is beginning");
+            thingSpawner.BeginDay();
+            lightSource.intensity = 0.4f;
+            dayNightCycleChangeTimestamp = elapsedTime;
+            isNight = false;
+            Debug.Log("Day has begun");
+        }
+    }
 }

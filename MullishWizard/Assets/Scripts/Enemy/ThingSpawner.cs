@@ -4,68 +4,31 @@ using UnityEngine;
 
 public class ThingSpawner : MonoBehaviour
 {
-    [SerializeField]
-    List<GameObject> enemyPrefabs;
-    [SerializeField]
-    float elapsedTime;
-    [SerializeField]
-    float previousFrameElapsedTime;
-    [SerializeField]
-    short nightsSurvived;
-    [SerializeField]
-    bool isNight;
-    
-    short wavesToSpawn;
-    float nightCycleChangeTimestamp;
-    Camera camera;
-    //private List<GameObject> enemies;
-    //public List<GameObject> Enemies { get { return enemies; } }
+    [SerializeField] private List<GameObject> enemyPrefabs;
+    [SerializeField] private short nightsSurvived;
+    private Camera camera;
+    [SerializeField] private float waveSpawnTimestamp;
+    [SerializeField] private short wavesToSpawn;
+    // Returns true if 0 waves in queue
+    public bool AllWavesSpawned { get { return wavesToSpawn < 1; } }
 
-    // Start is called before the first frame update
     void Start()
     {
-        elapsedTime = 0;
-        nightsSurvived = 0;
-        isNight = false;
-        Debug.Log("isNight variable initialized to: " + !isNight + ". It is day.");
-        // Debug initalization, night ends when all enemies die but turrets dont work yet
-        // And since waves spawned scale with nights, this allows me to test multiple waves
-        wavesToSpawn = 12;
-        nightCycleChangeTimestamp = 0;
+        nightsSurvived = -1;
         camera = Camera.main;
-        //enemies = new List<GameObject>();
+        waveSpawnTimestamp = 0;
+        wavesToSpawn = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        previousFrameElapsedTime = elapsedTime;
-        elapsedTime += Time.deltaTime;
-
-        // Day/Night cycle handling, day is 15s, night ends when all enemies die
-        // Enemies can not die in the current build haha
-        if (!isNight && elapsedTime > nightCycleChangeTimestamp + 15 ||
-            isNight && GameManager.Instance.enemies.Count == 0)
-        { 
-            isNight = !isNight;
-            // Debug.Log("isNight variable changed to: " + !isNight + ".");
-            
-        }
-
-        if (!isNight)
+        // Waves spawn once every 5s on night 1, but 0.1s faster for every night survived
+        if (GameManager.Instance.IsNight && 
+            GameManager.Instance.ElapsedTime >= waveSpawnTimestamp + 5 - 0.1*nightsSurvived &&
+            wavesToSpawn > 0)
         {
-            // SpawnResources();
-            // wavesToSpawn = (short)(nightsSurvived + 1);
-        }
-        if (isNight)
-        {
-            // A queued wave spawns every 5 seconds
-            if (wavesToSpawn > 0 && previousFrameElapsedTime % 5 > elapsedTime % 5)
-            {
-                SpawnWave(40);
-                wavesToSpawn--;
-                // Debug.Log(wavesToSpawn + " waves left for this night!");
-            }
+            SpawnWave(nightsSurvived * 10 + 10);
         }
     }
 
@@ -102,7 +65,8 @@ public class ThingSpawner : MonoBehaviour
                         0.0f),
                     new Quaternion()));
         }
-        //Debug.Log("Spawned wave with budget: " + budget);
+        waveSpawnTimestamp = GameManager.Instance.ElapsedTime;
+        wavesToSpawn--;
     }
 
     /// <summary>
@@ -112,5 +76,16 @@ public class ThingSpawner : MonoBehaviour
     void SpawnResources(int budget)
     {
         // TODO
+    }
+
+    public void BeginDay()
+    {
+        nightsSurvived++;
+        SpawnResources(nightsSurvived * 20);
+    }
+    public void BeginNight()
+    {
+        wavesToSpawn = (short)(nightsSurvived + 2);
+        SpawnWave(nightsSurvived * 10 + 10);
     }
 }

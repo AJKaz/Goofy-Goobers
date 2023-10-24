@@ -7,7 +7,12 @@ public class PauseControl : MonoBehaviour
 {
     public static bool isPaused = false;
 
-    [SerializeField] private Canvas pauseMenu;
+    private Canvas pauseMenu;
+
+    void Awake()
+    {
+        pauseMenu = GetComponent<Canvas>();
+    }
 
     // Start is called before the first frame update
     void Start()
