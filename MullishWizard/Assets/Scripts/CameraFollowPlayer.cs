@@ -6,12 +6,18 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
 
-    private Transform player;
     [SerializeField] private float smoothness = 20.0f;
+    private Transform player;
+    private MapBounds mapBounds;
+
+    private Vector2 screenExtents;
+
 
     private void Awake()
     {
-        player = GameObject.Find("Player").GetComponent<Transform>();
+        player = GameObject.Find("Player").transform;
+        mapBounds = GameObject.Find("MapBounds").GetComponent<MapBounds>();
+        screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
     }
 
     // Start is called before the first frame update
@@ -40,6 +46,18 @@ public class CameraFollowPlayer : MonoBehaviour
 
     private void SetPosition(Vector3 position)
     {
+        // Lock the camera to the map bounds
+        if (mapBounds)
+        {
+            if (position.x - screenExtents.x < mapBounds.Min.x)
+                position.x = mapBounds.Min.x + screenExtents.x;
+            if (position.x + screenExtents.x > mapBounds.Max.x)
+                position.x = mapBounds.Max.x - screenExtents.x;
+            if (position.y - screenExtents.y < mapBounds.Min.y)
+                position.y = mapBounds.Min.y + screenExtents.y;
+            if (position.y + screenExtents.y > mapBounds.Max.y)
+                position.y = mapBounds.Max.y - screenExtents.y;
+        }
         transform.position = new Vector3(position.x, position.y, -10);
     }
 }
