@@ -7,7 +7,7 @@ public abstract class Entity : MonoBehaviour
     [SerializeField]
     protected float health = 10;
     protected bool isDead = false;
-
+    
     public float Health
     {
         get => health;
@@ -19,7 +19,6 @@ public abstract class Entity : MonoBehaviour
         get => isDead;
         set => isDead = value;
     }
-
 
     public void TakeDamage(float damage)
     {

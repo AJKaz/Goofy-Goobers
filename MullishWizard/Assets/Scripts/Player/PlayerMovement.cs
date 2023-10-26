@@ -8,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 10f;
     [SerializeField] private float accelerationK = 50f;
-
-
-    [SerializeField] private Rigidbody2D rigidbody;
     [SerializeField] private SpriteRenderer sprite;
-    [SerializeField] private Animator animator;
+
+
+    private Rigidbody2D rigidbody;
+    private Animator animator;
 
     private Vector2 direction = Vector2.zero;
     private Vector2 inputDirection = Vector2.zero;
@@ -27,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         position = transform.position;
     }
 

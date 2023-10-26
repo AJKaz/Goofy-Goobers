@@ -8,10 +8,12 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Grid), typeof(GameManager))]
 public class TowerPlacement : MonoBehaviour {
     public enum TowerType { regTower, wall };
-    [SerializeField] private Grid grid;
+    private Grid grid;
     //[SerializeField] private TowerManager towerManager;
+    // Not assigning this in Awake() because current implementation of this variable only 
+    // supports one type of tower -Patrick
     [SerializeField] private GameObject towerPrefab;
-    [SerializeField] private PlayerInventory playerInventory;   // should use GameManager playerInventory in future (it doens't exist yet)
+    private PlayerInventory playerInventory;   // should use GameManager playerInventory in future (it doens't exist yet)
     private GameObject towerTobuild;
     public TowerType currentTowerType;
 
@@ -26,6 +28,12 @@ public class TowerPlacement : MonoBehaviour {
     [SerializeField] private int[] towerResourceCost = { 1, 1 };
 
     private bool canAffordTower = false;
+
+    private void Awake()
+    {
+        grid = GetComponent<Grid>();
+        playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
+    }
 
     void Update() {
         if (PauseControl.isPaused) return;

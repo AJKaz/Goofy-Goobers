@@ -148,6 +148,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 483a1086-80cb-4f1b-b45d-b050bd87eb2c
     m_ActionName: 'UIActions/Pause[/Keyboard/p]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 259108d0-310f-4491-a0a4-692b089d13fe
+    m_ActionName: 'UIActions/Build[/Keyboard/b]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: UIActions
@@ -165,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a87dbcdac1033e74ab33d14063cc13c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 8672449569998618538}
+  pauseMenu: {fileID: 0}
 --- !u!1 &754236229603008186
 GameObject:
   m_ObjectHideFlags: 0

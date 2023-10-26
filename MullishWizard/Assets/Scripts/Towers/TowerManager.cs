@@ -6,13 +6,16 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Grid))]
 public class TowerManager : MonoBehaviour
 {
-    [SerializeField]
     private Grid grid;
-
-    [SerializeField]
     private ThingSpawner spawner;
 
     private GameObject[,] towers;
+
+    private void Awake()
+    {
+        grid = GetComponent<Grid>();
+        spawner = GameObject.Find("ThingSpawner").GetComponent<ThingSpawner>();
+    }
 
     void Start()
     {

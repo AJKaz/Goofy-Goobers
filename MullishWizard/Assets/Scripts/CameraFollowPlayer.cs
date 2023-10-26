@@ -6,8 +6,13 @@ using UnityEngine;
 public class CameraFollowPlayer : MonoBehaviour
 {
 
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private float smoothness = 20.0f;
+
+    private void Awake()
+    {
+        player = GameObject.Find("Player").GetComponent<Transform>();
+    }
 
     // Start is called before the first frame update
     void Start()

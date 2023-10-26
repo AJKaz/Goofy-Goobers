@@ -1,19 +1,27 @@
 using UnityEngine;
 
 public class Resource : MonoBehaviour {
-    [SerializeField] 
-    private ResourceType resourceType;
+    [SerializeField] private ResourceType resourceType;
+    [SerializeField] private int quantity;
+    [SerializeField] private PlayerInventory playerInventory;
 
-    [SerializeField]
-    private int quantity = 1;
+    // This is the "cost" of ThingManager spawning this resource.
+    private short spawnPoints;
+    public short SpawnPoints { get { return spawnPoints; } }
 
-    [SerializeField]
-    private PlayerInventory playerInventory;
+    private void Start()
+    {
+        // This must be in Start() as GameManager intializes PlayerInventory in
+        // Awake(), so if this runs any earlier it will be unassigned
+        playerInventory = GameManager.Instance.PlayerInventory;
+        // Failsafes
+/*        if (resourceType != ResourceType.Scrap &&
+            resourceType != ResourceType.Wood) { 
+            resourceType = ResourceType.Scrap; 
+        }*/
+        if (quantity == 0) { quantity = 1; }
 
-
-    private void Awake() {
-        // TODO: THIS DOESN'T WORK
-        if (playerInventory == null) playerInventory = GetComponent<PlayerInventory>();
+        spawnPoints = 10;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
