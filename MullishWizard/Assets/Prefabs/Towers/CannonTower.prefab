@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 906230046148883639}
   - component: {fileID: 3234895960746607586}
-  - component: {fileID: 1351136148212132300}
+  - component: {fileID: -1451048972248121098}
   m_Layer: 7
-  m_Name: Tower
+  m_Name: CannonTower
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88, y: 0.88}
   m_EdgeRadius: 0
---- !u!114 &1351136148212132300
+--- !u!114 &-1451048972248121098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,10 +173,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3876033629357388450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0488be6d07d28f143a3418b50d4df9fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 26bb6d8419a710145af05b61e85283e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  range: 3
-  SHOOT_DELAY: 1.5
-  projectilePrefab: {fileID: 955120252803827381, guid: ca09abe45bfcb0348a7d5f091443303b, type: 3}
+  damage: 15
+  speed: 12
+  range: 5
+  SHOOT_DELAY: 0.95
+  projectilePrefab: {fileID: 955120252803827381, guid: 74f2a25013b6b044aab75795fa7c0b0b, type: 3}

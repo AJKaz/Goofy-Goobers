@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class Tower : Entity
 {
+    [SerializeField]
+    protected float damage = 5f;
 
     [SerializeField]
-    private float range = 5;
+    protected float speed = 15f;
 
     [SerializeField]
-    private float SHOOT_DELAY = 0.5f;
+    protected float range = 5;
 
-    private float shootTimer;
+    [SerializeField]
+    protected float SHOOT_DELAY = 0.5f;
+
+    protected float shootTimer;
 
     [SerializeField] 
-    GameObject projectilePrefab;
+    protected GameObject projectilePrefab;
 
     private int x, y;
 
@@ -22,7 +27,7 @@ public class Tower : Entity
         shootTimer = SHOOT_DELAY;
     }
 
-    public virtual void Update()
+    protected virtual void Update()
     {
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0) {
@@ -36,15 +41,17 @@ public class Tower : Entity
     }
 
     protected virtual void Shoot() {
-        GameObject target = GetTarget();
+        GameObject target = GetNearestTarget();
         shootTimer = SHOOT_DELAY;
         if (target != null) {
             GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            proj.GetComponent<Projectile>().targetPosition = target.transform.position;
+            Projectile projectile = proj.GetComponent<Projectile>();
+            projectile.SetTarget(target.transform.position);
+            projectile.SetStats(damage, speed);
         }
     }
 
-    protected virtual GameObject GetTarget() {
+    protected virtual GameObject GetNearestTarget() {
         GameObject closestEnemy = null;
         for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
             if (GameManager.Instance.enemies[i] == null || GameManager.Instance.enemies[i].GetComponent<EnemyInfo>().IsDead) continue;
