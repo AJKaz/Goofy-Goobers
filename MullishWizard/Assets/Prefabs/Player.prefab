@@ -137,9 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   accelerationK: 50
-  rigidbody: {fileID: 6042602244436103741}
   sprite: {fileID: 3815722485650834509}
-  animator: {fileID: 2747811017452071835}
 --- !u!114 &5543950079962803107
 MonoBehaviour:
   m_ObjectHideFlags: 0

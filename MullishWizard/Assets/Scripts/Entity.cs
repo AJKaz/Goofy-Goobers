@@ -20,7 +20,7 @@ public abstract class Entity : MonoBehaviour
         set => isDead = value;
     }
 
-    public void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage)
     {
         health -= damage;
         if (health <= 0)

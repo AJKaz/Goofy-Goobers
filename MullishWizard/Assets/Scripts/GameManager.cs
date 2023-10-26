@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager Instance;
 
-    [HideInInspector] public List<GameObject> enemies;
+    [HideInInspector] public List<Enemy> enemies;
     [HideInInspector] public GameObject[,] towers;
     #region References to other objects and components
     private Grid grid;
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        enemies = new List<GameObject>();
+        enemies = new List<Enemy>();
         towers = new GameObject[grid.width, grid.height];
         elapsedTime = 0;
         dayNightCycleChangeTimestamp = 0;
@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
         return towers[x, y];
     }*/
 
-    public bool RemoveEnemy(GameObject enemy) {
+    public bool RemoveEnemy(Enemy enemy) {
         return enemies.Remove(enemy);
     }
 
