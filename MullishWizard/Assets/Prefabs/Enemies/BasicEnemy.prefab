@@ -93,12 +93,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7841953282913139884}
-  - component: {fileID: 4264713583165574717}
   - component: {fileID: 4427695060544287460}
   - component: {fileID: 1981315051457405008}
-  - component: {fileID: 1795317091009616114}
+  - component: {fileID: -7948279234704643913}
   m_Layer: 6
-  m_Name: Enemy1
+  m_Name: BasicEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,20 +119,6 @@ Transform:
   - {fileID: 2202129521925247787}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4264713583165574717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4083196851631437222}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f241c57c9178b0041959330075e0e562, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  trackingTarget: {fileID: 7092613030091653187, guid: f429fdcf6c390214ba0d07c38555dd09, type: 3}
-  moveSpeed: 2
 --- !u!58 &4427695060544287460
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -197,7 +182,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &1795317091009616114
+--- !u!114 &-7948279234704643913
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,8 +191,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 4083196851631437222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1487c87110f6584794aa09d0f500076, type: 3}
+  m_Script: {fileID: 11500000, guid: 029bfc6e62a8c3a47974f706d6e45572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 25
+  health: 10
+  damage: 10
+  ATTACK_DELAY: 1
+  moveSpeed: 2
   spawnPoints: 10
+  trackingTarget: {fileID: 3876033629357388450, guid: ad06ef83db7a37b47ac9dc0a93a3eafd, type: 3}

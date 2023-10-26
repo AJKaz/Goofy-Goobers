@@ -58,15 +58,15 @@ public class ThingSpawner : MonoBehaviour
         {
             short id = (short)Random.Range(0, enemyPrefabs.Count);
             try { 
-                budget -= enemyPrefabs[id].GetComponent<EnemyInfo>().SpawnPoints; 
-                GameManager.Instance.enemies.Add(
-                    Instantiate(
+                budget -= enemyPrefabs[id].GetComponent<Enemy>().SpawnPoints;
+                GameObject enemyObject = Instantiate(
                         enemyPrefabs[id],
                         new Vector3(
                             waveCenterPoint.x + (float)Random.Range(0, 300) / 100,
                             waveCenterPoint.y + (float)Random.Range(0, 300) / 100,
                             0.0f),
-                        new Quaternion()));
+                        new Quaternion());
+                GameManager.Instance.enemies.Add(enemyObject.GetComponent<Enemy>());
             }
             catch { 
                 budget = 0;

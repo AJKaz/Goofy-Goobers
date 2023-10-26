@@ -73,12 +73,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6304826840174917774, guid: d4407d391ca62884c9b37e3e653f619a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9009a4d936c35284aa2f5da47dcf9f98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.3, y: 0.3}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -94,9 +94,9 @@ GameObject:
   m_Component:
   - component: {fileID: 906230046148883639}
   - component: {fileID: 3234895960746607586}
-  - component: {fileID: -1451048972248121098}
+  - component: {fileID: -2742962132901737871}
   m_Layer: 7
-  m_Name: CannonTower
+  m_Name: DivinePillar
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,7 +164,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.88, y: 0.88}
   m_EdgeRadius: 0
---- !u!114 &-1451048972248121098
+--- !u!114 &-2742962132901737871
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,12 +173,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3876033629357388450}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bb6d8419a710145af05b61e85283e8, type: 3}
+  m_Script: {fileID: 11500000, guid: 643dca0fe40adf341a29116dedd9c05d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 10
+  health: 1
   damage: 5
-  speed: 12
+  speed: 15
   range: 5
-  SHOOT_DELAY: 1.1
-  projectilePrefab: {fileID: 955120252803827381, guid: 74f2a25013b6b044aab75795fa7c0b0b, type: 3}
+  SHOOT_DELAY: 0.5
+  projectilePrefab: {fileID: 0}
