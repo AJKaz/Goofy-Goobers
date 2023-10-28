@@ -2341,9 +2341,21 @@ PrefabInstance:
       propertyPath: mapBounds
       value: 
       objectReference: {fileID: 2078555279}
+    - target: {fileID: 3594795953625350142, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6042602244436103741, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
+      propertyPath: m_Mass
+      value: 0.0001
+      objectReference: {fileID: 0}
     - target: {fileID: 6511110231152185802, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511110231152185802, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8554656650338617829, guid: bc5fa392645e00849bdfdc1802d7cda5, type: 3}
       propertyPath: m_LocalPosition.x

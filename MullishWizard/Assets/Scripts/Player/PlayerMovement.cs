@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 position = Vector2.zero;
     private Vector2 velocity = Vector2.zero;
     private Vector2 acceleration = Vector2.zero;
+    
 
 
     // Start is called before the first frame update

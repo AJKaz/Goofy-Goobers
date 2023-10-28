@@ -75,6 +75,13 @@ public class Enemy : Entity
             collision.gameObject.GetComponent<Tower>().TakeDamage(damage);
             attackTimer = ATTACK_DELAY;
         }
+
+        if (collision.gameObject.CompareTag("Player") && attackTimer <= 0.0f)
+        {
+            collision.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
+            Debug.Log("player hit");
+            attackTimer = ATTACK_DELAY;
+        }
     }
 
     // Can be used if we end up having an enemy that "rams" towers for more damage on itial hit
