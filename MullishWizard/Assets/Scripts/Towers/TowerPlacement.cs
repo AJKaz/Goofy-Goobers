@@ -13,6 +13,7 @@ public class TowerPlacement : MonoBehaviour {
     // Not assigning this in Awake() because current implementation of this variable only 
     // supports one type of tower -Patrick
     [SerializeField] private GameObject towerPrefab;
+    [SerializeField] private GameObject wallPrefab;
     private PlayerInventory playerInventory;   // should use GameManager playerInventory in future (it doens't exist yet)
     private GameObject towerTobuild;
     public TowerType currentTowerType;
@@ -59,7 +60,7 @@ public class TowerPlacement : MonoBehaviour {
                     towerTobuild = towerPrefab;
                     break;
                 case TowerType.wall:
-                    // Add wall Reference and set towerToBuild to be the wall
+                    towerTobuild = wallPrefab;
                     break;
                 default:
                     towerTobuild = null;
