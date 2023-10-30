@@ -31,22 +31,18 @@ public class Enemy : Entity
 
     protected Enemy enemyComponent;
 
+    protected SpriteRenderer sprite;
+
     public short SpawnPoints { get { return spawnPoints; } }
 
     private void Awake() {
         enemyComponent = GetComponent<Enemy>();
+        sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
     void Update()
     {
         Move(trackingTarget);
-    }
-
-    public override void TakeDamage(float damage) {
-        health -= damage;
-        if (health <= 0) {
-            Die();
-        }
     }
 
     override protected void Die() {
@@ -62,7 +58,7 @@ public class Enemy : Entity
 
         // Get the angle the target is facing and rotate the to face the target
         float angle = Mathf.Atan(direction.y/direction.x) * Mathf.Rad2Deg - 90;
-        transform.eulerAngles = transform.forward * angle;
+        sprite.transform.eulerAngles = sprite.transform.forward * angle;
 
         // Move the enemy towards the target
         velocity = direction.normalized * moveSpeed * Time.deltaTime;
