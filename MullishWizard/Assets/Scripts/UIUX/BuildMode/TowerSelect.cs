@@ -28,6 +28,7 @@ public class TowerSelect : MonoBehaviour
                 towerPlacement.GetComponent<TowerPlacement>().currentTowerType = TowerPlacement.TowerType.regTower;
                 break;
             case "tower2":
+                towerPlacement.GetComponent<TowerPlacement>().currentTowerType = TowerPlacement.TowerType.wall;
                 break;
             default:
                 break;

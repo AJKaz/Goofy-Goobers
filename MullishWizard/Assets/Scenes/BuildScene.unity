@@ -492,6 +492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 3876033629357388450, guid: 999ae45f043418c42af964ebaf7bdae0, type: 3}
+  wallPrefab: {fileID: 3876033629357388450, guid: f8665118fdee09649a5e7d8fead442fb, type: 3}
   currentTowerType: 0
   towerResourceCost: 0100000001000000
 --- !u!114 &259081134
