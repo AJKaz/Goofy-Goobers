@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    public InputManager InputManager { get; private set; }
+    public Grid Grid { get; private set; }
+
     [HideInInspector] 
     public List<Enemy> enemies;
 
@@ -30,6 +33,9 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         money = startingMoney;
+
+        InputManager = GetComponent<InputManager>();
+        Grid = GetComponent<Grid>();
     }
 
     public Transform[] GetRandomPath() {
