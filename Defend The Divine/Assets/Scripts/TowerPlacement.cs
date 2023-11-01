@@ -31,7 +31,7 @@ public class TowerPlacement : MonoBehaviour
         canPlaceTower = 
             !towerGhost.GetComponent<TowerGhost>().CollidingWithPath
             && manager.Grid.GetValue(gridX, gridY) != 1
-            ;
+            && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
         towerGhost.transform.position = manager.Grid.GetTileCenter(gridX, gridY);
 
