@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     private int money;
 
+    public int Money { get { return money; } }
+
     private void Awake() {
         if (Instance == null) {
             Instance = this;
@@ -51,7 +53,6 @@ public class GameManager : MonoBehaviour
     public void AddMoney(int amount) {
         money += amount;
     }
-    public int GetMoney() { return money; }
 
     public bool RemoveEnemy(Enemy enemy) {
         return enemies.Remove(enemy);
