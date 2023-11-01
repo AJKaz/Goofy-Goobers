@@ -199,8 +199,8 @@ MonoBehaviour:
   healthBar: {fileID: 2092750381663994129}
   damage: 10
   ATTACK_DELAY: 1
-  moveSpeed: 2
-  spawnPoints: 10
+  moveSpeed: 1.8
+  spawnPoints: 1
   trackingTarget: {fileID: 3876033629357388450, guid: ad06ef83db7a37b47ac9dc0a93a3eafd, type: 3}
 --- !u!1001 &7433298731729192565
 PrefabInstance:
