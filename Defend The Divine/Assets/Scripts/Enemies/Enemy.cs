@@ -8,6 +8,9 @@ public class Enemy : Entity {
     [SerializeField]
     protected float moveSpeed = 1.0f;
 
+    [SerializeField]
+    protected int moneyValue = 1;
+
     protected int waypointIndex = 0;
 
     protected Enemy enemyComponent;
@@ -23,7 +26,7 @@ public class Enemy : Entity {
     protected override void Start() {
         base.Start();
         path = GameManager.Instance.GetRandomPath();
-        transform.position = path[waypointIndex].transform.position;
+        //transform.position = path[waypointIndex].transform.position;
     }
 
     void Update() {
@@ -46,6 +49,7 @@ public class Enemy : Entity {
     override protected void Die() {
         Destroy(gameObject);
         GameManager.Instance.RemoveEnemy(enemyComponent);
+        GameManager.Instance.AddMoney(moneyValue);
     }
 
     protected void OnCollisionEnter2D(Collision2D collision) {
