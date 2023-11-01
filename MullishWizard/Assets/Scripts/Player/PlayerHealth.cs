@@ -7,6 +7,6 @@ public class PlayerHealth : Entity
     protected override void Die()
     {
         GetComponent<Rigidbody2D>().MovePosition(Vector2.zero);
-        health = maxHealth;
+        ResetHealth();
     }
 }

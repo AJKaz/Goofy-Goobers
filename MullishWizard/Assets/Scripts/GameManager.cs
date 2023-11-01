@@ -36,6 +36,13 @@ public class GameManager : MonoBehaviour
         //playerMovement = GameObject.Find("Player").GetComponent<PlayerMovement>();
         playerInventory = GameObject.Find("Player").GetComponent<PlayerInventory>();
 
+        enemies = new List<Enemy>();
+        towers = new GameObject[grid.width, grid.height];
+        elapsedTime = 0;
+        dayNightCycleChangeTimestamp = 0;
+        lightSource.intensity = 0.4f;
+        isNight = false;
+
         if (Instance == null) {
             Instance = this;
         }
@@ -43,13 +50,8 @@ public class GameManager : MonoBehaviour
 
     private void Start() 
     {
-        enemies = new List<Enemy>();
-        towers = new GameObject[grid.width, grid.height];
-        elapsedTime = 0;
-        dayNightCycleChangeTimestamp = 0;
-        lightSource.intensity = 0.4f;
+        
         thingSpawner.BeginDay();
-        isNight = false;
         Debug.Log("isNight variable initialized to: " + isNight + ".");
     }
 

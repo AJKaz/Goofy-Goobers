@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public void PlayGame() {
-        //SceneManager.LoadSceneAsync(1); // game scene is index 1
-        SceneManager.LoadSceneAsync("BuildScene");
+        //SceneManager.LoadSceneAsync(1); 
+        // game scene is index 1
+        SceneManager.LoadScene("BuildScene");
     }
 
     public void GoToMainMenu() {
-        SceneManager.LoadSceneAsync("MainMenu");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void QuitGame() {

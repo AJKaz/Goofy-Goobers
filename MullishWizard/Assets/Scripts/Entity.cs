@@ -29,7 +29,7 @@ public abstract class Entity : MonoBehaviour
 
     protected virtual void Start()
     {
-        health = maxHealth;
+        ResetHealth();
     }
 
     public virtual void TakeDamage(float damage)
@@ -37,6 +37,12 @@ public abstract class Entity : MonoBehaviour
         health -= damage;
         if (healthBar) healthBar.value = health / maxHealth;
         if (health <= 0) Die();
+    }
+
+    protected void ResetHealth()
+    {
+        health = MaxHealth;
+        if (healthBar) healthBar.value = 1;
     }
 
     protected abstract void Die(); 
