@@ -22,6 +22,14 @@ public class TowerPlacement : MonoBehaviour
     void Update()
     {
         GameManager manager = GameManager.Instance;
+
+        // If the player's mouse isn't in a place that allows placement (the grid),
+        // don't bother.
+        if (!manager.Grid.PositionInGrid(manager.InputManager.MouseWorldPosition))
+        {
+            return;
+        }
+
         int gridX, gridY;
         manager.Grid.GetXY(manager.InputManager.MouseWorldPosition, out gridX, out gridY);
 

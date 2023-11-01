@@ -100,6 +100,14 @@ public class Grid : MonoBehaviour
         return GetValue(x, y);
     }
 
+    public bool PositionInGrid(Vector3 worldPosition)
+    {
+        return worldPosition.x >= originPosition.x
+               && worldPosition.y >= originPosition.y
+               && worldPosition.x <= originPosition.x + width * cellSize
+               && worldPosition.y <= originPosition.y + height * cellSize;
+    }
+
     private Color cellColor = Color.red;
     /// <summary>
     /// Redraws the debug grid lines
