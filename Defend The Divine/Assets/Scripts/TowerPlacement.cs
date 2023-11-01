@@ -30,7 +30,8 @@ public class TowerPlacement : MonoBehaviour
         //  * there isn't already a tower in the current spot
         canPlaceTower = 
             !towerGhost.GetComponent<TowerGhost>().CollidingWithPath
-            && manager.Grid.GetValue(gridX, gridY) != 1;
+            && manager.Grid.GetValue(gridX, gridY) != 1
+            ;
 
         towerGhost.transform.position = manager.Grid.GetTileCenter(gridX, gridY);
 
