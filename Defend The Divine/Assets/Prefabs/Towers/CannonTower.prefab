@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7982588207619209293}
   - component: {fileID: 8155601902515693895}
-  m_Layer: 0
-  m_Name: Tower
-  m_TagString: Untagged
+  - component: {fileID: -7116430699302381254}
+  m_Layer: 7
+  m_Name: CannonTower
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -73,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.050904155, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 68447e7d79771a94387a2f51f6e5abbe, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -84,3 +85,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-7116430699302381254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8974914344815011484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6182c2bc898233c48a3c4c1b34828987, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  projectileSpeed: 20
+  range: 5
+  SHOOT_DELAY: 0.5
+  projectilePrefab: {fileID: 474679912698572556, guid: d760f47b006601e43a3027800f6f82b2, type: 3}
