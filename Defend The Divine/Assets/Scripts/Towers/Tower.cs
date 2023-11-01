@@ -44,12 +44,15 @@ public class Tower : MonoBehaviour
         Enemy closestEnemy = null;
         for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
             if (GameManager.Instance.enemies[i] == null) continue;
-            if (Vector3.Distance(transform.position, GameManager.Instance.enemies[i].transform.position) <= range) {
+            Vector3 offset = transform.position - GameManager.Instance.enemies[i].transform.position;
+            if (offset.sqrMagnitude <= range * range) {
                 if (closestEnemy == null) {
                     closestEnemy = GameManager.Instance.enemies[i];
                 }
                 else {
-                    if (Vector3.Distance(transform.position, GameManager.Instance.enemies[i].transform.position) < Vector3.Distance(transform.position, closestEnemy.transform.position)) {
+                    Vector3 offsetToCurrentEnemy = transform.position - GameManager.Instance.enemies[i].transform.position;
+                    Vector3 offsetToClosestEnemy = transform.position - closestEnemy.transform.position;
+                    if (offsetToCurrentEnemy.sqrMagnitude < offsetToClosestEnemy.sqrMagnitude) {
                         closestEnemy = GameManager.Instance.enemies[i];
                     }
                 }
