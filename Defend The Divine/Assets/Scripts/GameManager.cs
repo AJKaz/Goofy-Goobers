@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
     /* Should be called Demon Essence in UI */
     private int money;
 
+    private WaveManager waveManager;
+    public WaveManager WaveManager { get { return waveManager; } }
+
     public int Money { get { return money; } }
 
     private void Awake() {
@@ -36,8 +39,9 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         money = startingMoney;
+        waveManager = GetComponent<WaveManager>();
     }
-
+    
     private void Start() {
         // Find all grid tiles in which there is a path and set it to 1
         foreach (Transform transform in path1) {
