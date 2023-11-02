@@ -6,7 +6,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     // TODO: Make array
-    public Enemy enemyPrefab;
+    public GameObject enemyPrefab;
 
     [SerializeField]
     private Transform[] enemySpawnPositions;
@@ -52,7 +52,7 @@ public class WaveManager : MonoBehaviour
     }
 
     public void SpawnEnemyGroups(
-        Enemy enemyType, 
+        GameObject enemyType, 
         int groupSize, 
         int msBetweenGroups, 
         int numberOfGroups)

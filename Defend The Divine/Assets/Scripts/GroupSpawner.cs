@@ -17,7 +17,7 @@ using UnityEngine;
 public class GroupSpawner : MonoBehaviour
 {
     [SerializeField]
-    Enemy enemyType;
+    GameObject enemyType;
     [SerializeField]
     private int groupSize;
     [SerializeField]
@@ -32,7 +32,7 @@ public class GroupSpawner : MonoBehaviour
     /// "Constructor" for GroupSpawner
     /// </summary>
     public void Initialize(
-        Enemy enemyType,
+        GameObject enemyType,
         int groupSize,
         int msBetweenGroups,
         int numberOfGroups)
@@ -77,7 +77,7 @@ public class GroupSpawner : MonoBehaviour
     {
         for (int i = 0; i < groupSize; i++)
         {
-            Enemy enemy = null;
+            GameObject enemy = null;
             try
             {
                 enemy = Object.Instantiate(enemyType);
