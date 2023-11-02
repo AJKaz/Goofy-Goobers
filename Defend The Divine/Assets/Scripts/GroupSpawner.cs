@@ -81,6 +81,7 @@ public class GroupSpawner : MonoBehaviour
             try
             {
                 enemy = Object.Instantiate(enemyType);
+                GameManager.Instance.enemies.Add(enemy.GetComponent<Enemy>());
             }
             catch
             {
