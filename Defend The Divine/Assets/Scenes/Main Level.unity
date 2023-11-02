@@ -1609,7 +1609,7 @@ MonoBehaviour:
   - {fileID: 942978091}
   - {fileID: 581116052}
   - {fileID: 1116413903}
-  startingMoney: 20000
+  startingMoney: 15
 --- !u!4 &500631745
 Transform:
   m_ObjectHideFlags: 0
