@@ -38,19 +38,18 @@ public class GameManager : MonoBehaviour
 
         InputManager = GetComponent<InputManager>();
         Grid = GetComponent<Grid>();
+    }
 
+    private void Start() {
         // Find all grid tiles in which there is a path and set it to 1
-        foreach (Transform transform in path1)
-        {
+        foreach (Transform transform in path1) {
             // A 1 in the grid represents a path
             Grid.SetValue(transform.position, 1);
         }
-        foreach (Transform transform in path2)
-        {
+        foreach (Transform transform in path2) {
             Grid.SetValue(transform.position, 1);
         }
-        foreach (Transform transform in path3)
-        {
+        foreach (Transform transform in path3) {
             Grid.SetValue(transform.position, 1);
         }
     }
