@@ -19,13 +19,13 @@ public class TowerPlacement : MonoBehaviour
 
         // If the player's mouse isn't in a place that allows placement (the grid),
         // don't bother.
-        if (!manager.Grid.PositionInGrid(manager.InputManager.MouseWorldPosition))
+        if (!manager.grid.PositionInGrid(manager.inputManager.MouseWorldPosition))
         {
             return;
         }
 
         int gridX, gridY;
-        manager.Grid.GetXY(manager.InputManager.MouseWorldPosition, out gridX, out gridY);
+        manager.grid.GetXY(manager.inputManager.MouseWorldPosition, out gridX, out gridY);
 
         /* A tower may be placed when:
          *   player has enough money
@@ -35,10 +35,10 @@ public class TowerPlacement : MonoBehaviour
          */
         canPlaceTower =
             GameManager.Instance.Money >= towerPrefab.Cost
-            && manager.Grid.GetValue(gridX, gridY) == 0
+            && manager.grid.GetValue(gridX, gridY) == 0
             && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
-        towerGhost.transform.position = manager.Grid.GetTileCenter(gridX, gridY);
+        towerGhost.transform.position = manager.grid.GetTileCenter(gridX, gridY);
 
         // Show when a tower can be placed
         SpriteRenderer towerGhostSR = towerGhost.GetComponent<SpriteRenderer>();
@@ -51,10 +51,10 @@ public class TowerPlacement : MonoBehaviour
             towerGhostSR.enabled = false;
         }
 
-        if (manager.InputManager.MouseLeftDownThisFrame && canPlaceTower)
+        if (manager.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
-            GameObject.Instantiate(towerPrefab, manager.Grid.GetTileCenter(gridX, gridY), Quaternion.identity);
-            manager.Grid.SetValue(gridX, gridY, 2);
+            GameObject.Instantiate(towerPrefab, manager.grid.GetTileCenter(gridX, gridY), Quaternion.identity);
+            manager.grid.SetValue(gridX, gridY, 2);
             GameManager.Instance.AddMoney(-towerPrefab.Cost);
         }
     }

@@ -8,8 +8,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public InputManager InputManager { get; private set; }
-    public Grid Grid { get; private set; }
+    public InputManager inputManager;
+    public Grid grid;
 
     [HideInInspector] 
     public List<Enemy> enemies;
@@ -36,22 +36,19 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         money = startingMoney;
-
-        InputManager = GetComponent<InputManager>();
-        Grid = GetComponent<Grid>();
     }
 
     private void Start() {
         // Find all grid tiles in which there is a path and set it to 1
         foreach (Transform transform in path1) {
             // A 1 in the grid represents a path
-            Grid.SetValue(transform.position, 1);
+            grid.SetValue(transform.position, 1);
         }
         foreach (Transform transform in path2) {
-            Grid.SetValue(transform.position, 1);
+            grid.SetValue(transform.position, 1);
         }
         foreach (Transform transform in path3) {
-            Grid.SetValue(transform.position, 1);
+            grid.SetValue(transform.position, 1);
         }
     }
 
