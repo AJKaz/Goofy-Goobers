@@ -17,7 +17,7 @@ public class Grid : MonoBehaviour
 
     private int[,] gridArray;
 
-    private void Start()
+    private void Awake()
     {
         gridArray = new int[width, height];
     }
@@ -98,6 +98,14 @@ public class Grid : MonoBehaviour
         int x, y;
         GetXY(worldPosition, out x, out y);
         return GetValue(x, y);
+    }
+
+    public bool PositionInGrid(Vector3 worldPosition)
+    {
+        return worldPosition.x >= originPosition.x
+               && worldPosition.y >= originPosition.y
+               && worldPosition.x <= originPosition.x + width * cellSize
+               && worldPosition.y <= originPosition.y + height * cellSize;
     }
 
     private Color cellColor = Color.red;
