@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
 
     private void Awake() {
         if (enemySpawnPositions.Length == 0) {
-            Debug.Log("add enemy spawn positions to array");
+            Debug.LogError("Add enemy spawn positions to array");
         }
     }
 
