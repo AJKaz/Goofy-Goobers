@@ -17,7 +17,7 @@ public class Grid : MonoBehaviour
 
     private int[,] gridArray;
 
-    private void Start()
+    private void Awake()
     {
         gridArray = new int[width, height];
     }

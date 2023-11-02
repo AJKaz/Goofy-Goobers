@@ -36,9 +36,7 @@ public class TowerPlacement : MonoBehaviour
         // A tower may be placed when:
         //  * the ghost isn't colliding with a path
         //  * there isn't already a tower in the current spot
-        canPlaceTower = 
-            !towerGhost.GetComponent<TowerGhost>().CollidingWithPath
-            && manager.Grid.GetValue(gridX, gridY) != 1;
+        canPlaceTower = manager.Grid.GetValue(gridX, gridY) == 0;
 
         towerGhost.transform.position = manager.Grid.GetTileCenter(gridX, gridY);
 
@@ -56,7 +54,8 @@ public class TowerPlacement : MonoBehaviour
         if (manager.InputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
             GameObject.Instantiate(towerPrefab, manager.Grid.GetTileCenter(gridX, gridY), Quaternion.identity);
-            manager.Grid.SetValue(gridX, gridY, 1);
+            // towers have a value of 2 in the grid
+            manager.Grid.SetValue(gridX, gridY, 2);
         }
     }
 }
