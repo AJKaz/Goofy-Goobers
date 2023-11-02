@@ -7,18 +7,12 @@ using UnityEngine;
 public class TowerPlacement : MonoBehaviour
 {
     [SerializeField]
-    private GameObject towerPrefab;
+    private Tower towerPrefab;
     [SerializeField]
     private GameObject towerGhost;
 
     private bool canPlaceTower = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         GameManager manager = GameManager.Instance;
@@ -33,10 +27,16 @@ public class TowerPlacement : MonoBehaviour
         int gridX, gridY;
         manager.Grid.GetXY(manager.InputManager.MouseWorldPosition, out gridX, out gridY);
 
-        // A tower may be placed when:
-        //  * the ghost isn't colliding with a path
-        //  * there isn't already a tower in the current spot
-        canPlaceTower = manager.Grid.GetValue(gridX, gridY) == 0;
+        /* A tower may be placed when:
+         *   player has enough money
+         *   the ghost isn't colliding with a path
+         *   there isn't already a tower in the current spot
+         *   mouse isn't over menu HUD
+         */
+        canPlaceTower =
+            GameManager.Instance.Money >= towerPrefab.Cost
+            && manager.Grid.GetValue(gridX, gridY) == 0
+            && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
         towerGhost.transform.position = manager.Grid.GetTileCenter(gridX, gridY);
 
@@ -54,8 +54,8 @@ public class TowerPlacement : MonoBehaviour
         if (manager.InputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
             GameObject.Instantiate(towerPrefab, manager.Grid.GetTileCenter(gridX, gridY), Quaternion.identity);
-            // towers have a value of 2 in the grid
             manager.Grid.SetValue(gridX, gridY, 2);
+            GameManager.Instance.AddMoney(-towerPrefab.Cost);
         }
     }
 }

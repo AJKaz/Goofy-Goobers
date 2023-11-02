@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private int startingMoney = 10;
 
+    /* Should be called Demon Essence in UI */
     private int money;
 
     public int Money { get { return money; } }
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int amount) {
         money += amount;
+        Debug.Log("money: " + money);
     }
 
     public bool RemoveEnemy(Enemy enemy) {

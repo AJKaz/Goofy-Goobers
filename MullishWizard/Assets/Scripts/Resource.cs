@@ -9,6 +9,11 @@ public class Resource : MonoBehaviour {
     private short spawnPoints;
     public short SpawnPoints { get { return spawnPoints; } }
 
+    private void Awake()
+    {
+        spawnPoints = 10;
+    }
+
     private void Start()
     {
         // This must be in Start() as GameManager intializes PlayerInventory in
@@ -21,7 +26,6 @@ public class Resource : MonoBehaviour {
         }*/
         if (quantity == 0) { quantity = 1; }
 
-        spawnPoints = 10;
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

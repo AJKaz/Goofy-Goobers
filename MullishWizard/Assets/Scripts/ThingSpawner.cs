@@ -12,7 +12,7 @@ public class ThingSpawner : MonoBehaviour
     // Returns true if 0 waves in queue
     public bool AllWavesSpawned { get { return wavesToSpawn < 1; } }
 
-    void Start()
+    void Awake()
     {
         // BeginDay() is called by GameManager when scene loads, incrementing
         // this value by +1
@@ -24,8 +24,8 @@ public class ThingSpawner : MonoBehaviour
     void Update()
     {
         // Waves spawn once every 5s on night 1, but 0.1s faster for every night survived
-        if (GameManager.Instance.IsNight && 
-            GameManager.Instance.ElapsedTime >= waveSpawnTimestamp + 5 - 0.1*nightsSurvived &&
+        if (GameManager.Instance.IsNight &&
+            GameManager.Instance.ElapsedTime >= waveSpawnTimestamp + 5 - 0.1 * nightsSurvived &&
             wavesToSpawn > 0)
         {
             SpawnWave(nightsSurvived * 10 + 10);
@@ -57,7 +57,8 @@ public class ThingSpawner : MonoBehaviour
         while (budget > 0)
         {
             short id = (short)Random.Range(0, enemyPrefabs.Count);
-            try { 
+            try
+            {
                 budget -= enemyPrefabs[id].GetComponent<Enemy>().SpawnPoints;
                 GameObject enemyObject = Instantiate(
                         enemyPrefabs[id],
@@ -68,9 +69,10 @@ public class ThingSpawner : MonoBehaviour
                         new Quaternion());
                 GameManager.Instance.enemies.Add(enemyObject.GetComponent<Enemy>());
             }
-            catch { 
+            catch
+            {
                 budget = 0;
-                Debug.Log("enemyPrefabs list is EMPTY! Enemies will not spawn."); 
+                Debug.Log("enemyPrefabs list is EMPTY! Enemies will not spawn.");
             }
 
         }
@@ -89,24 +91,25 @@ public class ThingSpawner : MonoBehaviour
         {
             short id = (short)Random.Range(0, resourcePrefabs.Count);
             //try { 
-                budget -= resourcePrefabs[id].GetComponent<Resource>().SpawnPoints; 
-                // Selects a random direction for the wave to spawn
-                float spawnDirectionRad = Random.Range(0, 360) * (Mathf.PI / 180);
-                Vector2 spawnPoint = new Vector2(
-                    Mathf.Cos(spawnDirectionRad) * (12 + Random.Range(0f, 8f)),
-                    Mathf.Sin(spawnDirectionRad) * (12 + Random.Range(0f, 8f)));
+            Debug.Log(resourcePrefabs[id].GetComponent<Resource>().SpawnPoints);
+            budget -= resourcePrefabs[id].GetComponent<Resource>().SpawnPoints;
+            // Selects a random direction for the wave to spawn
+            float spawnDirectionRad = Random.Range(0, 360) * (Mathf.PI / 180);
+            Vector2 spawnPoint = new Vector2(
+                Mathf.Cos(spawnDirectionRad) * (12 + Random.Range(0f, 8f)),
+                Mathf.Sin(spawnDirectionRad) * (12 + Random.Range(0f, 8f)));
 
-                // If the wave spawn center is within 3 units of any camera boundary, move it away
-                while (Mathf.Abs(spawnPoint.x - Camera.main.transform.position.x) < 12 &&
-                    Mathf.Abs(spawnPoint.y - Camera.main.transform.position.y) < 8)
-                {
-                    spawnPoint = spawnPoint * 1.1f;
-                }
+            // If the wave spawn center is within 3 units of any camera boundary, move it away
+            while (Mathf.Abs(spawnPoint.x - Camera.main.transform.position.x) < 12 &&
+                Mathf.Abs(spawnPoint.y - Camera.main.transform.position.y) < 8)
+            {
+                spawnPoint = spawnPoint * 1.1f;
+            }
 
-                Instantiate(
-                        resourcePrefabs[id],
-                        new Vector3(spawnPoint.x, spawnPoint.y, 0.0f),
-                        new Quaternion());
+            Instantiate(
+                    resourcePrefabs[id],
+                    new Vector3(spawnPoint.x, spawnPoint.y, 0.0f),
+                    new Quaternion());
             //}
             //catch {
             //    budget = 0;
