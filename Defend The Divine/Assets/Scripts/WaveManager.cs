@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+    // TODO: Make array
+    public Enemy enemyPrefab;
 
     [SerializeField]
     private Transform[] enemySpawnPositions;
@@ -13,8 +14,8 @@ public class WaveManager : MonoBehaviour
 
 
     /* TEMP VARIABLES FOR TEMP ENEMY SPAWNING */
-    private float spawnDelay = 1f;
-    private float spawnTimer = 0;
+    //private float spawnDelay = 1f;
+    //private float spawnTimer = 0;
 
     private void Awake() {
         if (enemySpawnPositions.Length == 0) {
@@ -51,7 +52,7 @@ public class WaveManager : MonoBehaviour
     }
 
     public void SpawnEnemyGroups(
-        GameObject enemyType, 
+        Enemy enemyType, 
         int groupSize, 
         int msBetweenGroups, 
         int numberOfGroups)

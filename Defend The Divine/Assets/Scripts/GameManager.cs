@@ -28,6 +28,9 @@ public class GameManager : MonoBehaviour
 
     private int money;
 
+    private WaveManager waveManager;
+    public WaveManager WaveManager { get { return waveManager; } }
+
     public int Money { get { return money; } }
 
     private void Awake() {
@@ -35,6 +38,7 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
         money = startingMoney;
+        waveManager = GetComponent<WaveManager>();
 
         InputManager = GetComponent<InputManager>();
         Grid = GetComponent<Grid>();

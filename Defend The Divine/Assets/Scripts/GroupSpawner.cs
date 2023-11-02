@@ -17,13 +17,13 @@ using UnityEngine;
 public class GroupSpawner : MonoBehaviour
 {
     [SerializeField]
-    GameObject enemyType;
+    Enemy enemyType;
     [SerializeField]
-    int groupSize;
+    private int groupSize;
     [SerializeField]
-    int msBetweenGroups;
+    private int msBetweenGroups;
     [SerializeField]
-    int numberOfGroups;
+    private int numberOfGroups;
 
     float groupSpawnTimestamp;
     WaveManager waveManager;
@@ -32,7 +32,7 @@ public class GroupSpawner : MonoBehaviour
     /// "Constructor" for GroupSpawner
     /// </summary>
     public void Initialize(
-        GameObject enemyType,
+        Enemy enemyType,
         int groupSize,
         int msBetweenGroups,
         int numberOfGroups)
@@ -42,7 +42,7 @@ public class GroupSpawner : MonoBehaviour
         this.msBetweenGroups = msBetweenGroups;
         this.numberOfGroups = numberOfGroups;
 
-        waveManager = GetComponent<WaveManager>();
+        waveManager = GameManager.Instance.WaveManager;
         groupSpawnTimestamp = Time.time;
         Debug.Log(groupSpawnTimestamp);
     }
@@ -77,7 +77,7 @@ public class GroupSpawner : MonoBehaviour
     {
         for (int i = 0; i < groupSize; i++)
         {
-            GameObject enemy = null;
+            Enemy enemy = null;
             try
             {
                 enemy = Object.Instantiate(enemyType);
