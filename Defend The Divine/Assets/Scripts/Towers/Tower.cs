@@ -20,7 +20,12 @@ public class Tower : MonoBehaviour
     protected float shootTimer = 0.05f;
 
     [SerializeField]
+    protected int cost = 10;
+
+    [SerializeField]
     protected GameObject projectilePrefab;
+
+    public int Cost { get { return cost; } }
 
     protected virtual void Update() {
         shootTimer -= Time.deltaTime;

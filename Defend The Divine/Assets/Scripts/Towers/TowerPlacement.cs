@@ -7,29 +7,27 @@ using UnityEngine;
 public class TowerPlacement : MonoBehaviour
 {
     [SerializeField]
-    private GameObject towerPrefab;
+    private Tower towerPrefab;
     [SerializeField]
     private GameObject towerGhost;
 
     private bool canPlaceTower = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         GameManager manager = GameManager.Instance;
         int gridX, gridY;
         manager.Grid.GetXY(manager.InputManager.MouseWorldPosition, out gridX, out gridY);
 
-        // A tower may be placed when:
-        //  * the ghost isn't colliding with a path
-        //  * there isn't already a tower in the current spot
-        canPlaceTower = 
-            !towerGhost.GetComponent<TowerGhost>().CollidingWithPath
+        /* A tower may be placed when:
+         *   player has enough money
+         *   the ghost isn't colliding with a path
+         *   there isn't already a tower in the current spot
+         *   mouse isn't over menu HUD
+         */
+        canPlaceTower =
+            GameManager.Instance.Money >= towerPrefab.Cost
+            && !towerGhost.GetComponent<TowerGhost>().CollidingWithPath
             && manager.Grid.GetValue(gridX, gridY) != 1
             && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
@@ -50,6 +48,7 @@ public class TowerPlacement : MonoBehaviour
         {
             GameObject.Instantiate(towerPrefab, manager.Grid.GetTileCenter(gridX, gridY), Quaternion.identity);
             manager.Grid.SetValue(gridX, gridY, 1);
+            GameManager.Instance.AddMoney(-towerPrefab.Cost);
         }
     }
 }

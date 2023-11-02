@@ -3,7 +3,7 @@ using UnityEngine;
 public class Enemy : Entity {
 
     [SerializeField]
-    protected float damage = 10.0f;
+    protected int damage = 10;
 
     [SerializeField]
     protected float moveSpeed = 1.0f;
@@ -52,9 +52,9 @@ public class Enemy : Entity {
         GameManager.Instance.AddMoney(moneyValue);
     }
 
-    protected void OnCollisionEnter2D(Collision2D collision) {
+    protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DivinePillar")) {
-            Debug.Log("enemy DivinePillar enter");
+            collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
         }
     }
 }
