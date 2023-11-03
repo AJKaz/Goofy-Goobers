@@ -13,6 +13,11 @@ public class TowerPlacement : MonoBehaviour
 
     private bool canPlaceTower = true;
 
+    public enum TowerType {tower1, tower2 };
+    public TowerType currentTowerType;
+    [SerializeField] GameObject towerType1Prefab;
+    [SerializeField] GameObject towerType2Prefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +53,19 @@ public class TowerPlacement : MonoBehaviour
 
         if (manager.InputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
+            switch (currentTowerType)
+            {
+                case TowerType.tower1:
+                    towerPrefab = towerType1Prefab;
+                    break;
+                case TowerType.tower2:
+                    towerPrefab = towerType2Prefab;
+                    break;
+                default:
+                    towerType2Prefab = null;
+                    break;
+            }
+
             GameObject.Instantiate(towerPrefab, manager.Grid.GetTileCenter(gridX, gridY), Quaternion.identity);
             manager.Grid.SetValue(gridX, gridY, 1);
         }
