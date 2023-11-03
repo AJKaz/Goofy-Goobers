@@ -1577,6 +1577,7 @@ GameObject:
   - component: {fileID: 500631748}
   - component: {fileID: 500631747}
   - component: {fileID: 500631749}
+  - component: {fileID: 500631750}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1758,6 +1759,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: 8974914344815011484, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerGhost: {fileID: 547819837}
+  currentTowerType: 0
+  towerType1Prefab: {fileID: 8974914344815011484, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
+  towerType2Prefab: {fileID: 8974914344815011484, guid: 9bb48fa87f3f38848bac0256fe58a107, type: 3}
 --- !u!114 &500631749
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1770,6 +1774,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e1bc305e42a9f45bb0b5ba8a6b1ea7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &500631750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500631743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d043ddb72621934e80070afa383bfdf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell1Button: {fileID: 1223278616}
+  spell2Button: {fileID: 951848392}
+  spell3Button: {fileID: 2078158192}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -3904,6 +3923,7 @@ GameObject:
   - component: {fileID: 1237214714}
   - component: {fileID: 1237214713}
   - component: {fileID: 1237214712}
+  - component: {fileID: 1237214715}
   m_Layer: 5
   m_Name: Tower1
   m_TagString: Untagged
@@ -3974,7 +3994,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1237214713}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1237214715}
+        m_TargetAssemblyTypeName: TowerSelect, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1237214713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4013,6 +4045,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237214710}
   m_CullTransparentMesh: 1
+--- !u!114 &1237214715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237214710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0502a86fd66c70a4bb7d4cd846011581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1260661857
 GameObject:
   m_ObjectHideFlags: 0
@@ -5271,6 +5315,7 @@ GameObject:
   - component: {fileID: 1782768731}
   - component: {fileID: 1782768730}
   - component: {fileID: 1782768729}
+  - component: {fileID: 1782768732}
   m_Layer: 5
   m_Name: Tower2
   m_TagString: Untagged
@@ -5341,7 +5386,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1782768730}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1782768732}
+        m_TargetAssemblyTypeName: TowerSelect, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1782768730
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5380,6 +5437,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1782768727}
   m_CullTransparentMesh: 1
+--- !u!114 &1782768732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1782768727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0502a86fd66c70a4bb7d4cd846011581, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1785752213
 GameObject:
   m_ObjectHideFlags: 0
