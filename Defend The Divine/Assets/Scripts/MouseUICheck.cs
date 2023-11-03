@@ -14,7 +14,6 @@ public class MouseUICheck : MonoBehaviour
 
     private void Update()
     {
-        print(IsPointerOverUIElement() ? "Over UI" : "Not over UI");
     }
 
 
