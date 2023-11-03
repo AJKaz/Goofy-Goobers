@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class WaveManager : MonoBehaviour
@@ -21,8 +20,8 @@ public class WaveManager : MonoBehaviour
         if (enemySpawnPositions.Length == 0) {
             Debug.LogError("Add enemy spawn positions to array");
         }
-        SpawnEnemyGroups(enemyPrefab, 1, 5000, 10);
-        SpawnEnemyGroups(enemyPrefab, 1, 3000, 10);
+        SpawnEnemyGroups(enemyPrefab, 5, 5000, 10);
+        SpawnEnemyGroups(enemyPrefab, 5, 3000, 10);
     }
 
     void Update()
