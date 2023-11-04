@@ -18,6 +18,18 @@ public class InputManager : MonoBehaviour
         private set;
     }
 
+    public bool MouseRightDown
+    {
+        get;
+        private set;
+    }
+
+    public bool MouseRightDownThisFrame
+    {
+        get;
+        private set;
+    }
+
     public Vector3 MouseWorldPosition
     {
         get;
@@ -32,6 +44,11 @@ public class InputManager : MonoBehaviour
 
         MouseLeftDown = mouse.leftButton.isPressed;
         MouseLeftDownThisFrame = mouse.leftButton.wasPressedThisFrame;
+
+        MouseRightDown = mouse.rightButton.isPressed;
+        MouseRightDownThisFrame = mouse.rightButton.wasPressedThisFrame;
+
+        
 
         // Mouse.position is an object, needs ReadValue() call to get value
         Vector3 screenSpaceLocation = mouse.position.ReadValue();
