@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Tower : MonoBehaviour
+public class Tower : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     protected float damage = 5f;
@@ -24,6 +25,12 @@ public class Tower : MonoBehaviour
 
     [SerializeField]
     protected GameObject projectilePrefab;
+
+    protected bool hasCreatedUI = false;
+    protected GameObject createdUi;
+
+    [SerializeField]
+    protected GameObject uiPopupPrefab;
 
     public int Cost { get { return cost; } }
 
@@ -66,4 +73,14 @@ public class Tower : MonoBehaviour
         return closestEnemy;
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (!hasCreatedUI)
+        {
+            createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity);
+            hasCreatedUI = true;
+        }
+        Debug.Log("click");
+        createdUi.SetActive(true);
+    }
 }
