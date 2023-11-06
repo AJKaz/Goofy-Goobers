@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
-using UnityEditorInternal.Profiling.Memory.Experimental.FileFormat;
 using UnityEngine;
 
 /// <summary>
@@ -44,7 +42,7 @@ public class GroupSpawner : MonoBehaviour
 
         waveManager = GameManager.Instance.WaveManager;
         groupSpawnTimestamp = Time.time;
-        Debug.Log(groupSpawnTimestamp);
+        //Debug.Log(groupSpawnTimestamp);
     }
 
     /// <summary>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -29,6 +30,9 @@ public class GameManager : MonoBehaviour
     /* Should be called Demon Essence in UI */
     private int money;
 
+    [SerializeField]
+    private TMP_Text moneyText;
+
     private WaveManager waveManager;
     public WaveManager WaveManager { get { return waveManager; } }
 
@@ -40,6 +44,8 @@ public class GameManager : MonoBehaviour
         }
         money = startingMoney;
         waveManager = GetComponent<WaveManager>();
+
+        UpdateMoneyText();
     }
     
     private void Start() {
@@ -68,11 +74,15 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int amount) {
         money += amount;
-        Debug.Log("money: " + money);
+        UpdateMoneyText();
     }
 
     public bool RemoveEnemy(Enemy enemy) {
         return enemies.Remove(enemy);
+    }
+
+    public void UpdateMoneyText() {
+        moneyText.text = $"${money}";
     }
 
 }
