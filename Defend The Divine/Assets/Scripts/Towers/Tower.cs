@@ -77,7 +77,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     {
         if (!hasCreatedUI)
         {
-            createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity);
+            createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity, GameManager.Instance.towerUiCanvas.transform);
             hasCreatedUI = true;
         }
         Debug.Log("click");

@@ -31,6 +31,9 @@ public class GameManager : MonoBehaviour
     private int money;
 
     [SerializeField]
+    public GameObject towerUiCanvas;
+
+    [SerializeField]
     private TMP_Text moneyText;
 
     private WaveManager waveManager;
