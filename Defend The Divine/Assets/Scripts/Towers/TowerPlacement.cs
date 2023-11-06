@@ -44,11 +44,11 @@ public class TowerPlacement : MonoBehaviour
         SpriteRenderer towerGhostSR = towerGhost.GetComponent<SpriteRenderer>();
         if (canPlaceTower)
         {
-            towerGhostSR.enabled = true;
+            towerGhostSR.color = new Color(0f, 1f, 0f);
         }
         else
         {
-            towerGhostSR.enabled = false;
+            towerGhostSR.color = new Color(1f, 0f, 0f);
         }
 
         if (manager.inputManager.MouseLeftDownThisFrame && canPlaceTower)
