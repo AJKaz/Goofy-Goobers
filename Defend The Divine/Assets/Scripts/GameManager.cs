@@ -10,7 +10,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public InputManager inputManager;
-    public Grid grid;
 
     [HideInInspector] 
     public List<Enemy> enemies;
@@ -49,17 +48,6 @@ public class GameManager : MonoBehaviour
     }
     
     private void Start() {
-        // Find all grid tiles in which there is a path and set it to 1
-        foreach (Transform transform in path1) {
-            // A 1 in the grid represents a path
-            grid.SetValue(transform.position, 1);
-        }
-        foreach (Transform transform in path2) {
-            grid.SetValue(transform.position, 1);
-        }
-        foreach (Transform transform in path3) {
-            grid.SetValue(transform.position, 1);
-        }
     }
 
     public Transform[] GetRandomPath() {

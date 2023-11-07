@@ -47,7 +47,6 @@ public class Tower : MonoBehaviour
 
     protected virtual Enemy GetTarget() {
         Enemy closestEnemy = null;
-        Debug.Log(GameManager.Instance.enemies.Count);
         for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
             if (GameManager.Instance.enemies[i] == null) continue;
             Vector3 offset = transform.position - GameManager.Instance.enemies[i].transform.position;
