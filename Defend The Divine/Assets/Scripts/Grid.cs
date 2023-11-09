@@ -90,7 +90,12 @@ public class Grid : MonoBehaviour
 
     public int GetValue(int x, int y)
     {
-        return gridArray[x, y];
+        if (x >= 0 && y >= 0 && x < width && y < height)
+        {
+            return gridArray[x, y];
+        }
+        Debug.Log("Grid GetValue Error at: (" +  x + ", " + y + ")");
+        return 0;
     }
 
     public int GetValue(Vector3 worldPosition)
