@@ -30,7 +30,7 @@ public class Enemy : Entity {
         //transform.position = path[waypointIndex].transform.position;
     }
 
-    void Update() {
+    private void Update() {
         Pathfind();
     }
 
@@ -56,6 +56,8 @@ public class Enemy : Entity {
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DivinePillar")) {
             collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
+            GameManager.Instance.RemoveEnemy(enemyComponent);
+            Destroy(gameObject);
         }
     }
 }

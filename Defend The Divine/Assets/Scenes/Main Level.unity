@@ -776,7 +776,7 @@ Transform:
   m_GameObject: {fileID: 239059950}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.86, y: -1.16, z: 0}
+  m_LocalPosition: {x: 9.231, y: -1.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1090,7 +1090,7 @@ Transform:
   m_GameObject: {fileID: 317653142}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.87, y: -0.8, z: 0}
+  m_LocalPosition: {x: 9.241, y: -0.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1666,7 +1666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45367cd45ecbf73489888b44e0579c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
+  towerPrefab: {fileID: 1862400210719592098, guid: dd35b88adc3577d4294cd37d1576807c, type: 3}
   towerGhost: {fileID: 547819837}
 --- !u!114 &500631749
 MonoBehaviour:
@@ -3363,7 +3363,7 @@ Transform:
   m_GameObject: {fileID: 1116413902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.87, y: -0.53, z: 0}
+  m_LocalPosition: {x: 9.241, y: -0.53, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

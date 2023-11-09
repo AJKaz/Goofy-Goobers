@@ -23,31 +23,30 @@ public class Tower : MonoBehaviour
     protected int cost = 10;
 
     [SerializeField]
-    protected GameObject projectilePrefab;
+    protected GameObject damagingPrefab;
 
     public int Cost { get { return cost; } }
 
     protected virtual void Update() {
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0) {
-            Shoot();
+            Enemy target = GetTarget();
+            if (target != null) {
+                Attack(target);
+            }
         }
     }
 
-    protected virtual void Shoot() {
-        Enemy target = GetTarget();
+    protected virtual void Attack(Enemy target) {
         shootTimer = SHOOT_DELAY;
-        if (target != null) {
-            GameObject proj = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-            Projectile projectile = proj.GetComponent<Projectile>();
-            projectile.SetTarget(target.transform.position);
-            projectile.SetStats(damage, projectileSpeed);
-        }
+        GameObject proj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
+        Projectile projectile = proj.GetComponent<Projectile>();
+        projectile.SetTarget(target.transform.position);
+        projectile.SetStats(damage, projectileSpeed);
     }
 
     protected virtual Enemy GetTarget() {
         Enemy closestEnemy = null;
-        Debug.Log(GameManager.Instance.enemies.Count);
         for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
             if (GameManager.Instance.enemies[i] == null) continue;
             Vector3 offset = transform.position - GameManager.Instance.enemies[i].transform.position;
@@ -65,6 +64,11 @@ public class Tower : MonoBehaviour
             }
         }
         return closestEnemy;
+    }
+
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 
 }
