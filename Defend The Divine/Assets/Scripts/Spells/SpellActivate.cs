@@ -11,6 +11,8 @@ public class SpellActivate : MonoBehaviour
 
     [SerializeField] GameObject FreezeSpellPrefab;
     [SerializeField] GameObject divinePillar;
+    [SerializeField] Vector3 freezeSpellDirection;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +33,7 @@ public class SpellActivate : MonoBehaviour
         {
             case 0:
                 Debug.Log("spell 1 activate");
-                GameObject.Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity).GetComponent<FreezeSpell>().SetTarget(new Vector3(-100, 0, 0));
+                GameObject.Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity).GetComponent<FreezeSpell>().SetTarget(freezeSpellDirection);
                 break;
             case 1:
                 Debug.Log("spell 2 activate");

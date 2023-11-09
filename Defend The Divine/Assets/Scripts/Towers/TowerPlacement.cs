@@ -67,7 +67,6 @@ public class TowerPlacement : MonoBehaviour
                     towerPrefab = towerType2Prefab;
                     break;
                 default:
-                    towerType2Prefab = null;
                     break;
             }
 

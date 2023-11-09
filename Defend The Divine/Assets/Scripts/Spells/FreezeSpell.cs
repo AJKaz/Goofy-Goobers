@@ -15,7 +15,7 @@ public class FreezeSpell : MonoBehaviour
         direction = (targetPosition - transform.position).normalized;
     }
 
-    public void SetStats(float damage, float speed)
+    public void SetStats(float speed)
     {
         this.speed = speed;
     }
