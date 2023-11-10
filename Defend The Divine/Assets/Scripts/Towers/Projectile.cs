@@ -14,6 +14,8 @@ public class Projectile : MonoBehaviour
     private float damage = 5;
     private float speed = 15f;
 
+    private bool hasHitEnemy = false;
+
     public void SetTarget(Vector3 targetPosition) {
         direction = (targetPosition - transform.position).normalized;
     }
@@ -33,7 +35,8 @@ public class Projectile : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("Enemy")) {
+        if (!hasHitEnemy && collision.gameObject.CompareTag("Enemy")) {
+            hasHitEnemy = true;
             collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
             Destroy(gameObject);
         }

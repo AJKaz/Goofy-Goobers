@@ -29,6 +29,8 @@ public class GameManager : MonoBehaviour
     /* Should be called Demon Essence in UI */
     private int money;
 
+    public GameObject towerUiCanvas;
+
     [SerializeField]
     private TMP_Text moneyText;
 
