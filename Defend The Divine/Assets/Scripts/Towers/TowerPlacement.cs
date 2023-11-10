@@ -34,7 +34,7 @@ public class TowerPlacement : MonoBehaviour
             && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
         Vector2 currentMousePosition = manager.inputManager.MouseWorldPosition;
-        towerGhost.transform.position = currentMousePosition;
+        towerGhost.transform.position = new Vector3(currentMousePosition.x, currentMousePosition.y, 0);
 
         // Show when a tower can be placed
         SpriteRenderer towerGhostSR = towerGhost.GetComponent<SpriteRenderer>();
@@ -61,8 +61,7 @@ public class TowerPlacement : MonoBehaviour
                     break;
             }
 
-            GameObject.Instantiate(towerPrefab, manager.grid.GetTileCenter(gridX, gridY), Quaternion.identity);
-            manager.grid.SetValue(gridX, gridY, 2);
+            GameObject.Instantiate(towerPrefab, towerGhost.transform.position, Quaternion.identity);
             GameManager.Instance.AddMoney(-towerPrefab.Cost);
         }
     }
