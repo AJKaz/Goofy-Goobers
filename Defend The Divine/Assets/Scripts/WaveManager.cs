@@ -4,60 +4,68 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    // TODO: Make array
+    // Can be made into an array if necessary
     public GameObject enemyPrefab;
 
     [SerializeField]
     private Transform[] enemySpawnPositions;
     public Transform[] EnemySpawnPositions { get { return enemySpawnPositions; } }
-
-
-    /* TEMP VARIABLES FOR TEMP ENEMY SPAWNING */
-    //private float spawnDelay = 1f;
-    //private float spawnTimer = 0;
+    
+    [SerializeField]
+    private int currentWave;
+    private float waveTimestamp;
 
     private void Awake() {
         if (enemySpawnPositions.Length == 0) {
-            Debug.LogError("Add enemy spawn positions to array");
+            Debug.LogError("Enemy spawn positions array is empty in WaveManager");
         }
-        SpawnEnemyGroups(enemyPrefab, 5, 5000, 10);
-        SpawnEnemyGroups(enemyPrefab, 5, 3000, 10);
+        currentWave = 0;
     }
 
     void Update()
     {
-/*        // Temp spawn enemy every 5 seconds
-        spawnTimer += Time.deltaTime;
-        if (spawnTimer > spawnDelay)
+        if (GameManager.Instance.enemies.Count < 1 &&
+            Time.realtimeSinceStartup > 5 + waveTimestamp)
         {
-            spawnTimer = 0;
-            GameObject enemy = Instantiate(enemyPrefab, enemySpawnPositions[Random.Range(0, enemySpawnPositions.Length)].transform.position, Quaternion.identity);
-            GameManager.Instance.enemies.Add(enemy.GetComponent<Enemy>());
-        }*/
-        
-        // TODO: IMPLEMENT AND EXPAND
-/*        switch (currentWave)
-        {
-            case 1:
-                SpawnEnemyGroups(enemyPrefab, 1, 3000, 8);
-                break;
-            case 2:
-                SpawnEnemyGroups(enemyPrefab, 1, 1500, 16);
-                break;
-            default:
-                Debug.LogException("Wave " + currentWave + " has not been made/configured!");
-                break;
-        }*/
+            currentWave++;
+            waveTimestamp = Time.realtimeSinceStartup;
+            switch (currentWave)
+            {
+                case 1:
+                    SpawnEnemyGroups(enemyPrefab, 1, 3750, 8);
+                    break;
+                case 2:
+                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
+                    break;
+                case 3:
+                    SpawnEnemyGroups(enemyPrefab, 1, 4000, 7);
+                    SpawnEnemyGroups(enemyPrefab, 1, 3000, 10);
+                    
+                    break;
+                case 4:
+                    SpawnEnemyGroups(enemyPrefab, 1, 2500, 12);
+                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
+                    break;
+                case 5:
+                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
+                    SpawnEnemyGroups(enemyPrefab, 1, 1750, 17);
+
+                    break;
+                default:
+                    //Debug.LogError("Wave " + currentWave + " has not been made/configured!");
+                    break;
+            }
+        }
     }
 
-    public void SpawnEnemyGroups(
+    private void SpawnEnemyGroups(
         GameObject enemyType, 
         int groupSize, 
         int msBetweenGroups, 
         int numberOfGroups)
     {
-        // gameObject is autocreated by unity, and references the object this
-        // script is attached to
+        // gameObject is auto created by unity, and points towards the object this
+        // script is attached to (Game Manager object)
         gameObject.AddComponent<GroupSpawner>().Initialize(
         enemyType, 
         groupSize, 

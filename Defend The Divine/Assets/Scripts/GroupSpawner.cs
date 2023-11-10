@@ -83,7 +83,7 @@ public class GroupSpawner : MonoBehaviour
             }
             catch
             {
-                Debug.LogError("Enemy type passed into GroupSpawner is invalid! Aborting.");
+                Debug.LogError("GroupSpawner.SpawnGroup() could not instantiate an enemy! Aborting.");
                 // Deletes this script
                 Destroy(this);
             }

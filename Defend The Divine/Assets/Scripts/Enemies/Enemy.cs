@@ -14,13 +14,11 @@ public class Enemy : Entity {
 
     protected int waypointIndex = 0;
 
-    protected Enemy enemyComponent;
     protected SpriteRenderer sprite;
 
     protected Transform[] path;
 
     private void Awake() {
-        enemyComponent = GetComponent<Enemy>();
         sprite = GetComponentInChildren<SpriteRenderer>();
     }
 
@@ -49,7 +47,7 @@ public class Enemy : Entity {
 
     override protected void Die() {
         Destroy(gameObject);
-        GameManager.Instance.RemoveEnemy(enemyComponent);
+        GameManager.Instance.RemoveEnemy(this);
         GameManager.Instance.AddMoney(moneyValue);
     }
 
