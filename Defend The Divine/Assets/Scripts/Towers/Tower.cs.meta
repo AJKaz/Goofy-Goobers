@@ -3,7 +3,10 @@ guid: a7e39528d9ac35a479949293f656f969
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - damagingPrefab: {instanceID: 0}
+  - uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
+  - rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

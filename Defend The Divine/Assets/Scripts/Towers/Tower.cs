@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Tower : MonoBehaviour, IPointerClickHandler
+public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPointerExitHandler, IPointerEnterHandler
 {
     [SerializeField]
     protected float damage = 5f;
@@ -28,10 +28,15 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     protected GameObject damagingPrefab;
 
     protected bool hasCreatedUI = false;
+    protected bool mouseIsOver = false;
     protected GameObject createdUi;
+    protected GameObject visibleRange;
 
     [SerializeField]
     protected GameObject uiPopupPrefab;
+
+    [SerializeField]
+    protected GameObject rangePrefab;
 
     public int Cost { get { return cost; } }
 
@@ -118,10 +123,39 @@ public class Tower : MonoBehaviour, IPointerClickHandler
                 createdUi.transform.position += new Vector3(0, difference + 10, 0);
             }
 
+            visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
+            visibleRange.transform.localScale = new Vector3(range, range);
+
 
             hasCreatedUI = true;
         }
         createdUi.SetActive(true);
+        visibleRange.SetActive(true);
     }
 
+    private void OnEnable()
+    {
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+    public void OnDeselect(BaseEventData eventData)
+    {
+        //Close the Window on Deselect only if a click occurred outside this panel
+        if (!mouseIsOver)
+        {
+            createdUi.SetActive(false);
+            visibleRange.SetActive(false);
+        }
+
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        mouseIsOver = true;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        mouseIsOver = false;
+        EventSystem.current.SetSelectedGameObject(gameObject);
+    }
 }

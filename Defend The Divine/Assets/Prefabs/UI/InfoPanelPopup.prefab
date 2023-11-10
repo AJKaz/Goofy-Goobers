@@ -132,7 +132,6 @@ GameObject:
   - component: {fileID: 2153879168440917409}
   - component: {fileID: 7595291607578740814}
   - component: {fileID: 470629517108392872}
-  - component: {fileID: 3608894569203424905}
   m_Layer: 5
   m_Name: InfoPanelPopup
   m_TagString: Untagged
@@ -198,18 +197,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3608894569203424905
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5480922836673919474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb8b8431cb2bf7948b79c5501d2bafad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &5634873599350992749
 GameObject:
   m_ObjectHideFlags: 0
