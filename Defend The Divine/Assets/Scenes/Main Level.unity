@@ -1743,11 +1743,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45367cd45ecbf73489888b44e0579c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 1862400210719592098, guid: dd35b88adc3577d4294cd37d1576807c, type: 3}
+  towerPrefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerGhost: {fileID: 547819837}
   currentTowerType: 0
   towerType1Prefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
-  towerType2Prefab: {fileID: -7116430699302381254, guid: 1518bf3d8b461384a91777e014b786fc, type: 3}
+  towerType2Prefab: {fileID: 1862400210719592098, guid: dd35b88adc3577d4294cd37d1576807c, type: 3}
 --- !u!114 &500631749
 MonoBehaviour:
   m_ObjectHideFlags: 0
