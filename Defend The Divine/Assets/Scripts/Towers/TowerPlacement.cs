@@ -20,8 +20,6 @@ public class TowerPlacement : MonoBehaviour
 
     void Update()
     {
-        GameManager manager = GameManager.Instance;
-
         /* A tower may be placed when:
          *   player has enough money
          *   the ghost isn't colliding with a path
@@ -29,11 +27,11 @@ public class TowerPlacement : MonoBehaviour
          *   mouse isn't over menu HUD
          */
         canPlaceTower =
-            manager.Money >= towerPrefab.Cost
+            GameManager.Instance.Money >= towerPrefab.Cost
             && !towerGhost.CollidingWithPath
-            && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
+            && !GameManager.Instance.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
-        Vector2 currentMousePosition = manager.inputManager.MouseWorldPosition;
+        Vector2 currentMousePosition = GameManager.Instance.inputManager.MouseWorldPosition;
         towerGhost.transform.position = new Vector3(currentMousePosition.x, currentMousePosition.y, 0);
 
         // Show when a tower can be placed
@@ -47,7 +45,7 @@ public class TowerPlacement : MonoBehaviour
             towerGhostSR.color = new Color(1f, 0f, 0f);
         }
 
-        if (manager.inputManager.MouseLeftDownThisFrame && canPlaceTower)
+        if (GameManager.Instance.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
             switch (currentTowerType)
             {
