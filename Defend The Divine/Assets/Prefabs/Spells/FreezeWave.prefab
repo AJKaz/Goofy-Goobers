@@ -51,7 +51,7 @@ MonoBehaviour:
   despawnTimer: 5
   freezeDuration: 4
   speed: 5
-  cost: 30
+  cost: 1
 --- !u!212 &6887716025907406454
 SpriteRenderer:
   m_ObjectHideFlags: 0
