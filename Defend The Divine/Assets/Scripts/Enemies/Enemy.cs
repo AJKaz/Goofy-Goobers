@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,9 +20,12 @@ public class Enemy : Entity {
 
     protected Transform[] path;
 
+    private bool isFrozen;
+
     private void Awake() {
         enemyComponent = GetComponent<Enemy>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        isFrozen = false;
     }
 
     protected override void Start() {
@@ -31,7 +35,7 @@ public class Enemy : Entity {
     }
 
     private void Update() {
-        Pathfind();
+        if (!isFrozen) Pathfind();
     }
 
     protected void Pathfind() {
@@ -59,5 +63,17 @@ public class Enemy : Entity {
             GameManager.Instance.RemoveEnemy(enemyComponent);
             Destroy(gameObject);
         }
+    }
+
+    public void Freeze (float freezeDuration) {
+        StartCoroutine(FreezeCoroutine(freezeDuration));
+    }
+
+    IEnumerator FreezeCoroutine(float freezeDuration) {
+        isFrozen = true;
+
+        yield return new WaitForSeconds(freezeDuration);
+
+        isFrozen = false;
     }
 }
