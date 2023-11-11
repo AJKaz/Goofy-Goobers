@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182c2bc898233c48a3c4c1b34828987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 55
   projectileSpeed: 20
   range: 5
   SHOOT_DELAY: 1.2

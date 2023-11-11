@@ -1,23 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FreezeSpell : MonoBehaviour
 {
-    [SerializeField]
-    private float despawnTimer = 5f;
+    [SerializeField] Vector3 initialDirection;
+
+    [Range(2f, 7f)]
+    [SerializeField] private float despawnTimer = 5f;
+
+    [Range(3f, 7f)]
+    [SerializeField] private float freezeDuration = 4f;
+
+    [Range(3f, 9f)]
+    [SerializeField] private float speed = 5f;
+
+    [SerializeField] private int cost = 30;
 
     private Vector3 direction;
-    private float speed = 5f;
 
-    public void SetTarget(Vector3 targetPosition)
-    {
-        direction = (targetPosition - transform.position).normalized;
-    }
+    public int Cost { get { return cost; }  }
 
-    public void SetStats(float speed)
-    {
-        this.speed = speed;
+    private void Awake() {
+        direction.x = (initialDirection - transform.position).normalized.x;
+        direction.y = 0f;
+        direction.z = 0f;
     }
 
     private void Update()
@@ -35,7 +43,7 @@ public class FreezeSpell : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("FREEZE!");
+            collision.gameObject.GetComponent<Enemy>().Freeze(freezeDuration);
         }
     }
 }

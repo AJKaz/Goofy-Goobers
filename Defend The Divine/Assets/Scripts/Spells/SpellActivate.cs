@@ -5,26 +5,23 @@ using UnityEngine;
 
 public class SpellActivate : MonoBehaviour
 {
-    [SerializeField] Button spell1Button;
+    [SerializeField] GameObject divinePillar;
+
+    [Header("Spell UI Buttons")]
+    [SerializeField] Button freezeSpellButton;
     [SerializeField] Button spell2Button;
     [SerializeField] Button spell3Button;
 
-    [SerializeField] GameObject FreezeSpellPrefab;
-    [SerializeField] GameObject divinePillar;
-    [SerializeField] Vector3 freezeSpellDirection;
+    [Header("Freeze Spell")]
+    [SerializeField] FreezeSpell FreezeSpellPrefab;
+    [SerializeField] private float freezeSpellCooldown = 15f;
+    private bool isFreezeOnCooldown = false;
 
-    // Start is called before the first frame update
     void Start()
     {
-        spell1Button.onClick.AddListener(delegate { OnClick(0); });
+        freezeSpellButton.onClick.AddListener(delegate { OnClick(0); });
         spell2Button.onClick.AddListener(delegate { OnClick(1); });
         spell3Button.onClick.AddListener(delegate { OnClick(2); });
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void OnClick(int index)
@@ -32,8 +29,12 @@ public class SpellActivate : MonoBehaviour
         switch (index)
         {
             case 0:
-                Debug.Log("spell 1 activate");
-                GameObject.Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity).GetComponent<FreezeSpell>().SetTarget(freezeSpellDirection);
+                // Can cast spell if they have enough money & spell's not on cooldown
+                if (GameManager.Instance.Money >= FreezeSpellPrefab.Cost && !isFreezeOnCooldown) {
+                    StartCoroutine(FreezeSpellCoroutine());
+                    Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity);
+                    GameManager.Instance.AddMoney(-FreezeSpellPrefab.Cost);
+                }
                 break;
             case 1:
                 Debug.Log("spell 2 activate");
@@ -44,6 +45,16 @@ public class SpellActivate : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    IEnumerator FreezeSpellCoroutine() {
+        isFreezeOnCooldown = true;
+        freezeSpellButton.interactable = false;
+
+        yield return new WaitForSeconds(freezeSpellCooldown);
+
+        isFreezeOnCooldown = false;
+        freezeSpellButton.interactable = true;
     }
 
 }
