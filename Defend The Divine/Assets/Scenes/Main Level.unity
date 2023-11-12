@@ -1821,7 +1821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerGhost: {fileID: 547819842}
-  currentTowerType: 0
+  currentTowerType: 1
   towerType1Prefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerType2Prefab: {fileID: 1862400210719592098, guid: dd35b88adc3577d4294cd37d1576807c, type: 3}
 --- !u!114 &500631749
@@ -1869,7 +1869,7 @@ MonoBehaviour:
   spell2Button: {fileID: 951848392}
   spell3Button: {fileID: 2078158192}
   FreezeSpellPrefab: {fileID: 8205279509571411624, guid: f71e8f72f4f9b7d40b58e416910a2c76, type: 3}
-  freezeSpellCooldown: 15
+  freezeSpellCooldown: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -2023,7 +2023,7 @@ GameObject:
   - component: {fileID: 547819844}
   - component: {fileID: 547819845}
   - component: {fileID: 547819846}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: TowerGhost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2161,8 +2161,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0, g: 0.99215686, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -4439,7 +4439,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68447e7d79771a94387a2f51f6e5abbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5955,7 +5955,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 68447e7d79771a94387a2f51f6e5abbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
