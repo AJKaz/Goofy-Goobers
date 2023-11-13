@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveManager : MonoBehaviour
 {
     // Can be made into an array if necessary
-    public GameObject enemyPrefab;
+    public GameObject[] enemyPrefabs = new GameObject[3];
 
     [SerializeField]
     private Transform[] enemySpawnPositions;
@@ -13,7 +13,9 @@ public class WaveManager : MonoBehaviour
     
     [SerializeField]
     private int currentWave;
-    private float waveTimestamp;
+    private const int MinTimeBetweenWaves = 10;
+    private float waveTimestamp = -(MinTimeBetweenWaves/2);
+    
 
     private void Awake() {
         if (enemySpawnPositions.Length == 0) {
@@ -25,31 +27,33 @@ public class WaveManager : MonoBehaviour
     void Update()
     {
         if (GameManager.Instance.enemies.Count < 1 &&
-            Time.realtimeSinceStartup > 5 + waveTimestamp)
+            Time.realtimeSinceStartup > MinTimeBetweenWaves + waveTimestamp)
         {
             currentWave++;
             waveTimestamp = Time.realtimeSinceStartup;
+            // At the moment, I've tried to keep waves at ~30s
             switch (currentWave)
             {
                 case 1:
-                    SpawnEnemyGroups(enemyPrefab, 1, 3750, 8);
-                    break;
-                case 2:
-                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
-                    break;
+                    SpawnEnemyGroups(enemyPrefabs[0], 1, 3750, 8);
+                    break;                      
+                case 2:                         
+                    SpawnEnemyGroups(enemyPrefabs[0], 2, 5000, 6);
+                    break;                      
                 case 3:
-                    SpawnEnemyGroups(enemyPrefab, 1, 4000, 7);
-                    SpawnEnemyGroups(enemyPrefab, 1, 3000, 10);
-                    
+                    SpawnEnemyGroups(enemyPrefabs[0], 10, 10000, 3);
+                    SpawnEnemyGroups(enemyPrefabs[1], 2, 5000, 6);
+                    break;                      
+                case 4:                         
+                    SpawnEnemyGroups(enemyPrefabs[1], 3, 2500, 12);
+                    SpawnEnemyGroups(enemyPrefabs[1], 2, 2000, 15);
+                    break;                      
+                case 5:                         
+                    SpawnEnemyGroups(enemyPrefabs[0], 5, 3000, 15);
+                    SpawnEnemyGroups(enemyPrefabs[2], 3, 3000, 15);
                     break;
-                case 4:
-                    SpawnEnemyGroups(enemyPrefab, 1, 2500, 12);
-                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
-                    break;
-                case 5:
-                    SpawnEnemyGroups(enemyPrefab, 1, 2000, 15);
-                    SpawnEnemyGroups(enemyPrefab, 1, 1750, 17);
-
+                case 6:
+                    SpawnEnemyGroups(enemyPrefabs[2], 6, 5000, 6);
                     break;
                 default:
                     //Debug.LogError("Wave " + currentWave + " has not been made/configured!");

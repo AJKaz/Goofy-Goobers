@@ -41,30 +41,32 @@ public class GroupSpawner : MonoBehaviour
         this.numberOfGroups = numberOfGroups;
 
         waveManager = GameManager.Instance.WaveManager;
-        groupSpawnTimestamp = Time.time;
+        // First waves spawns instantly
+        groupSpawnTimestamp = Time.time - msBetweenGroups / 1000;
         //Debug.Log(groupSpawnTimestamp);
     }
 
     /// <summary>
-    /// Returns a random spawn point from waveManager.EnemySpawnPositions
+    /// Returns a random spawn point (at index 0) and its associated 
+    /// spawnPointOffset (at index 1) from waveManager.EnemySpawnPositions
     /// </summary>
-    private Vector3 GetRandomSpawnPosition()
+    private Vector3[] GetRandomSpawnPosition()
     {
         int i = Random.Range(0, waveManager.EnemySpawnPositions.Count() - 1);
         try
         {
             Transform tempTransform = waveManager.EnemySpawnPositions[Random.Range(0, i)];
-            return new Vector3(tempTransform.position.x, 0, tempTransform.position.y);
+            Vector3[] returnVector = new Vector3[2];
+            returnVector[0] = new Vector3(tempTransform.position.x, 0, tempTransform.position.y);
+            returnVector[1] = tempTransform.GetComponentInParent<SpawnVector>().SpawnVectorOffset;
+            return returnVector;
         }
         catch
         {
-            Debug.LogError("GroupSpawner.GetRandomSpawnPosition() could not return a value! Aborting.");
-            Debug.Log("GetRandomSpawnPosition() tried to return index " + i +
-                " of EnemySpawnPositions[], which has a size of " +
-                waveManager.EnemySpawnPositions.Count());
+            Debug.LogError("GroupSpawner.GetRandomSpawnPosition() encountered an error! Aborting.");
             // Deletes this script
             Destroy(this);
-            return new Vector3(0, 0, 0);
+            return null;
         }
     }
 
@@ -87,7 +89,8 @@ public class GroupSpawner : MonoBehaviour
                 // Deletes this script
                 Destroy(this);
             }
-            enemy.transform.position = GetRandomSpawnPosition();
+            Vector3[] spawnVectors = GetRandomSpawnPosition();
+            enemy.transform.position = (spawnVectors[0] + spawnVectors[1] * i);
         }
     }
 
