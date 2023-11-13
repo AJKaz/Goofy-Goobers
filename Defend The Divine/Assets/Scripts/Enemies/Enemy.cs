@@ -16,16 +16,20 @@ public class Enemy : Entity {
     protected int waypointIndex = 0;
 
     protected Enemy enemyComponent;
-    protected SpriteRenderer sprite;
+    //protected SpriteRenderer sprite;
 
     protected Transform[] path;
 
     private bool isFrozen;
 
+    private Vector2 direction;
+    private Animator animator;
+
     private void Awake() {
         enemyComponent = GetComponent<Enemy>();
-        sprite = GetComponentInChildren<SpriteRenderer>();
+        //sprite = GetComponentInChildren<SpriteRenderer>();
         isFrozen = false;
+        animator = GetComponentInChildren<Animator>();
     }
 
     protected override void Start() {
@@ -36,6 +40,7 @@ public class Enemy : Entity {
 
     private void Update() {
         if (!isFrozen) Pathfind();
+        Animate();
     }
 
     protected void Pathfind() {
@@ -43,6 +48,8 @@ public class Enemy : Entity {
             // Move enemy from current waypoint to next one
             transform.position = Vector2.MoveTowards(transform.position,
                 path[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
+
+            direction = path[waypointIndex].transform.position - transform.position;
 
             // When enemy reaches next waypoint, increase waypointIndex so they can walk to next one
             if (transform.position == path[waypointIndex].transform.position) {
@@ -67,6 +74,34 @@ public class Enemy : Entity {
 
     public void Freeze (float freezeDuration) {
         StartCoroutine(FreezeCoroutine(freezeDuration));
+    }
+
+    private void Animate()
+    {
+        int animationAngle = 90;
+        float angle = -Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        angle += 90;
+        if (angle > 360) angle -= 360;
+        animationAngle = angle >= 345 && angle < 375 || angle >= -15 && angle < 15 ? 0 :
+                         angle >= 15 && angle < 37.5f ?                             15 :
+                         angle >= 37.5f && angle < 52.5f ?                          45 :
+                         angle >= 52.5f && angle < 75 ?                             60 :
+                         angle >= 75 && angle < 105 ?                               90 :
+                         angle >= 105 && angle < 127.5f ?                          120 :
+                         angle >= 127.5f && angle < 142.5f ?                       135 :
+                         angle >= 142.5f && angle < 165 ?                          150 :
+                         angle >= 165 && angle < 195 ?                             180 :
+                         angle >= 195 && angle < 217.5f ?                          210 :
+                         angle >= 217.5f && angle < 232.5f ?                       225 :
+                         angle >= 232.5f && angle < 255 ?                          240 :
+                         angle >= 255 && angle < 285 ?                             270 :
+                         angle >= 285 && angle < 307.5f ?                          300 :
+                         angle >= 307.5f && angle < 322.5f ?                       315 :
+                         angle >= 322.5f && angle < 345 ?                          330 :
+                         animationAngle;
+        Debug.Log(angle);
+        animator.SetInteger("angle", animationAngle);
+
     }
 
     IEnumerator FreezeCoroutine(float freezeDuration) {
