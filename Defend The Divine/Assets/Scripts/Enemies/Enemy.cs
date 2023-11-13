@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,9 +20,12 @@ public class Enemy : Entity {
 
     protected Transform[] path;
 
+    private bool isFrozen;
+
     private void Awake() {
         enemyComponent = GetComponent<Enemy>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        isFrozen = false;
     }
 
     protected override void Start() {
@@ -30,8 +34,8 @@ public class Enemy : Entity {
         //transform.position = path[waypointIndex].transform.position;
     }
 
-    void Update() {
-        Pathfind();
+    private void Update() {
+        if (!isFrozen) Pathfind();
     }
 
     protected void Pathfind() {
@@ -56,6 +60,20 @@ public class Enemy : Entity {
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DivinePillar")) {
             collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
+            GameManager.Instance.RemoveEnemy(enemyComponent);
+            Destroy(gameObject);
         }
+    }
+
+    public void Freeze (float freezeDuration) {
+        StartCoroutine(FreezeCoroutine(freezeDuration));
+    }
+
+    IEnumerator FreezeCoroutine(float freezeDuration) {
+        isFrozen = true;
+
+        yield return new WaitForSeconds(freezeDuration);
+
+        isFrozen = false;
     }
 }
