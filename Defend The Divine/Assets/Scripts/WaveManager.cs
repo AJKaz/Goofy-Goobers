@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    // Can be made into an array if necessary
     public GameObject[] enemyPrefabs = new GameObject[3];
 
     [SerializeField]
