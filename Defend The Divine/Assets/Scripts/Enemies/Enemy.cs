@@ -1,5 +1,6 @@
 using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : Entity {
@@ -75,5 +76,10 @@ public class Enemy : Entity {
         yield return new WaitForSeconds(freezeDuration);
 
         isFrozen = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Handles.Label(transform.position + new Vector3(-.2f, .35f, 0), Health.ToString());
     }
 }
