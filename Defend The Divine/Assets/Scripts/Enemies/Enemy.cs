@@ -59,7 +59,7 @@ public class Enemy : Entity {
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DivinePillar")) {
             collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
-            GameManager.Instance.RemoveEnemy(enemyComponent);
+            GameManager.Instance.RemoveEnemy(this);
             Destroy(gameObject);
         }
     }

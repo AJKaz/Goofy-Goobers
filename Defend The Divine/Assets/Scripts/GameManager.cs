@@ -37,11 +37,16 @@ public class GameManager : MonoBehaviour
     private WaveManager waveManager;
     public WaveManager WaveManager { get { return waveManager; } }
 
+    public TowerPlacement towerPlacement;
+
     public int Money { get { return money; } }
 
     private void Awake() {
         if (Instance == null) {
             Instance = this;
+        }
+        if (towerPlacement == null) {
+            towerPlacement = GetComponent<TowerPlacement>();
         }
         money = startingMoney;
         waveManager = GetComponent<WaveManager>();

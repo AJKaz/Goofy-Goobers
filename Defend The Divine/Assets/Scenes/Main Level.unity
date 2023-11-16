@@ -1777,9 +1777,10 @@ MonoBehaviour:
   - {fileID: 942978091}
   - {fileID: 581116052}
   - {fileID: 1116413903}
-  startingMoney: 15
+  startingMoney: 35
   towerUiCanvas: {fileID: 0}
   moneyText: {fileID: 1411268898}
+  towerPlacement: {fileID: 500631748}
 --- !u!4 &500631745
 Transform:
   m_ObjectHideFlags: 0
@@ -1821,7 +1822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerPrefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerGhost: {fileID: 547819842}
-  currentTowerType: 1
+  currentTowerType: 0
   towerType1Prefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   towerType2Prefab: {fileID: 1862400210719592098, guid: dd35b88adc3577d4294cd37d1576807c, type: 3}
 --- !u!114 &500631749
@@ -1855,6 +1856,7 @@ MonoBehaviour:
   enemySpawnPositions:
   - {fileID: 1473024243}
   - {fileID: 940715083}
+  currentWave: 0
 --- !u!114 &500631751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1872,7 +1874,7 @@ MonoBehaviour:
   spell2Button: {fileID: 951848392}
   spell3Button: {fileID: 2078158192}
   FreezeSpellPrefab: {fileID: 8205279509571411624, guid: f71e8f72f4f9b7d40b58e416910a2c76, type: 3}
-  freezeSpellCooldown: 1
+  freezeSpellCooldown: 5
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
