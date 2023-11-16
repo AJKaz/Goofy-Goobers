@@ -101,27 +101,27 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
             // Check which side of the screen the tower is on and move the UI accordingly
             if (transform.position.x <= 0)
             {
-                createdUi.transform.position += new Vector3(this.GetComponent<SpriteRenderer>().sprite.rect.width * 2 - 3,0,0);
+                createdUi.transform.localPosition = new Vector3(240, -132, 0);
             }
             else
             {
-                createdUi.transform.position -= new Vector3(this.GetComponent<SpriteRenderer>().sprite.rect.width * 2 - 3, 0, 0);
+                createdUi.transform.localPosition = new Vector3(-240, -132, 0);
             }
 
             // Calculate if the ui is clipping out of the vertical camera view
-            float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
-            if (topOfUi > Camera.main.WorldToScreenPoint(screenExtents).y)
-            {
-                float difference = Camera.main.WorldToScreenPoint(screenExtents).y - topOfUi;
-                createdUi.transform.position += new Vector3(0, difference - 10, 0);
-            }
-
-            float bottomOfUi = Camera.main.WorldToScreenPoint(transform.position).y - createdUi.GetComponent<RectTransform>().rect.height / 2;
-            if (bottomOfUi < 0)
-            {
-                float difference = 0 - bottomOfUi;
-                createdUi.transform.position += new Vector3(0, difference + 10, 0);
-            }
+            //float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
+            //if (topOfUi > Camera.main.WorldToScreenPoint(screenExtents).y)
+            //{
+            //    float difference = Camera.main.WorldToScreenPoint(screenExtents).y - topOfUi;
+            //    createdUi.transform.position += new Vector3(0, difference - 10, 0);
+            //}
+            //
+            //float bottomOfUi = Camera.main.WorldToScreenPoint(transform.position).y - createdUi.GetComponent<RectTransform>().rect.height / 2;
+            //if (bottomOfUi < 0)
+            //{
+            //    float difference = 0 - bottomOfUi;
+            //    createdUi.transform.position += new Vector3(0, difference + 10, 0);
+            //}
 
             visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
             visibleRange.transform.localScale = new Vector3(range, range);
