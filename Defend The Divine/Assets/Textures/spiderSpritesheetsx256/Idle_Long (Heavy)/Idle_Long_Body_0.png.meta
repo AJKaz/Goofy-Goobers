@@ -1580,7 +1580,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle_Long_Body_0_0: 2338045912566788932
+      Idle_Long_Body_0_1: 4505907683504527423
+      Idle_Long_Body_0_10: -4269012211286689717
+      Idle_Long_Body_0_11: 4556790737874388459
+      Idle_Long_Body_0_12: -4342311265221212602
+      Idle_Long_Body_0_13: 8483272459619588041
+      Idle_Long_Body_0_14: -4691630210520150844
+      Idle_Long_Body_0_15: 1140337111258050115
+      Idle_Long_Body_0_16: -3623837449399389933
+      Idle_Long_Body_0_17: -5591063350521453799
+      Idle_Long_Body_0_18: 6954455664040912762
+      Idle_Long_Body_0_19: -1879727638064303209
+      Idle_Long_Body_0_2: 6927838615011101089
+      Idle_Long_Body_0_20: -6503201238809617590
+      Idle_Long_Body_0_21: -1559000971131952095
+      Idle_Long_Body_0_22: -4234980863508331656
+      Idle_Long_Body_0_23: 2701634155296751726
+      Idle_Long_Body_0_24: -1768707429043156090
+      Idle_Long_Body_0_25: 9057703665862381222
+      Idle_Long_Body_0_26: -6516451900383847064
+      Idle_Long_Body_0_27: -930682398661415580
+      Idle_Long_Body_0_28: -319815393220634197
+      Idle_Long_Body_0_29: 2271017481503023489
+      Idle_Long_Body_0_3: 6662809149778326998
+      Idle_Long_Body_0_30: 8099418064625874791
+      Idle_Long_Body_0_31: 280127381621256656
+      Idle_Long_Body_0_32: -7393527213143334313
+      Idle_Long_Body_0_33: -2451848286478864885
+      Idle_Long_Body_0_34: 6926397182373072609
+      Idle_Long_Body_0_35: -8600628518134767205
+      Idle_Long_Body_0_36: -2160981522155132400
+      Idle_Long_Body_0_37: -7715024996934116093
+      Idle_Long_Body_0_38: -3095485788614158592
+      Idle_Long_Body_0_39: 8783055631778883582
+      Idle_Long_Body_0_4: 5591305363491860514
+      Idle_Long_Body_0_40: 8923129979550469011
+      Idle_Long_Body_0_41: 3482046172745020617
+      Idle_Long_Body_0_42: -3130771857859180678
+      Idle_Long_Body_0_43: 9042640706051226070
+      Idle_Long_Body_0_44: 2883921904123201423
+      Idle_Long_Body_0_45: 4786033255104421859
+      Idle_Long_Body_0_46: -6016737758679485658
+      Idle_Long_Body_0_47: -4055071024346209069
+      Idle_Long_Body_0_48: -100439095566722789
+      Idle_Long_Body_0_49: -7807756479387565690
+      Idle_Long_Body_0_5: 4620753729838282745
+      Idle_Long_Body_0_50: -7442766648351192841
+      Idle_Long_Body_0_51: -667725444991032493
+      Idle_Long_Body_0_52: -8585646406814765126
+      Idle_Long_Body_0_53: -8181671694573593252
+      Idle_Long_Body_0_54: -3885970469090135918
+      Idle_Long_Body_0_55: 3102687871950926703
+      Idle_Long_Body_0_56: -7529621132414172581
+      Idle_Long_Body_0_57: 4831666982903386957
+      Idle_Long_Body_0_58: -1984175871884626794
+      Idle_Long_Body_0_59: 3898617574545450973
+      Idle_Long_Body_0_6: 6749686526004722067
+      Idle_Long_Body_0_7: 9219730035175994056
+      Idle_Long_Body_0_8: 6135709394441170577
+      Idle_Long_Body_0_9: -1437045973130983603
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Defense_Body_225_0: -4325853829946821573
+      Defense_Body_225_1: 7199895408478838610
+      Defense_Body_225_10: -1799437278663799143
+      Defense_Body_225_11: 713177502487202
+      Defense_Body_225_12: -5972296903578671988
+      Defense_Body_225_13: -1132377141435257223
+      Defense_Body_225_14: 3227231740027288883
+      Defense_Body_225_15: -4728213683048673453
+      Defense_Body_225_2: -3956271556116288657
+      Defense_Body_225_3: -3699834632752766567
+      Defense_Body_225_4: 7556055874127138935
+      Defense_Body_225_5: 572621763610211668
+      Defense_Body_225_6: 5240070320604974598
+      Defense_Body_225_7: -2532616642296696870
+      Defense_Body_225_8: -8491228250071498886
+      Defense_Body_225_9: 4760288795073437550
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

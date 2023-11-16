@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Defense_Shadow_330_0: -867128125271763412
+      Defense_Shadow_330_1: -6530482921420037031
+      Defense_Shadow_330_10: -5469340496064257854
+      Defense_Shadow_330_11: 7706771876682250113
+      Defense_Shadow_330_12: -5851711126247156332
+      Defense_Shadow_330_13: 7446679455272390449
+      Defense_Shadow_330_14: 7751830060413683761
+      Defense_Shadow_330_15: -5087550518095242646
+      Defense_Shadow_330_2: -6356213839137407664
+      Defense_Shadow_330_3: -7941979576239798946
+      Defense_Shadow_330_4: -7424939726888148260
+      Defense_Shadow_330_5: -8938827087132850693
+      Defense_Shadow_330_6: -4364321678529022161
+      Defense_Shadow_330_7: -3204540705611769096
+      Defense_Shadow_330_8: -3219639252562257314
+      Defense_Shadow_330_9: 9059783601868085325
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

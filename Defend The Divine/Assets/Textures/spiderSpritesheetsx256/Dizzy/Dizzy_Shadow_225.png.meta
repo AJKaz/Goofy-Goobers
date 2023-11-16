@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dizzy_Shadow_225_0: -4025514949587352151
+      Dizzy_Shadow_225_1: 4238100116044757065
+      Dizzy_Shadow_225_10: -5974757701003885532
+      Dizzy_Shadow_225_11: 7792808462629120975
+      Dizzy_Shadow_225_12: 6578938480338531379
+      Dizzy_Shadow_225_13: 6729195990722048918
+      Dizzy_Shadow_225_14: 8646872437585224235
+      Dizzy_Shadow_225_15: -8698797441735656841
+      Dizzy_Shadow_225_2: -3251234571877952214
+      Dizzy_Shadow_225_3: 8790091780232147066
+      Dizzy_Shadow_225_4: 7698552534480265641
+      Dizzy_Shadow_225_5: -2480887036676337401
+      Dizzy_Shadow_225_6: 474952570246167945
+      Dizzy_Shadow_225_7: 2279482064361481542
+      Dizzy_Shadow_225_8: 3800912642734546146
+      Dizzy_Shadow_225_9: -5473889066599424835
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

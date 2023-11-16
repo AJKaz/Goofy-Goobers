@@ -1580,7 +1580,67 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle_Long_Shadow_330_0: -5471296414408555427
+      Idle_Long_Shadow_330_1: -3772917908384699267
+      Idle_Long_Shadow_330_10: -1083483828387782066
+      Idle_Long_Shadow_330_11: 3370010384962931338
+      Idle_Long_Shadow_330_12: -2928362800497376337
+      Idle_Long_Shadow_330_13: -765462233908204942
+      Idle_Long_Shadow_330_14: -6061928030080090080
+      Idle_Long_Shadow_330_15: 400716060621074675
+      Idle_Long_Shadow_330_16: 4335985423955061557
+      Idle_Long_Shadow_330_17: -9021730922576560882
+      Idle_Long_Shadow_330_18: -3580974115542368413
+      Idle_Long_Shadow_330_19: 8382826189906615860
+      Idle_Long_Shadow_330_2: 7986948122821883122
+      Idle_Long_Shadow_330_20: 451413013775381038
+      Idle_Long_Shadow_330_21: -5357896301546753849
+      Idle_Long_Shadow_330_22: -6619368838302478765
+      Idle_Long_Shadow_330_23: 2126453891560377643
+      Idle_Long_Shadow_330_24: 1870265188700003404
+      Idle_Long_Shadow_330_25: 4645975314190279090
+      Idle_Long_Shadow_330_26: -7924809385189292708
+      Idle_Long_Shadow_330_27: -2072885699780061085
+      Idle_Long_Shadow_330_28: -2667603115807366803
+      Idle_Long_Shadow_330_29: -2798462293708590539
+      Idle_Long_Shadow_330_3: -4013093155972565563
+      Idle_Long_Shadow_330_30: -5518828103495020263
+      Idle_Long_Shadow_330_31: 5214080858635073082
+      Idle_Long_Shadow_330_32: -8029833098307224713
+      Idle_Long_Shadow_330_33: 8568894476575135888
+      Idle_Long_Shadow_330_34: -6206861028842187823
+      Idle_Long_Shadow_330_35: -4045834887904995846
+      Idle_Long_Shadow_330_36: 6376716789675236544
+      Idle_Long_Shadow_330_37: -7026258839924934999
+      Idle_Long_Shadow_330_38: 2209373409394777179
+      Idle_Long_Shadow_330_39: 8635216589621335385
+      Idle_Long_Shadow_330_4: -4660608825666342894
+      Idle_Long_Shadow_330_40: -6651807088518964395
+      Idle_Long_Shadow_330_41: 6144087664435449569
+      Idle_Long_Shadow_330_42: -6870773706870350509
+      Idle_Long_Shadow_330_43: 9094274442854774429
+      Idle_Long_Shadow_330_44: 3390287161041788183
+      Idle_Long_Shadow_330_45: 5787351109911705207
+      Idle_Long_Shadow_330_46: 4184656172432701302
+      Idle_Long_Shadow_330_47: -8577528282101334937
+      Idle_Long_Shadow_330_48: -2565311987089017146
+      Idle_Long_Shadow_330_49: -9076400030637244913
+      Idle_Long_Shadow_330_5: 7434612564450171406
+      Idle_Long_Shadow_330_50: -535584611005579283
+      Idle_Long_Shadow_330_51: 7341942932522481548
+      Idle_Long_Shadow_330_52: 7041367106454813270
+      Idle_Long_Shadow_330_53: 7269738070371803733
+      Idle_Long_Shadow_330_54: -842900004638226785
+      Idle_Long_Shadow_330_55: -23872869169607404
+      Idle_Long_Shadow_330_56: 4184107183210891118
+      Idle_Long_Shadow_330_57: 2568787626222890924
+      Idle_Long_Shadow_330_58: 2679364325807946107
+      Idle_Long_Shadow_330_59: -2510755837359090976
+      Idle_Long_Shadow_330_6: -6319884537833152555
+      Idle_Long_Shadow_330_7: -4596408114630250178
+      Idle_Long_Shadow_330_8: -2307749705999379222
+      Idle_Long_Shadow_330_9: -4794658406000544717
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

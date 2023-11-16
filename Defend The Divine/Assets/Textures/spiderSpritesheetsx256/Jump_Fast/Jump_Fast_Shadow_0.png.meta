@@ -716,7 +716,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jump_Fast_Shadow_0_0: 4620287049628655259
+      Jump_Fast_Shadow_0_1: 578331640658616486
+      Jump_Fast_Shadow_0_10: -370566242358080428
+      Jump_Fast_Shadow_0_11: 7399732440444942134
+      Jump_Fast_Shadow_0_12: -8609041179480525770
+      Jump_Fast_Shadow_0_13: 7529286703301294038
+      Jump_Fast_Shadow_0_14: -5579639386364790910
+      Jump_Fast_Shadow_0_15: 8756574797655864915
+      Jump_Fast_Shadow_0_16: -6824898645275637302
+      Jump_Fast_Shadow_0_17: -143424604597818267
+      Jump_Fast_Shadow_0_18: 4879704188106678613
+      Jump_Fast_Shadow_0_19: 4910321947343352664
+      Jump_Fast_Shadow_0_2: -2849266746913550251
+      Jump_Fast_Shadow_0_20: -9051269048370772472
+      Jump_Fast_Shadow_0_21: -716360584087826626
+      Jump_Fast_Shadow_0_22: -7928094778866793512
+      Jump_Fast_Shadow_0_23: -8022707764402117117
+      Jump_Fast_Shadow_0_3: 3528895865826903315
+      Jump_Fast_Shadow_0_4: -6380281884287767934
+      Jump_Fast_Shadow_0_5: 6823617413553620442
+      Jump_Fast_Shadow_0_6: -2685852682491535870
+      Jump_Fast_Shadow_0_7: 5335658097247701890
+      Jump_Fast_Shadow_0_8: -8605641635751468148
+      Jump_Fast_Shadow_0_9: -7265664622991464568
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

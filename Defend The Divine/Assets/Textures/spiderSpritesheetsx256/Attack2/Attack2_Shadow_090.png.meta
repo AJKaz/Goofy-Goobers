@@ -620,7 +620,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack2_Shadow_090_0: 5204284249435836511
+      Attack2_Shadow_090_1: 1913622746041482443
+      Attack2_Shadow_090_10: 7183548728385923365
+      Attack2_Shadow_090_11: 3564059385947144060
+      Attack2_Shadow_090_12: -5630786090350113740
+      Attack2_Shadow_090_13: 63140591199963728
+      Attack2_Shadow_090_14: 421236229422788006
+      Attack2_Shadow_090_15: -4538161494226496128
+      Attack2_Shadow_090_16: -873822465933798463
+      Attack2_Shadow_090_17: 8934903917396601730
+      Attack2_Shadow_090_18: -3096475618480812381
+      Attack2_Shadow_090_19: 128237465708880798
+      Attack2_Shadow_090_2: 5193906848022367597
+      Attack2_Shadow_090_3: 7738305220473040699
+      Attack2_Shadow_090_4: 7792591299429212842
+      Attack2_Shadow_090_5: 6039701907390625027
+      Attack2_Shadow_090_6: -3108544190176169927
+      Attack2_Shadow_090_7: 2549675703720101298
+      Attack2_Shadow_090_8: -1780114884549283158
+      Attack2_Shadow_090_9: -2844717859924728496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

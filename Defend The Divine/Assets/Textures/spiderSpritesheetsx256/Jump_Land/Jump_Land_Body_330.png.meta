@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jump_Land_Body_330_0: -7769978712190607832
+      Jump_Land_Body_330_1: 1340234494233522767
+      Jump_Land_Body_330_10: -4371254965960988200
+      Jump_Land_Body_330_11: 1664975870849464643
+      Jump_Land_Body_330_12: 8779768674790645329
+      Jump_Land_Body_330_13: 5120785660158055189
+      Jump_Land_Body_330_14: -4321215514960535060
+      Jump_Land_Body_330_15: -8106904169881132360
+      Jump_Land_Body_330_2: 2761350103380488363
+      Jump_Land_Body_330_3: -4118091336094011062
+      Jump_Land_Body_330_4: -4384548596048656120
+      Jump_Land_Body_330_5: -7936565506402834994
+      Jump_Land_Body_330_6: -8031477111790741009
+      Jump_Land_Body_330_7: -5062090930242669553
+      Jump_Land_Body_330_8: 7143589113127773877
+      Jump_Land_Body_330_9: 2381561388111250153
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

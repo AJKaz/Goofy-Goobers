@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Run_Shadow_120_0: 4336075934465454081
+      Run_Shadow_120_1: 2722719165655689643
+      Run_Shadow_120_10: 8080071815577731521
+      Run_Shadow_120_11: 112055096035616650
+      Run_Shadow_120_12: 5248748615845394639
+      Run_Shadow_120_13: -6809668421793017637
+      Run_Shadow_120_14: -1561924312216693057
+      Run_Shadow_120_15: 1134205172014900222
+      Run_Shadow_120_2: 3431950566186352921
+      Run_Shadow_120_3: -2893160136929863238
+      Run_Shadow_120_4: -4463217886813891435
+      Run_Shadow_120_5: 3973009677282697395
+      Run_Shadow_120_6: 6712880592399005946
+      Run_Shadow_120_7: -3732797791822133247
+      Run_Shadow_120_8: 7026674098823115611
+      Run_Shadow_120_9: -2342538381257123269
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

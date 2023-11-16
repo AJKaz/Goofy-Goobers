@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walk_Body_090_0: 4775628299897633016
+      Walk_Body_090_1: -1354836996800646926
+      Walk_Body_090_10: -3962980215462049084
+      Walk_Body_090_11: -7668507845434061612
+      Walk_Body_090_12: 5007965036641189995
+      Walk_Body_090_13: -636022480569441512
+      Walk_Body_090_14: -5897674731501899266
+      Walk_Body_090_15: 5131230514322584046
+      Walk_Body_090_2: 5401665834675871972
+      Walk_Body_090_3: 8308269298471033896
+      Walk_Body_090_4: 266108537469184494
+      Walk_Body_090_5: -4766991743253406267
+      Walk_Body_090_6: 4188786140701098525
+      Walk_Body_090_7: -7257953314017402520
+      Walk_Body_090_8: -5994354013240760775
+      Walk_Body_090_9: -1649342296825024057
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

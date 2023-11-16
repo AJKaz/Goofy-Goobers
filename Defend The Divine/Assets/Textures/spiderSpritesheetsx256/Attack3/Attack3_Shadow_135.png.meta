@@ -860,7 +860,37 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack3_Shadow_135_0: 2550900447777126920
+      Attack3_Shadow_135_1: 8235307742417975947
+      Attack3_Shadow_135_10: -7641422126763874876
+      Attack3_Shadow_135_11: 5765488676495233577
+      Attack3_Shadow_135_12: -907187542452081786
+      Attack3_Shadow_135_13: 3932682224951715502
+      Attack3_Shadow_135_14: -2474610350605822224
+      Attack3_Shadow_135_15: 6196665395249261565
+      Attack3_Shadow_135_16: -2865743347383753964
+      Attack3_Shadow_135_17: -575339416781892649
+      Attack3_Shadow_135_18: 4387152222948663084
+      Attack3_Shadow_135_19: -3165692321829348998
+      Attack3_Shadow_135_2: -872201204176065818
+      Attack3_Shadow_135_20: 1953467006659158989
+      Attack3_Shadow_135_21: -4788330625306908586
+      Attack3_Shadow_135_22: 5878019035152264432
+      Attack3_Shadow_135_23: 1928026086988751099
+      Attack3_Shadow_135_24: 3215082529148528519
+      Attack3_Shadow_135_25: -8404476262529750911
+      Attack3_Shadow_135_26: -1994316668209751306
+      Attack3_Shadow_135_27: 653189201325538290
+      Attack3_Shadow_135_28: -6071318125886743532
+      Attack3_Shadow_135_29: 9120999393203782606
+      Attack3_Shadow_135_3: -5236747640828034097
+      Attack3_Shadow_135_4: 400718865027417712
+      Attack3_Shadow_135_5: -7575667888571777730
+      Attack3_Shadow_135_6: 1774485556079375420
+      Attack3_Shadow_135_7: -3072377627302463641
+      Attack3_Shadow_135_8: 4208344066222956425
+      Attack3_Shadow_135_9: -7017783273873957987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

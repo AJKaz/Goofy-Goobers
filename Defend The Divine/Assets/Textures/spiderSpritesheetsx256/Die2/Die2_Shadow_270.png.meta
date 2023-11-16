@@ -620,7 +620,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Die2_Shadow_270_0: 8894621118310174401
+      Die2_Shadow_270_1: -1426088966516719855
+      Die2_Shadow_270_10: -1345055967779863498
+      Die2_Shadow_270_11: 171636393315163213
+      Die2_Shadow_270_12: -4687407220845855468
+      Die2_Shadow_270_13: -373510459716490721
+      Die2_Shadow_270_14: -5104400606693792554
+      Die2_Shadow_270_15: 7707798194868690984
+      Die2_Shadow_270_16: 7639137040608220806
+      Die2_Shadow_270_17: -423631816402631667
+      Die2_Shadow_270_18: -2096636052786485515
+      Die2_Shadow_270_19: 1438347999309207173
+      Die2_Shadow_270_2: -2916494135227995139
+      Die2_Shadow_270_3: -5192376112007046878
+      Die2_Shadow_270_4: -3590225448933021916
+      Die2_Shadow_270_5: -822560940583471129
+      Die2_Shadow_270_6: -8090442312624952110
+      Die2_Shadow_270_7: -7325299609725000005
+      Die2_Shadow_270_8: -4192922782752434794
+      Die2_Shadow_270_9: -6922208077776901664
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

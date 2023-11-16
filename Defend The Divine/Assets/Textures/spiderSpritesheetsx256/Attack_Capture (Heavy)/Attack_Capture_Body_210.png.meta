@@ -1100,7 +1100,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack_Capture_Body_210_0: -4632920725761608386
+      Attack_Capture_Body_210_1: 45159845950291582
+      Attack_Capture_Body_210_10: -6168406179980634413
+      Attack_Capture_Body_210_11: 8200393251667708653
+      Attack_Capture_Body_210_12: 511683711124501236
+      Attack_Capture_Body_210_13: -3595866752620317135
+      Attack_Capture_Body_210_14: -5981113391429622345
+      Attack_Capture_Body_210_15: -2004927537681829831
+      Attack_Capture_Body_210_16: -8995621867240591639
+      Attack_Capture_Body_210_17: -7325680859954349808
+      Attack_Capture_Body_210_18: 8623801204346962364
+      Attack_Capture_Body_210_19: 6124031922171990788
+      Attack_Capture_Body_210_2: 2157312293045698012
+      Attack_Capture_Body_210_20: -7828907363022526738
+      Attack_Capture_Body_210_21: 6528464189566855743
+      Attack_Capture_Body_210_22: 5676002575017078458
+      Attack_Capture_Body_210_23: -1888062598313345061
+      Attack_Capture_Body_210_24: -1723856494624112792
+      Attack_Capture_Body_210_25: 5180523603648589214
+      Attack_Capture_Body_210_26: 6808792703809560457
+      Attack_Capture_Body_210_27: -7614261645692512731
+      Attack_Capture_Body_210_28: 150942885235859820
+      Attack_Capture_Body_210_29: 6008426828643605059
+      Attack_Capture_Body_210_3: -1717467910335705231
+      Attack_Capture_Body_210_30: -7483757482906598326
+      Attack_Capture_Body_210_31: -4553865193232053097
+      Attack_Capture_Body_210_32: -6617799936132119665
+      Attack_Capture_Body_210_33: 7652781901718998175
+      Attack_Capture_Body_210_34: 1939397529822065966
+      Attack_Capture_Body_210_35: 5916820972367562937
+      Attack_Capture_Body_210_36: 1505173071480394381
+      Attack_Capture_Body_210_37: 2822574514273150277
+      Attack_Capture_Body_210_38: -516998796449302608
+      Attack_Capture_Body_210_39: 969973606145313000
+      Attack_Capture_Body_210_4: 685190304811258179
+      Attack_Capture_Body_210_5: -8362371113438954299
+      Attack_Capture_Body_210_6: 2331533851225840052
+      Attack_Capture_Body_210_7: -432063384341730989
+      Attack_Capture_Body_210_8: 230335870973092058
+      Attack_Capture_Body_210_9: 6335450060747705888
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

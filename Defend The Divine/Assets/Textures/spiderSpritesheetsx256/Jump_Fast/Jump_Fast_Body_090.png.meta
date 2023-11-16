@@ -716,7 +716,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Jump_Fast_Body_090_0: -5182878188259200139
+      Jump_Fast_Body_090_1: -7984551663010671881
+      Jump_Fast_Body_090_10: 8082018080412815139
+      Jump_Fast_Body_090_11: 5265325427980903335
+      Jump_Fast_Body_090_12: 8045211147503674317
+      Jump_Fast_Body_090_13: -829086827775322842
+      Jump_Fast_Body_090_14: -6726958580155546669
+      Jump_Fast_Body_090_15: 7277495964532954041
+      Jump_Fast_Body_090_16: 6473674007965373490
+      Jump_Fast_Body_090_17: -3388509417668316498
+      Jump_Fast_Body_090_18: -8650092830520728582
+      Jump_Fast_Body_090_19: -6774810309639528596
+      Jump_Fast_Body_090_2: 798885342301046083
+      Jump_Fast_Body_090_20: 4993148704693855116
+      Jump_Fast_Body_090_21: 5262293572608434810
+      Jump_Fast_Body_090_22: -1785115566848890742
+      Jump_Fast_Body_090_23: 8928147465417748448
+      Jump_Fast_Body_090_3: -3537617756082581383
+      Jump_Fast_Body_090_4: -1009044910895172764
+      Jump_Fast_Body_090_5: -6655810673969285608
+      Jump_Fast_Body_090_6: 5976834246285700230
+      Jump_Fast_Body_090_7: -1336854745950691178
+      Jump_Fast_Body_090_8: 826532186364146043
+      Jump_Fast_Body_090_9: 4573532375168790081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

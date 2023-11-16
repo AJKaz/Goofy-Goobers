@@ -1100,7 +1100,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Attack_Capture_Shadow_315_0: 7727419795711947620
+      Attack_Capture_Shadow_315_1: 8333340969791026130
+      Attack_Capture_Shadow_315_10: -5645615615421955977
+      Attack_Capture_Shadow_315_11: 3785965279856138124
+      Attack_Capture_Shadow_315_12: -4243835093548599450
+      Attack_Capture_Shadow_315_13: -7241517454236857061
+      Attack_Capture_Shadow_315_14: 6366252506137522831
+      Attack_Capture_Shadow_315_15: 3990739375434059248
+      Attack_Capture_Shadow_315_16: 3712812435693545406
+      Attack_Capture_Shadow_315_17: -5432054876134484285
+      Attack_Capture_Shadow_315_18: -8626112118473248443
+      Attack_Capture_Shadow_315_19: -2183271810715106816
+      Attack_Capture_Shadow_315_2: -95353353700888310
+      Attack_Capture_Shadow_315_20: -5476286653162774820
+      Attack_Capture_Shadow_315_21: 1648967783835681871
+      Attack_Capture_Shadow_315_22: -1043757752779404482
+      Attack_Capture_Shadow_315_23: 8009859433398704649
+      Attack_Capture_Shadow_315_24: -3907906411182644356
+      Attack_Capture_Shadow_315_25: 223714801819787253
+      Attack_Capture_Shadow_315_26: -8104029497812511341
+      Attack_Capture_Shadow_315_27: -4422071546545279797
+      Attack_Capture_Shadow_315_28: 7277931787530828669
+      Attack_Capture_Shadow_315_29: -3422478986373162291
+      Attack_Capture_Shadow_315_3: -3119715974957728948
+      Attack_Capture_Shadow_315_30: -4510356039518803496
+      Attack_Capture_Shadow_315_31: -31844210029622634
+      Attack_Capture_Shadow_315_32: -1374495284009798988
+      Attack_Capture_Shadow_315_33: 6283566529720901026
+      Attack_Capture_Shadow_315_34: -7681315582544753135
+      Attack_Capture_Shadow_315_35: -5091105400640515934
+      Attack_Capture_Shadow_315_36: -2262000732094448766
+      Attack_Capture_Shadow_315_37: -4313180760903291762
+      Attack_Capture_Shadow_315_38: 4738473252870629303
+      Attack_Capture_Shadow_315_39: 8909165119727179448
+      Attack_Capture_Shadow_315_4: -5240040530519770839
+      Attack_Capture_Shadow_315_5: 4413408850006114449
+      Attack_Capture_Shadow_315_6: -1438853876247247777
+      Attack_Capture_Shadow_315_7: 8441963933128446733
+      Attack_Capture_Shadow_315_8: -5066658091563008427
+      Attack_Capture_Shadow_315_9: -3962017465191053994
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

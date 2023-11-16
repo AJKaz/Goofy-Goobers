@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Hit_Body_090_0: 4435757520301046441
+      Hit_Body_090_1: -1864935416104940668
+      Hit_Body_090_10: 8137131449159639556
+      Hit_Body_090_11: 1674742774565277896
+      Hit_Body_090_12: -8847928650498049666
+      Hit_Body_090_13: 9024189139884582413
+      Hit_Body_090_14: -1323628758352202401
+      Hit_Body_090_15: -952974273184369603
+      Hit_Body_090_2: -4344757490972634543
+      Hit_Body_090_3: -6300445671743051294
+      Hit_Body_090_4: -6127561902842276096
+      Hit_Body_090_5: 1647353511111133466
+      Hit_Body_090_6: -1429522445638329176
+      Hit_Body_090_7: 199117423082092606
+      Hit_Body_090_8: -6373304039157173284
+      Hit_Body_090_9: -3733526667596743741
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dizzy_Body_150_0: -2527997009740296110
+      Dizzy_Body_150_1: 8643637681419644043
+      Dizzy_Body_150_10: -2130839077198330912
+      Dizzy_Body_150_11: -6895824932086774633
+      Dizzy_Body_150_12: -1891994741770138495
+      Dizzy_Body_150_13: 5147296022361992025
+      Dizzy_Body_150_14: 2164880788123471478
+      Dizzy_Body_150_15: -2594963464135844409
+      Dizzy_Body_150_2: -8638443955058447708
+      Dizzy_Body_150_3: 6818606622044184982
+      Dizzy_Body_150_4: -6924922489999312003
+      Dizzy_Body_150_5: -1582748327594327843
+      Dizzy_Body_150_6: 8511755084020651583
+      Dizzy_Body_150_7: 9173359385891263566
+      Dizzy_Body_150_8: -2416604725551604208
+      Dizzy_Body_150_9: 1924253225982562072
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

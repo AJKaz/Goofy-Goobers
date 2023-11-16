@@ -716,7 +716,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Idle_Nervous_Body_225_0: -1709175309339224345
+      Idle_Nervous_Body_225_1: -2343654130829127004
+      Idle_Nervous_Body_225_10: -4309616894479822254
+      Idle_Nervous_Body_225_11: 9081547583278363775
+      Idle_Nervous_Body_225_12: -2020995352783860606
+      Idle_Nervous_Body_225_13: 8364847404887957676
+      Idle_Nervous_Body_225_14: -9096581347928203351
+      Idle_Nervous_Body_225_15: 251493445157204155
+      Idle_Nervous_Body_225_16: -4099184764882648134
+      Idle_Nervous_Body_225_17: -7288131786520982328
+      Idle_Nervous_Body_225_18: -269460734985226052
+      Idle_Nervous_Body_225_19: -8369083443271207047
+      Idle_Nervous_Body_225_2: -5149784419904204402
+      Idle_Nervous_Body_225_20: -8877272199735330278
+      Idle_Nervous_Body_225_21: 1977046320641026057
+      Idle_Nervous_Body_225_22: 7959147207778539384
+      Idle_Nervous_Body_225_23: -808404860044647328
+      Idle_Nervous_Body_225_3: 2873167179515748866
+      Idle_Nervous_Body_225_4: 1542061008809104453
+      Idle_Nervous_Body_225_5: -3087017403655035032
+      Idle_Nervous_Body_225_6: 5385046875182068744
+      Idle_Nervous_Body_225_7: 3522716245032416616
+      Idle_Nervous_Body_225_8: -7607561824990743669
+      Idle_Nervous_Body_225_9: 6039677690608248762
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

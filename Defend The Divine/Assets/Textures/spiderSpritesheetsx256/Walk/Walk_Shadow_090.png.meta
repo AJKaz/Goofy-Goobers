@@ -524,7 +524,23 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Walk_Shadow_090_0: 1368693744210727264
+      Walk_Shadow_090_1: -2852335558650143545
+      Walk_Shadow_090_10: 4892137588520420698
+      Walk_Shadow_090_11: 5477330860490524298
+      Walk_Shadow_090_12: -9114272067158316106
+      Walk_Shadow_090_13: 2950649447512584570
+      Walk_Shadow_090_14: -6109098798776528488
+      Walk_Shadow_090_15: -8538113439826421980
+      Walk_Shadow_090_2: 556553963485019785
+      Walk_Shadow_090_3: 7327162537035089722
+      Walk_Shadow_090_4: -6171316271165828862
+      Walk_Shadow_090_5: 8517372105186826483
+      Walk_Shadow_090_6: 8917833739157308518
+      Walk_Shadow_090_7: -1432636065142502378
+      Walk_Shadow_090_8: -8189298923260380767
+      Walk_Shadow_090_9: -3227646366399281349
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
