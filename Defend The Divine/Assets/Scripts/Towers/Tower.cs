@@ -38,6 +38,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
     [SerializeField]
     protected GameObject rangePrefab;
 
+    protected Button[] uiButtons;
+
     public int Cost { get { return cost; } }
 
     protected virtual void Update() {
@@ -85,7 +87,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!hasCreatedUI)
@@ -132,7 +133,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
         createdUi.SetActive(true);
         visibleRange.SetActive(true);
     }
-
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
@@ -152,7 +152,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
         mouseIsOver = true;
         EventSystem.current.SetSelectedGameObject(gameObject);
     }
-
     public void OnPointerExit(PointerEventData eventData)
     {
         mouseIsOver = false;
