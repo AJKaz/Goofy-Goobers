@@ -140,7 +140,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
     public void OnDeselect(BaseEventData eventData)
     {
         //Close the Window on Deselect only if a click occurred outside this panel
-        if (!mouseIsOver)
+        if (!mouseIsOver && createdUi != null && visibleRange != null)
         {
             createdUi.SetActive(false);
             visibleRange.SetActive(false);
