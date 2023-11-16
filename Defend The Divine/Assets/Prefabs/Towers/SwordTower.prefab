@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7982588207619209293}
   - component: {fileID: 8155601902515693895}
   - component: {fileID: 1862400210719592098}
-  - component: {fileID: 7633647305528000178}
+  - component: {fileID: -8598380634875836332}
   m_Layer: 7
   m_Name: SwordTower
   m_TagString: Tower
@@ -193,8 +193,8 @@ MonoBehaviour:
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
   rotationSpeed: 2500
   swordSpriteRenderer: {fileID: 1443375537974400236}
---- !u!61 &7633647305528000178
-BoxCollider2D:
+--- !u!58 &-8598380634875836332
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -228,14 +228,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5

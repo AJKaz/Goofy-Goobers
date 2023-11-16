@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPointerExitHandler, IPointerEnterHandler
+public class Tower : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     protected float damage = 5f;
@@ -37,8 +37,6 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
 
     [SerializeField]
     protected GameObject rangePrefab;
-
-    protected Button[] uiButtons;
 
     public int Cost { get { return cost; } }
 
@@ -93,8 +91,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
         {
             // Create a ui element on top of the tower
             createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity, GameManager.Instance.towerUiCanvas.transform);
-            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
-            
+            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);            
             
             // Use to calculate position relative to screen
             Vector2 screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
@@ -127,34 +124,11 @@ public class Tower : MonoBehaviour, IPointerClickHandler, IDeselectHandler, IPoi
             visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
             visibleRange.transform.localScale = new Vector3(range, range);
 
+            createdUi.GetComponent<HandlePanelVisibility>().visibleRange = visibleRange;
 
             hasCreatedUI = true;
         }
         createdUi.SetActive(true);
         visibleRange.SetActive(true);
-    }
-    private void OnEnable()
-    {
-        EventSystem.current.SetSelectedGameObject(gameObject);
-    }
-    public void OnDeselect(BaseEventData eventData)
-    {
-        //Close the Window on Deselect only if a click occurred outside this panel
-        if (!mouseIsOver && createdUi != null && visibleRange != null)
-        {
-            createdUi.SetActive(false);
-            visibleRange.SetActive(false);
-        }
-
-    }
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        mouseIsOver = true;
-        EventSystem.current.SetSelectedGameObject(gameObject);
-    }
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        mouseIsOver = false;
-        EventSystem.current.SetSelectedGameObject(gameObject);
     }
 }

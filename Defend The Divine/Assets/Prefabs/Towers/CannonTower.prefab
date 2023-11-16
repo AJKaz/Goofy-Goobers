@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7982588207619209293}
   - component: {fileID: 8155601902515693895}
   - component: {fileID: -7116430699302381254}
-  - component: {fileID: -462263563032543124}
+  - component: {fileID: 4240451749635177865}
   m_Layer: 7
   m_Name: CannonTower
   m_TagString: Tower
@@ -106,8 +106,8 @@ MonoBehaviour:
   damagingPrefab: {fileID: 474679912698572556, guid: d760f47b006601e43a3027800f6f82b2, type: 3}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
---- !u!61 &-462263563032543124
-BoxCollider2D:
+--- !u!58 &4240451749635177865
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -141,14 +141,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5
