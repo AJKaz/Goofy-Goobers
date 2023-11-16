@@ -1,4 +1,6 @@
+using System.Collections;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class Enemy : Entity {
@@ -14,14 +16,15 @@ public class Enemy : Entity {
 
     protected int waypointIndex = 0;
 
-    protected Enemy enemyComponent;
     protected SpriteRenderer sprite;
 
     protected Transform[] path;
 
+    private bool isFrozen;
+
     private void Awake() {
-        enemyComponent = GetComponent<Enemy>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        isFrozen = false;
     }
 
     protected override void Start() {
@@ -31,7 +34,7 @@ public class Enemy : Entity {
     }
 
     private void Update() {
-        Pathfind();
+        if (!isFrozen) Pathfind();
     }
 
     protected void Pathfind() {
@@ -49,15 +52,32 @@ public class Enemy : Entity {
 
     override protected void Die() {
         Destroy(gameObject);
-        GameManager.Instance.RemoveEnemy(enemyComponent);
+        GameManager.Instance.RemoveEnemy(this);
         GameManager.Instance.AddMoney(moneyValue);
     }
 
     protected void OnTriggerEnter2D(Collider2D collision) {
         if (collision.gameObject.CompareTag("DivinePillar")) {
             collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
-            GameManager.Instance.RemoveEnemy(enemyComponent);
+            GameManager.Instance.RemoveEnemy(this);
             Destroy(gameObject);
         }
+    }
+
+    public void Freeze (float freezeDuration) {
+        StartCoroutine(FreezeCoroutine(freezeDuration));
+    }
+
+    IEnumerator FreezeCoroutine(float freezeDuration) {
+        isFrozen = true;
+
+        yield return new WaitForSeconds(freezeDuration);
+
+        isFrozen = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Handles.Label(transform.position + new Vector3(-.2f, .35f, 0), Health.ToString());
     }
 }

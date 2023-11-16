@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7982588207619209293}
   - component: {fileID: 8155601902515693895}
   - component: {fileID: 1862400210719592098}
-  - component: {fileID: -8598380634875836332}
+  - component: {fileID: 6161489313166050419}
   m_Layer: 7
   m_Name: SwordTower
   m_TagString: Tower
@@ -160,7 +160,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 68447e7d79771a94387a2f51f6e5abbe, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
   m_Color: {r: 0, g: 0.9339623, b: 0.8586397, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd59eb6053ef50b4f8aefb229a179f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 5
+  damage: 10
   projectileSpeed: 15
   range: 2.1
   SHOOT_DELAY: 2.5
@@ -228,4 +228,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.42

@@ -9,7 +9,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField]
     private Tower towerPrefab;
     [SerializeField]
-    private GameObject towerGhost;
+    private TowerGhost towerGhost;
 
     private bool canPlaceTower = true;
 
@@ -20,18 +20,6 @@ public class TowerPlacement : MonoBehaviour
 
     void Update()
     {
-        GameManager manager = GameManager.Instance;
-
-        // If the player's mouse isn't in a place that allows placement (the grid),
-        // don't bother.
-        if (!manager.grid.PositionInGrid(manager.inputManager.MouseWorldPosition))
-        {
-            return;
-        }
-
-        int gridX, gridY;
-        manager.grid.GetXY(manager.inputManager.MouseWorldPosition, out gridX, out gridY);
-
         /* A tower may be placed when:
          *   player has enough money
          *   the ghost isn't colliding with a path
@@ -40,10 +28,11 @@ public class TowerPlacement : MonoBehaviour
          */
         canPlaceTower =
             GameManager.Instance.Money >= towerPrefab.Cost
-            && manager.grid.GetValue(gridX, gridY) == 0
-            && !manager.GetComponent<MouseUICheck>().IsPointerOverUIElement();
+            && !towerGhost.CollidingWithPath
+            && !GameManager.Instance.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
-        towerGhost.transform.position = manager.grid.GetTileCenter(gridX, gridY);
+        Vector2 currentMousePosition = GameManager.Instance.inputManager.MouseWorldPosition;
+        towerGhost.transform.position = new Vector3(currentMousePosition.x, currentMousePosition.y, 0);
 
         // Show when a tower can be placed
         SpriteRenderer towerGhostSR = towerGhost.GetComponent<SpriteRenderer>();
@@ -56,7 +45,7 @@ public class TowerPlacement : MonoBehaviour
             towerGhostSR.color = new Color(1f, 0f, 0f);
         }
 
-        if (manager.inputManager.MouseLeftDownThisFrame && canPlaceTower)
+        if (GameManager.Instance.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
             switch (currentTowerType)
             {
@@ -70,8 +59,7 @@ public class TowerPlacement : MonoBehaviour
                     break;
             }
 
-            GameObject.Instantiate(towerPrefab, manager.grid.GetTileCenter(gridX, gridY), Quaternion.identity);
-            manager.grid.SetValue(gridX, gridY, 2);
+            GameObject.Instantiate(towerPrefab, towerGhost.transform.position, Quaternion.identity);
             GameManager.Instance.AddMoney(-towerPrefab.Cost);
         }
     }
