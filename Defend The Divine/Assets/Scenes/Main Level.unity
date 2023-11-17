@@ -1778,7 +1778,7 @@ MonoBehaviour:
   - {fileID: 581116052}
   - {fileID: 1116413903}
   startingMoney: 35
-  towerUiCanvas: {fileID: 0}
+  towerUiCanvas: {fileID: 50174059}
   moneyText: {fileID: 1411268898}
   towerPlacement: {fileID: 500631748}
 --- !u!4 &500631745

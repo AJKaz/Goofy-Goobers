@@ -138,7 +138,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
             //}
 
             visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
-            visibleRange.transform.localScale = new Vector3(range, range);
+            visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
 
             createdUi.GetComponent<HandlePanelVisibility>().visibleRange = visibleRange;
 
