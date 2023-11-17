@@ -152,16 +152,18 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     public void UpgradeDamage() {
         Debug.Log("DMG UPG");
-        if (damageLevel < maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
+        if (damageLevel <= maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
             damage += damageUpgradeAmount;
+            damageLevel++;
             GameManager.Instance.AddMoney(-damageUpgradeCost);
         }
     }
 
     public void UpgradeRange() {
         Debug.Log("RNG UPG");
-        if (rangeLevel < maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
+        if (rangeLevel <= maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
             range += rangeUpgradeAmount;
+            rangeLevel++;
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
             GameManager.Instance.AddMoney(-rangeUpgradeCost);
         }
@@ -169,8 +171,9 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     public void UpgradeAttackSpeed() {
         Debug.Log("ATK SPD UPG");
-        if (attackSpeedLevel < maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
+        if (attackSpeedLevel <= maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
+            attackSpeedLevel++;
             GameManager.Instance.AddMoney(-attackSpeedUpgradeCost);
         }
     }

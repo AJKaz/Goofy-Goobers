@@ -2007,7 +2007,7 @@ MonoBehaviour:
   spell2Button: {fileID: 951848392}
   spell3Button: {fileID: 2078158192}
   FreezeSpellPrefab: {fileID: 8205279509571411624, guid: f71e8f72f4f9b7d40b58e416910a2c76, type: 3}
-  freezeSpellCooldown: 5
+  freezeSpellCooldown: 15
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
