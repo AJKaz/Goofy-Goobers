@@ -167,11 +167,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd1e1cb29751ad344ab7a61bed9b06b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 15
+  maxHealth: 50
   healthBar: {fileID: 4050941158215385982}
   damage: 10
   moveSpeed: 1.2
-  moneyValue: 1
+  moneyValue: 2
 --- !u!1001 &4761788284441576474
 PrefabInstance:
   m_ObjectHideFlags: 0
