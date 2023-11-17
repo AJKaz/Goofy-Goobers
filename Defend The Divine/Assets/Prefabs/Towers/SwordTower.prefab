@@ -201,7 +201,7 @@ MonoBehaviour:
   maxAttackSpeedUpgradeLevel: 8
   rotationSpeed: 2500
   swordSpriteRenderer: {fileID: 1443375537974400236}
---- !u!58 &6161489313166050419
+--- !u!58 &-8598380634875836332
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

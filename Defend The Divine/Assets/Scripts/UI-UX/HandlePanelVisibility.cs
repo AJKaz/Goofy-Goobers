@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     private bool mouseIsOver = false;
+    public GameObject visibleRange;
+
     private void OnEnable()
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
@@ -14,7 +16,11 @@ public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEn
     {
         //Close the Window on Deselect only if a click occurred outside this panel
         if (!mouseIsOver)
+        {
             gameObject.SetActive(false);
+            visibleRange.SetActive(false);
+        }
+            
     }
     public void OnPointerEnter(PointerEventData eventData)
     {

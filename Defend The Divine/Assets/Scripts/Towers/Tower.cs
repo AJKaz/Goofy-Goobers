@@ -28,11 +28,16 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     protected GameObject damagingPrefab;
 
     protected bool hasCreatedUI = false;
+    protected bool mouseIsOver = false;
     protected GameObject createdUi;
+    protected GameObject visibleRange;
 
     [SerializeField]
     protected GameObject uiPopupPrefab;
 
+    [SerializeField]
+    protected GameObject rangePrefab;
+    
     [Header("Upgrade Amounts")]
     [SerializeField] protected float damageUpgradeAmount = 0.5f;
     [SerializeField] protected int damageUpgradeCost = 3;
@@ -96,15 +101,13 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         Gizmos.DrawWireSphere(transform.position, range);
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
         if (!hasCreatedUI)
         {
             // Create a ui element on top of the tower
             createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity, GameManager.Instance.towerUiCanvas.transform);
-            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
-            
+            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);            
             
             // Use to calculate position relative to screen
             Vector2 screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
@@ -112,32 +115,37 @@ public class Tower : MonoBehaviour, IPointerClickHandler
             // Check which side of the screen the tower is on and move the UI accordingly
             if (transform.position.x <= 0)
             {
-                createdUi.transform.position += new Vector3(this.GetComponent<SpriteRenderer>().sprite.rect.width * 2 - 3,0,0);
+                createdUi.transform.localPosition = new Vector3(240, -132, 0);
             }
             else
             {
-                createdUi.transform.position -= new Vector3(this.GetComponent<SpriteRenderer>().sprite.rect.width * 2 - 3, 0, 0);
+                createdUi.transform.localPosition = new Vector3(-240, -132, 0);
             }
 
             // Calculate if the ui is clipping out of the vertical camera view
-            float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
-            if (topOfUi > Camera.main.WorldToScreenPoint(screenExtents).y)
-            {
-                float difference = Camera.main.WorldToScreenPoint(screenExtents).y - topOfUi;
-                createdUi.transform.position += new Vector3(0, difference - 10, 0);
-            }
+            //float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
+            //if (topOfUi > Camera.main.WorldToScreenPoint(screenExtents).y)
+            //{
+            //    float difference = Camera.main.WorldToScreenPoint(screenExtents).y - topOfUi;
+            //    createdUi.transform.position += new Vector3(0, difference - 10, 0);
+            //}
+            //
+            //float bottomOfUi = Camera.main.WorldToScreenPoint(transform.position).y - createdUi.GetComponent<RectTransform>().rect.height / 2;
+            //if (bottomOfUi < 0)
+            //{
+            //    float difference = 0 - bottomOfUi;
+            //    createdUi.transform.position += new Vector3(0, difference + 10, 0);
+            //}
 
-            float bottomOfUi = Camera.main.WorldToScreenPoint(transform.position).y - createdUi.GetComponent<RectTransform>().rect.height / 2;
-            if (bottomOfUi < 0)
-            {
-                float difference = 0 - bottomOfUi;
-                createdUi.transform.position += new Vector3(0, difference + 10, 0);
-            }
+            visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
+            visibleRange.transform.localScale = new Vector3(range, range);
 
+            createdUi.GetComponent<HandlePanelVisibility>().visibleRange = visibleRange;
 
             hasCreatedUI = true;
         }
         createdUi.SetActive(true);
+        visibleRange.SetActive(true);
     }
 
     protected void UpgradeDamage() {
