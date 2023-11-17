@@ -15,9 +15,9 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     protected float range = 5f;
 
-    /* Use as a const */
+    /* Use as a const, only to be changed in UpgradeAttackSpeed */
     [SerializeField]
-    protected float SHOOT_DELAY = 0.5f;
+    protected float ATTACK_DELAY = 0.5f;
 
     protected float shootTimer = 0.05f;
 
@@ -37,6 +37,22 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     [SerializeField]
     protected GameObject rangePrefab;
+    
+    [Header("Upgrade Amounts")]
+    [SerializeField] protected float damageUpgradeAmount = 0.5f;
+    [SerializeField] protected int damageUpgradeCost = 3;
+    [SerializeField] protected int maxDamageUpgradeLevel = 8;
+    [SerializeField] protected float rangeUpgradeAmount = 0.5f;
+    [SerializeField] protected int rangeUpgradeCost = 3;
+    [SerializeField] protected int maxRangeUpgradeLevel = 8;
+    [SerializeField] protected float attackSpeedUpgradeAmount = 0.05f;
+    [SerializeField] protected int attackSpeedUpgradeCost = 3;
+    [SerializeField] protected int maxAttackSpeedUpgradeLevel = 8;
+
+    /* Current Upgrade Level*/
+    protected int damageLevel = 1;
+    protected int rangeLevel = 1;
+    protected int attackSpeedLevel = 1;
 
     public int Cost { get { return cost; } }
 
@@ -51,7 +67,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     }
 
     protected virtual void Attack(Enemy target) {
-        shootTimer = SHOOT_DELAY;
+        shootTimer = ATTACK_DELAY;
         GameObject proj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();
         projectile.SetTarget(target.transform.position);
@@ -131,4 +147,26 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         createdUi.SetActive(true);
         visibleRange.SetActive(true);
     }
+
+    protected void UpgradeDamage() {
+        if (damageLevel < maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
+            damage += damageUpgradeAmount;
+            GameManager.Instance.AddMoney(-damageUpgradeCost);
+        }
+    }
+
+    protected void UpgradeRange() {
+        if (rangeLevel < maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
+            range += rangeUpgradeAmount;
+            GameManager.Instance.AddMoney(-rangeUpgradeCost);
+        }
+    }
+
+    protected void UpgradeAttackSpeed() {
+        if (attackSpeedLevel < maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
+            ATTACK_DELAY -= attackSpeedUpgradeAmount;
+            GameManager.Instance.AddMoney(-attackSpeedUpgradeCost);
+        }
+    }
+
 }
