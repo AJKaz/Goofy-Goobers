@@ -153,8 +153,8 @@ public class Enemy : Entity
         sprite.color = baseColor;
     }
 
-    private void OnDrawGizmos()
-    {
-        Handles.Label(transform.position + new Vector3(-.2f, .35f, 0), Health.ToString());
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Handles.Label(transform.position + new Vector3(-.2f, .35f, 0), Health.ToString());
+    //}
 }
