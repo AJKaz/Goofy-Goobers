@@ -171,6 +171,8 @@ MonoBehaviour:
   healthBar: {fileID: 4050941158215385982}
   damage: 10
   moveSpeed: 1
+  bloodSplatter: {fileID: 8344524889168070583, guid: 6a2ea6338722cdb47a9a805b804848c6, type: 3}
+  damageFlash: {r: 1, g: 0, b: 0, a: 1}
   moneyValue: 4
 --- !u!1001 &4761788284441576474
 PrefabInstance:

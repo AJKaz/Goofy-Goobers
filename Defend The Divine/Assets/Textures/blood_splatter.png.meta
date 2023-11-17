@@ -1,0 +1,791 @@
+fileFormatVersion: 2
+guid: 2fb77e51282e226409717b0c9fda1dd4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5298679130300009176
+    second: blood_splatter_0
+  - first:
+      213: 1528101241852100497
+    second: blood_splatter_1
+  - first:
+      213: -1812671406874023251
+    second: blood_splatter_2
+  - first:
+      213: -4332761765810849873
+    second: blood_splatter_3
+  - first:
+      213: 3379919912225138123
+    second: blood_splatter_4
+  - first:
+      213: 1244763945375729377
+    second: blood_splatter_5
+  - first:
+      213: 7535465374623408119
+    second: blood_splatter_6
+  - first:
+      213: -3015158655435210057
+    second: blood_splatter_7
+  - first:
+      213: 3943834380704931478
+    second: blood_splatter_8
+  - first:
+      213: -911565102025939006
+    second: blood_splatter_9
+  - first:
+      213: -7006666601652352930
+    second: blood_splatter_10
+  - first:
+      213: 5134745416102713444
+    second: blood_splatter_11
+  - first:
+      213: -5354015304350916723
+    second: blood_splatter_12
+  - first:
+      213: -8904154060295202028
+    second: blood_splatter_13
+  - first:
+      213: 4710201140417857612
+    second: blood_splatter_14
+  - first:
+      213: 8378658268282006247
+    second: blood_splatter_15
+  - first:
+      213: 2923033291716224833
+    second: blood_splatter_16
+  - first:
+      213: 8026000543499789893
+    second: blood_splatter_17
+  - first:
+      213: -347518886544450347
+    second: blood_splatter_18
+  - first:
+      213: 2962571781958104410
+    second: blood_splatter_19
+  - first:
+      213: 7121699687857954016
+    second: blood_splatter_20
+  - first:
+      213: 8815709758323673225
+    second: blood_splatter_21
+  - first:
+      213: -4410874159353511009
+    second: blood_splatter_22
+  - first:
+      213: -8944518737916389841
+    second: blood_splatter_23
+  - first:
+      213: 6893735975861123125
+    second: blood_splatter_24
+  - first:
+      213: -5248033623474419167
+    second: blood_splatter_25
+  - first:
+      213: -2466656375178278546
+    second: blood_splatter_26
+  - first:
+      213: -7821005913641938097
+    second: blood_splatter_27
+  - first:
+      213: -1652429234281567557
+    second: blood_splatter_28
+  - first:
+      213: -1162377406320892818
+    second: blood_splatter_29
+  - first:
+      213: -4957275028508769429
+    second: blood_splatter_30
+  - first:
+      213: -6352047789666640922
+    second: blood_splatter_31
+  - first:
+      213: -8752374710777716310
+    second: blood_splatter_32
+  - first:
+      213: 1212815243747493639
+    second: blood_splatter_33
+  - first:
+      213: -7424535145550852753
+    second: blood_splatter_34
+  - first:
+      213: 3576934942406563216
+    second: blood_splatter_35
+  - first:
+      213: 7900173794418666468
+    second: blood_splatter_36
+  - first:
+      213: -6023188550548332017
+    second: blood_splatter_37
+  - first:
+      213: -1582194136033994133
+    second: blood_splatter_38
+  - first:
+      213: -7712968842009124825
+    second: blood_splatter_39
+  - first:
+      213: -2349192857493906912
+    second: blood_splatter_40
+  - first:
+      213: 1214528912828656160
+    second: blood_splatter_41
+  - first:
+      213: -78284234939514406
+    second: blood_splatter_42
+  - first:
+      213: 870808757258521092
+    second: blood_splatter_43
+  - first:
+      213: 8435779639103810078
+    second: blood_splatter_44
+  - first:
+      213: -42501308798564555
+    second: blood_splatter_45
+  - first:
+      213: -3048571998181103652
+    second: blood_splatter_46
+  - first:
+      213: 5264165243647240702
+    second: blood_splatter_47
+  - first:
+      213: 8317662574160256693
+    second: blood_splatter_48
+  - first:
+      213: -4317489444302541246
+    second: blood_splatter_49
+  - first:
+      213: 7604294278258088803
+    second: blood_splatter_50
+  - first:
+      213: -8401763363068991581
+    second: blood_splatter_51
+  - first:
+      213: -4835176404077212160
+    second: blood_splatter_52
+  - first:
+      213: 2072711588249147098
+    second: blood_splatter_53
+  - first:
+      213: -8151217040813952636
+    second: blood_splatter_54
+  - first:
+      213: 6225227567634178827
+    second: blood_splatter_55
+  - first:
+      213: 532636921988246114
+    second: blood_splatter_56
+  - first:
+      213: 8773478505741577322
+    second: blood_splatter_57
+  - first:
+      213: 6520058425434055741
+    second: blood_splatter_58
+  - first:
+      213: 5129950061802308009
+    second: blood_splatter_59
+  - first:
+      213: -8413192201713564490
+    second: blood_splatter_60
+  - first:
+      213: -8059577018312897016
+    second: blood_splatter_61
+  - first:
+      213: 3458133083883995702
+    second: blood_splatter_62
+  - first:
+      213: -1736637009944093578
+    second: blood_splatter_63
+  - first:
+      213: 3403581527273124066
+    second: blood_splatter_64
+  - first:
+      213: 4392432363439713425
+    second: blood_splatter_65
+  - first:
+      213: -1091045987367320143
+    second: blood_splatter_66
+  - first:
+      213: -4982803584985674900
+    second: blood_splatter_67
+  - first:
+      213: 4621888460647843346
+    second: blood_splatter_68
+  - first:
+      213: 6051002063967985630
+    second: blood_splatter_69
+  - first:
+      213: -75883635242292101
+    second: blood_splatter_70
+  - first:
+      213: -7763553549911778087
+    second: blood_splatter_71
+  - first:
+      213: -561799980776255528
+    second: blood_splatter_72
+  - first:
+      213: 2975306591633387947
+    second: blood_splatter_73
+  - first:
+      213: 5436312022500275783
+    second: blood_splatter_74
+  - first:
+      213: -9025641062119060652
+    second: blood_splatter_75
+  - first:
+      213: -6770635219963294179
+    second: blood_splatter_76
+  - first:
+      213: 7616165370818926375
+    second: blood_splatter_77
+  - first:
+      213: 7674783279529347323
+    second: blood_splatter_78
+  - first:
+      213: -5605444575152011920
+    second: blood_splatter_79
+  - first:
+      213: -1439177647637655836
+    second: blood_splatter_80
+  - first:
+      213: -6284285718248583446
+    second: blood_splatter_81
+  - first:
+      213: -7699134533696505141
+    second: blood_splatter_82
+  - first:
+      213: 4550302209415564908
+    second: blood_splatter_83
+  - first:
+      213: 513089994089603025
+    second: blood_splatter_84
+  - first:
+      213: -8120876594858378708
+    second: blood_splatter_85
+  - first:
+      213: 4229891431691014332
+    second: blood_splatter_86
+  - first:
+      213: 6363946715976581774
+    second: blood_splatter_87
+  - first:
+      213: -4005668586189147995
+    second: blood_splatter_88
+  - first:
+      213: -6203130247286075529
+    second: blood_splatter_89
+  - first:
+      213: -917256574786924416
+    second: blood_splatter_90
+  - first:
+      213: -5466970372202093631
+    second: blood_splatter_91
+  - first:
+      213: -374031321352024251
+    second: blood_splatter_92
+  - first:
+      213: -7489621997754329792
+    second: blood_splatter_93
+  - first:
+      213: 8347612837606574957
+    second: blood_splatter_94
+  - first:
+      213: 6516853895139237149
+    second: blood_splatter_95
+  - first:
+      213: -4190348406173032548
+    second: blood_splatter_96
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: blood_splatter_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2637e675512b21468b7435eaff264da
+      internalID: -1028556077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1461dea9a1fe0d499ccb08210b05a46
+      internalID: 1638788794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_2
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0a7e04f16d8cb5498cc9221ce167b1a
+      internalID: 1097289215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_3
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 300
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea742be986c966f4fb6cc9d8629b377a
+      internalID: 2027420643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9c85e694cccde742a12301b43b234cb
+      internalID: -915255699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_5
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c406a56684fc0b409ccfe21ad9df5df
+      internalID: -165696119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_6
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 875a36223db03fe4fbc629ffa9eecc96
+      internalID: -1039157974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_7
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 200
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e67c3dc39db8b77468a513e191978213
+      internalID: -1534144296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82b3f27da8c6cd744b335e85dff4067c
+      internalID: -485894229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_9
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 331fa51c9465f9544b521a818f631c39
+      internalID: 1357301810
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_10
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdb84c87bb6a4b3419cb056b7fd7edbf
+      internalID: -447839630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_11
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 100
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 288bbfb4cd9a3aa4a8a634738f23e8a4
+      internalID: -325312820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5466689decd7ded40b8c48b167b7f717
+      internalID: -807242271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_13
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5194d0f16288b4f4c87870a5e267d709
+      internalID: -1918545099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_14
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 698f6231608fe584dba63334f57c3458
+      internalID: -2056119394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: blood_splatter_15
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ee5d947dd74904e8ba7d72ddec0577
+      internalID: -912803911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: de663c2ded8b18642a591658b3dd6f7f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      blood_splatter_0: -1028556077
+      blood_splatter_1: 1638788794
+      blood_splatter_10: -447839630
+      blood_splatter_11: -325312820
+      blood_splatter_12: -807242271
+      blood_splatter_13: -1918545099
+      blood_splatter_14: -2056119394
+      blood_splatter_15: -912803911
+      blood_splatter_2: 1097289215
+      blood_splatter_3: 2027420643
+      blood_splatter_4: -915255699
+      blood_splatter_5: -165696119
+      blood_splatter_6: -1039157974
+      blood_splatter_7: -1534144296
+      blood_splatter_8: -485894229
+      blood_splatter_9: 1357301810
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
