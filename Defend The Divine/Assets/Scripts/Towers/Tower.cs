@@ -107,7 +107,9 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         {
             // Create a ui element on top of the tower
             createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity, GameManager.Instance.towerUiCanvas.transform);
-            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);            
+            createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
+
+            createdUi.GetComponent<HandlePanelVisibility>().tower = this;
             
             // Use to calculate position relative to screen
             Vector2 screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
@@ -115,11 +117,11 @@ public class Tower : MonoBehaviour, IPointerClickHandler
             // Check which side of the screen the tower is on and move the UI accordingly
             if (transform.position.x <= 0)
             {
-                createdUi.transform.localPosition = new Vector3(240, -132, 0);
+                createdUi.transform.localPosition = new Vector3(250, -113, 0);
             }
             else
             {
-                createdUi.transform.localPosition = new Vector3(-240, -132, 0);
+                createdUi.transform.localPosition = new Vector3(-250, -113, 0);
             }
 
             // Calculate if the ui is clipping out of the vertical camera view
@@ -148,21 +150,25 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         visibleRange.SetActive(true);
     }
 
-    protected void UpgradeDamage() {
+    public void UpgradeDamage() {
+        Debug.Log("DMG UPG");
         if (damageLevel < maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
             damage += damageUpgradeAmount;
             GameManager.Instance.AddMoney(-damageUpgradeCost);
         }
     }
 
-    protected void UpgradeRange() {
+    public void UpgradeRange() {
+        Debug.Log("RNG UPG");
         if (rangeLevel < maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
             range += rangeUpgradeAmount;
+            visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
             GameManager.Instance.AddMoney(-rangeUpgradeCost);
         }
     }
 
-    protected void UpgradeAttackSpeed() {
+    public void UpgradeAttackSpeed() {
+        Debug.Log("ATK SPD UPG");
         if (attackSpeedLevel < maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
             GameManager.Instance.AddMoney(-attackSpeedUpgradeCost);

@@ -108,13 +108,13 @@ MonoBehaviour:
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
   damageUpgradeAmount: 0.5
   damageUpgradeCost: 3
-  maxDamageUpgradeLevel: 8
+  maxDamageUpgradeLevel: 4
   rangeUpgradeAmount: 0.5
   rangeUpgradeCost: 3
-  maxRangeUpgradeLevel: 8
+  maxRangeUpgradeLevel: 4
   attackSpeedUpgradeAmount: 0.05
   attackSpeedUpgradeCost: 3
-  maxAttackSpeedUpgradeLevel: 8
+  maxAttackSpeedUpgradeLevel: 4
 --- !u!58 &557187313376879698
 CircleCollider2D:
   m_ObjectHideFlags: 0
