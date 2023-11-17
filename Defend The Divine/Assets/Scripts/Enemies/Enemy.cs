@@ -17,7 +17,12 @@ public class Enemy : Entity
     protected int moneyValue = 1;
 
     [SerializeField]
+    [ColorUsage(true)]
     protected GameObject bloodSplatter;
+
+    [SerializeField]
+    protected Color damageFlash = Color.red;
+    protected Color baseColor;
 
     protected int waypointIndex = 0;
 
@@ -37,6 +42,7 @@ public class Enemy : Entity
         sprite = GetComponentInChildren<SpriteRenderer>();
         isFrozen = false;
         animator = GetComponentInChildren<Animator>();
+        baseColor = sprite.color;
     }
 
     protected override void Start()
@@ -70,15 +76,21 @@ public class Enemy : Entity
         }
     }
 
+    public override void TakeDamage(float damage)
+    {
+        StartCoroutine(DamageFlashCoroutine(0.1f));
+        base.TakeDamage(damage);
+    }
+
     override protected void Die()
     {
-
         if (bloodSplatter)
         {
             string splatterEffect = BloodSplatRotation == null ? "Blood Splat" : "Directional Blood Splat";
             ParticleSystem splat = bloodSplatter.GetComponentsInChildren<ParticleSystem>().FirstOrDefault(ps => ps.name == splatterEffect);
             Instantiate(splat, transform.position, Quaternion.Euler(0, 0, BloodSplatRotation ?? 0)).Play();
         }
+        Destroy(gameObject);
         GameManager.Instance.RemoveEnemy(this);
         GameManager.Instance.AddMoney(moneyValue);
     }
@@ -132,6 +144,13 @@ public class Enemy : Entity
         yield return new WaitForSeconds(freezeDuration);
 
         isFrozen = false;
+    }
+
+    IEnumerator DamageFlashCoroutine(float seconds = 0.1f)
+    {
+        sprite.color = damageFlash;
+        yield return new WaitForSeconds(seconds);
+        sprite.color = baseColor;
     }
 
     private void OnDrawGizmos()
