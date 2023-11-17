@@ -14,7 +14,6 @@ public class TowerPlacement : MonoBehaviour
     private bool canPlaceTower = true;
 
     public enum TowerType {tower1, tower2 };
-    public TowerType currentTowerType;
     [SerializeField] Tower towerType1Prefab;
     [SerializeField] Tower towerType2Prefab;
 
@@ -47,20 +46,21 @@ public class TowerPlacement : MonoBehaviour
 
         if (GameManager.Instance.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
-            switch (currentTowerType)
-            {
-                case TowerType.tower1:
-                    towerPrefab = towerType1Prefab;
-                    break;
-                case TowerType.tower2:
-                    towerPrefab = towerType2Prefab;
-                    break;
-                default:
-                    break;
-            }
-
             GameObject.Instantiate(towerPrefab, towerGhost.transform.position, Quaternion.identity);
             GameManager.Instance.AddMoney(-towerPrefab.Cost);
+        }
+    }
+
+    public void SetCurrentTowerType(TowerType towerType) {
+        switch (towerType) {
+            case TowerType.tower1:
+                towerPrefab = towerType1Prefab;
+                break;
+            case TowerType.tower2:
+                towerPrefab = towerType2Prefab;
+                break;
+            default:
+                break;
         }
     }
 }

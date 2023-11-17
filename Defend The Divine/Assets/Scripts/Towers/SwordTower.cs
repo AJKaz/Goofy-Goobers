@@ -40,7 +40,7 @@ public class SwordTower : Tower
     }
 
     protected override void Attack(Enemy target) {
-        shootTimer = SHOOT_DELAY;
+        shootTimer = ATTACK_DELAY;
         ContinueSwing();
         isSwinging = true;
         swordSpriteRenderer.enabled = true;
