@@ -1,9 +1,9 @@
-const cacheName = "DefaultCompany-Mullish Wizard-1.0";
+const cacheName = "Goofy Goobers-Defend The Divine-0.1";
 const contentToCache = [
-    "Build/docs.loader.js",
-    "Build/docs.framework.js",
-    "Build/docs.data",
-    "Build/docs.wasm",
+    "Build/MulishWizardWebBuild.loader.js",
+    "Build/MulishWizardWebBuild.framework.js",
+    "Build/MulishWizardWebBuild.data",
+    "Build/MulishWizardWebBuild.wasm",
     "TemplateData/style.css"
 
 ];
