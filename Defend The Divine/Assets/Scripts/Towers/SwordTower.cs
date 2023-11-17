@@ -54,6 +54,7 @@ public class SwordTower : Tower
             Enemy enemy = enemyCollider.GetComponent<Enemy>();
             if (enemy != null) {
                 enemy.TakeDamage(damage);
+                enemy.BloodSplatRotation = null;
             }
         }
     }

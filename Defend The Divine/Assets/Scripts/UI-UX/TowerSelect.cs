@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class TowerSelect : MonoBehaviour
 {
+
+    [SerializeField] private TowerPlacement.TowerType towerType = TowerPlacement.TowerType.tower1;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,13 +22,12 @@ public class TowerSelect : MonoBehaviour
 
     public void OnClick()
     {
-        string towerID = GetComponentInChildren<TextMeshProUGUI>().text;
-        switch (towerID)
+        switch (towerType)
         {
-            case "Tower1":
+            case TowerPlacement.TowerType.tower1:
                 GameManager.Instance.GetComponent<TowerPlacement>().currentTowerType = TowerPlacement.TowerType.tower1;
                 break;
-            case "Tower2":
+            case TowerPlacement.TowerType.tower2:
                 GameManager.Instance.GetComponent<TowerPlacement>().currentTowerType = TowerPlacement.TowerType.tower2;
                 break;
             default:

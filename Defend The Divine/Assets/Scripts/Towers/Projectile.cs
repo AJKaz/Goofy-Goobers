@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
+using System.Linq;
 
 public class Projectile : MonoBehaviour
 {
@@ -16,28 +18,47 @@ public class Projectile : MonoBehaviour
 
     private bool hasHitEnemy = false;
 
-    public void SetTarget(Vector3 targetPosition) {
+    public void SetTarget(Vector3 targetPosition)
+    {
         direction = (targetPosition - transform.position).normalized;
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 
-    public void SetStats(float damage, float speed) {
+    public void SetStats(float damage, float speed)
+    {
         this.damage = damage;
         this.speed = speed;
     }
 
-    private void Update() {
+    private void Update()
+    {
         transform.position += direction * speed * Time.deltaTime;
 
         despawnTimer -= Time.deltaTime;
-        if (despawnTimer <= 0) {
+        if (despawnTimer <= 0)
+        {
             Destroy(gameObject);
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
-        if (!hasHitEnemy && collision.gameObject.CompareTag("Enemy")) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (!hasHitEnemy && collision.gameObject.CompareTag("Enemy"))
+        {
             hasHitEnemy = true;
-            collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+            Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+            if (enemy)
+            {
+                enemy.TakeDamage(damage);
+                enemy.BloodSplatRotation = transform.rotation.eulerAngles.z + 180 % 360;
+            }
+
+            //ParticleSystem bloodSplatter = collision.gameObject.GetComponentsInChildren<ParticleSystem>().FirstOrDefault(p => p.name == "Directional Blood Splat");
+            //if (bloodSplatter)
+            //{
+            //    bloodSplatter.transform.rotation = Quaternion.Euler(0, 0, 0);
+            //    bloodSplatter.Play();
+            //}
             Destroy(gameObject);
         }
     }

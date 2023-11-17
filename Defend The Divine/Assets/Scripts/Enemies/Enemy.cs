@@ -1,8 +1,11 @@
 using System.Collections;
+using System.Linq;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
-public class Enemy : Entity {
+public class Enemy : Entity
+{
 
     [SerializeField]
     protected int damage = 10;
@@ -13,10 +16,12 @@ public class Enemy : Entity {
     [SerializeField]
     protected int moneyValue = 1;
 
+    [SerializeField]
+    protected GameObject bloodSplatter;
+
     protected int waypointIndex = 0;
 
-    protected Enemy enemyComponent;
-    //protected SpriteRenderer sprite;
+    protected SpriteRenderer sprite;
 
     protected Transform[] path;
 
@@ -25,26 +30,32 @@ public class Enemy : Entity {
     private Vector2 direction;
     private Animator animator;
 
-    private void Awake() {
-        enemyComponent = GetComponent<Enemy>();
-        //sprite = GetComponentInChildren<SpriteRenderer>();
+    [HideInInspector] public float? BloodSplatRotation { get; set; } = null;
+
+    private void Awake()
+    {
+        sprite = GetComponentInChildren<SpriteRenderer>();
         isFrozen = false;
         animator = GetComponentInChildren<Animator>();
     }
 
-    protected override void Start() {
+    protected override void Start()
+    {
         base.Start();
         path = GameManager.Instance.GetRandomPath();
         //transform.position = path[waypointIndex].transform.position;
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (!isFrozen) Pathfind();
         Animate();
     }
 
-    protected void Pathfind() {
-        if (waypointIndex < path.Length) {
+    protected void Pathfind()
+    {
+        if (waypointIndex < path.Length)
+        {
             // Move enemy from current waypoint to next one
             transform.position = Vector2.MoveTowards(transform.position,
                 path[waypointIndex].transform.position, moveSpeed * Time.deltaTime);
@@ -52,27 +63,38 @@ public class Enemy : Entity {
             direction = path[waypointIndex].transform.position - transform.position;
 
             // When enemy reaches next waypoint, increase waypointIndex so they can walk to next one
-            if (transform.position == path[waypointIndex].transform.position) {
+            if (transform.position == path[waypointIndex].transform.position)
+            {
                 waypointIndex++;
             }
         }
     }
 
-    override protected void Die() {
-        Destroy(gameObject);
-        GameManager.Instance.RemoveEnemy(enemyComponent);
+    override protected void Die()
+    {
+
+        if (bloodSplatter)
+        {
+            string splatterEffect = BloodSplatRotation == null ? "Blood Splat" : "Directional Blood Splat";
+            ParticleSystem splat = bloodSplatter.GetComponentsInChildren<ParticleSystem>().FirstOrDefault(ps => ps.name == splatterEffect);
+            Instantiate(splat, transform.position, Quaternion.Euler(0, 0, BloodSplatRotation ?? 0)).Play();
+        }
+        GameManager.Instance.RemoveEnemy(this);
         GameManager.Instance.AddMoney(moneyValue);
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.gameObject.CompareTag("DivinePillar")) {
+    protected void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("DivinePillar"))
+        {
             collision.gameObject.GetComponent<DivinePillar>().TakeDamage(damage);
-            GameManager.Instance.RemoveEnemy(enemyComponent);
+            GameManager.Instance.RemoveEnemy(this);
             Destroy(gameObject);
         }
     }
 
-    public void Freeze (float freezeDuration) {
+    public void Freeze(float freezeDuration)
+    {
         StartCoroutine(FreezeCoroutine(freezeDuration));
     }
 
@@ -83,32 +105,37 @@ public class Enemy : Entity {
         angle += 90;
         if (angle > 360) angle -= 360;
         animationAngle = angle >= 345 && angle < 375 || angle >= -15 && angle < 15 ? 0 :
-                         angle >= 15 && angle < 37.5f ?                             15 :
-                         angle >= 37.5f && angle < 52.5f ?                          45 :
-                         angle >= 52.5f && angle < 75 ?                             60 :
-                         angle >= 75 && angle < 105 ?                               90 :
-                         angle >= 105 && angle < 127.5f ?                          120 :
-                         angle >= 127.5f && angle < 142.5f ?                       135 :
-                         angle >= 142.5f && angle < 165 ?                          150 :
-                         angle >= 165 && angle < 195 ?                             180 :
-                         angle >= 195 && angle < 217.5f ?                          210 :
-                         angle >= 217.5f && angle < 232.5f ?                       225 :
-                         angle >= 232.5f && angle < 255 ?                          240 :
-                         angle >= 255 && angle < 285 ?                             270 :
-                         angle >= 285 && angle < 307.5f ?                          300 :
-                         angle >= 307.5f && angle < 322.5f ?                       315 :
-                         angle >= 322.5f && angle < 345 ?                          330 :
+                         angle >= 15 && angle < 37.5f ? 15 :
+                         angle >= 37.5f && angle < 52.5f ? 45 :
+                         angle >= 52.5f && angle < 75 ? 60 :
+                         angle >= 75 && angle < 105 ? 90 :
+                         angle >= 105 && angle < 127.5f ? 120 :
+                         angle >= 127.5f && angle < 142.5f ? 135 :
+                         angle >= 142.5f && angle < 165 ? 150 :
+                         angle >= 165 && angle < 195 ? 180 :
+                         angle >= 195 && angle < 217.5f ? 210 :
+                         angle >= 217.5f && angle < 232.5f ? 225 :
+                         angle >= 232.5f && angle < 255 ? 240 :
+                         angle >= 255 && angle < 285 ? 270 :
+                         angle >= 285 && angle < 307.5f ? 300 :
+                         angle >= 307.5f && angle < 322.5f ? 315 :
+                         angle >= 322.5f && angle < 345 ? 330 :
                          animationAngle;
-        Debug.Log(angle);
-        animator.SetInteger("angle", animationAngle);
+        animator?.SetInteger("angle", animationAngle);
 
     }
 
-    IEnumerator FreezeCoroutine(float freezeDuration) {
+    IEnumerator FreezeCoroutine(float freezeDuration)
+    {
         isFrozen = true;
 
         yield return new WaitForSeconds(freezeDuration);
 
         isFrozen = false;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Handles.Label(transform.position + new Vector3(-.2f, .35f, 0), Health.ToString());
     }
 }
