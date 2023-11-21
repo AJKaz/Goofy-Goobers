@@ -1,16 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class Tower : MonoBehaviour, IPointerClickHandler
+public abstract class Tower : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     protected float damage = 5f;
-
-    [SerializeField]
-    protected float projectileSpeed = 15f;
 
     [SerializeField]
     protected float range = 5f;
@@ -19,7 +13,7 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     protected float ATTACK_DELAY = 0.5f;
 
-    protected float shootTimer = 0.05f;
+    protected float attackTimer = 0.05f;
 
     [SerializeField]
     protected int cost = 10;
@@ -38,27 +32,24 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     protected GameObject rangePrefab;
     
-    [Header("Upgrade Amounts")]
+    [Header("Upgrades")]
+    [SerializeField] protected int upgradeCost = 3;
+    [SerializeField] protected int maxUpgradeLevel = 4;
     [SerializeField] protected float damageUpgradeAmount = 0.5f;
-    [SerializeField] protected int damageUpgradeCost = 3;
-    [SerializeField] protected int maxDamageUpgradeLevel = 8;
     [SerializeField] protected float rangeUpgradeAmount = 0.5f;
-    [SerializeField] protected int rangeUpgradeCost = 3;
-    [SerializeField] protected int maxRangeUpgradeLevel = 8;
     [SerializeField] protected float attackSpeedUpgradeAmount = 0.05f;
-    [SerializeField] protected int attackSpeedUpgradeCost = 3;
-    [SerializeField] protected int maxAttackSpeedUpgradeLevel = 8;
 
     /* Current Upgrade Level*/
-    protected int damageLevel = 1;
-    protected int rangeLevel = 1;
-    protected int attackSpeedLevel = 1;
+    protected int upgradeLevel = 1;
+
+    protected int enemiesKilled = 0;
 
     public int Cost { get { return cost; } }
+    public int EnemiesKilled { get { return enemiesKilled; } }
 
     protected virtual void Update() {
-        shootTimer -= Time.deltaTime;
-        if (shootTimer <= 0) {
+        attackTimer -= Time.deltaTime;
+        if (attackTimer <= 0) {
             Enemy target = GetTarget();
             if (target != null) {
                 Attack(target);
@@ -66,34 +57,9 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         }
     }
 
-    protected virtual void Attack(Enemy target) {
-        shootTimer = ATTACK_DELAY;
-        GameObject proj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
-        Projectile projectile = proj.GetComponent<Projectile>();
-        projectile.SetTarget(target.transform.position);
-        projectile.SetStats(damage, projectileSpeed);
-    }
+    protected abstract void Attack(Enemy target);
 
-    protected virtual Enemy GetTarget() {
-        Enemy closestEnemy = null;
-        for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
-            if (GameManager.Instance.enemies[i] == null) continue;
-            Vector3 offset = transform.position - GameManager.Instance.enemies[i].transform.position;
-            if (offset.sqrMagnitude <= range * range) {
-                if (closestEnemy == null) {
-                    closestEnemy = GameManager.Instance.enemies[i];
-                }
-                else {
-                    Vector3 offsetToCurrentEnemy = transform.position - GameManager.Instance.enemies[i].transform.position;
-                    Vector3 offsetToClosestEnemy = transform.position - closestEnemy.transform.position;
-                    if (offsetToCurrentEnemy.sqrMagnitude < offsetToClosestEnemy.sqrMagnitude) {
-                        closestEnemy = GameManager.Instance.enemies[i];
-                    }
-                }
-            }
-        }
-        return closestEnemy;
-    }
+    protected abstract Enemy GetTarget();
 
 
     private void OnDrawGizmos() {
@@ -150,32 +116,20 @@ public class Tower : MonoBehaviour, IPointerClickHandler
         visibleRange.SetActive(true);
     }
 
-    public void UpgradeDamage() {
-        Debug.Log("DMG UPG");
-        if (damageLevel <= maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
+    public virtual void Upgrade() {
+        if (upgradeLevel <= maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
+            GameManager.Instance.AddMoney(-upgradeCost);
+            upgradeLevel++;
+
             damage += damageUpgradeAmount;
-            damageLevel++;
-            GameManager.Instance.AddMoney(-damageUpgradeCost);
-        }
-    }
-
-    public void UpgradeRange() {
-        Debug.Log("RNG UPG");
-        if (rangeLevel <= maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
             range += rangeUpgradeAmount;
-            rangeLevel++;
-            visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
-            GameManager.Instance.AddMoney(-rangeUpgradeCost);
-        }
-    }
-
-    public void UpgradeAttackSpeed() {
-        Debug.Log("ATK SPD UPG");
-        if (attackSpeedLevel <= maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
-            attackSpeedLevel++;
-            GameManager.Instance.AddMoney(-attackSpeedUpgradeCost);
+
+            visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
         }
     }
 
+    public void KilledEnemy() {
+        enemiesKilled++;
+    }
 }

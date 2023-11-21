@@ -9,9 +9,7 @@ public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEn
     private bool mouseIsOver = false;
     [HideInInspector] public GameObject visibleRange;
     [HideInInspector] public Tower tower;
-    [SerializeField] Button upgradeDamageButton;
-    [SerializeField] Button upgradeRangeButton;
-    [SerializeField] Button upgradeSpeedButton;
+    [SerializeField] Button upgradeButton;
 
     private void OnEnable()
     {
@@ -20,9 +18,7 @@ public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEn
 
     private void Start()
     {
-        upgradeDamageButton.onClick.AddListener(delegate { tower.UpgradeDamage(); });
-        upgradeRangeButton.onClick.AddListener(delegate { tower.UpgradeRange(); });
-        upgradeSpeedButton.onClick.AddListener(delegate { tower.UpgradeAttackSpeed(); });
+        upgradeButton.onClick.AddListener(delegate { tower.Upgrade(); });
     }
 
 
