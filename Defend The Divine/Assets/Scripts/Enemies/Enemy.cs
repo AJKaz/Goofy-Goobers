@@ -37,6 +37,8 @@ public class Enemy : Entity
 
     [HideInInspector] public float? BloodSplatRotation { get; set; } = null;
 
+    public int WaypointIndex { get { return waypointIndex; } }
+
     private void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -76,10 +78,10 @@ public class Enemy : Entity
         }
     }
 
-    public override void TakeDamage(float damage)
+    public override bool TakeDamage(float damage)
     {
         StartCoroutine(DamageFlashCoroutine(0.1f));
-        base.TakeDamage(damage);
+        return base.TakeDamage(damage);
     }
 
     override protected void Die()
