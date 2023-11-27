@@ -56,6 +56,11 @@ public class Tower : MonoBehaviour, IPointerClickHandler
 
     public int Cost { get { return cost; } }
 
+    private void Awake()
+    {
+        GameManager.Instance.audioManager.Play("TowerPlaced");
+    }
+
     protected virtual void Update() {
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0) {
@@ -153,6 +158,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     public void UpgradeDamage() {
         Debug.Log("DMG UPG");
         if (damageLevel <= maxDamageUpgradeLevel && GameManager.Instance.Money >= damageUpgradeCost) {
+            GameManager.Instance.audioManager.Play("TowerUpgrade1");
+
             damage += damageUpgradeAmount;
             damageLevel++;
             GameManager.Instance.AddMoney(-damageUpgradeCost);
@@ -162,6 +169,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     public void UpgradeRange() {
         Debug.Log("RNG UPG");
         if (rangeLevel <= maxRangeUpgradeLevel && GameManager.Instance.Money >= rangeUpgradeCost) {
+            GameManager.Instance.audioManager.Play("TowerUpgrade2");
+
             range += rangeUpgradeAmount;
             rangeLevel++;
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
@@ -172,6 +181,8 @@ public class Tower : MonoBehaviour, IPointerClickHandler
     public void UpgradeAttackSpeed() {
         Debug.Log("ATK SPD UPG");
         if (attackSpeedLevel <= maxAttackSpeedUpgradeLevel && GameManager.Instance.Money >= attackSpeedUpgradeCost) {
+            GameManager.Instance.audioManager.Play("TowerUpgrade1");
+
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
             attackSpeedLevel++;
             GameManager.Instance.AddMoney(-attackSpeedUpgradeCost);

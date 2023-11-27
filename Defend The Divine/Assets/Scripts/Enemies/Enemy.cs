@@ -78,6 +78,7 @@ public class Enemy : Entity
 
     public override void TakeDamage(float damage)
     {
+        GameManager.Instance.audioManager.Play("EnemyHurt");
         StartCoroutine(DamageFlashCoroutine(0.1f));
         base.TakeDamage(damage);
     }

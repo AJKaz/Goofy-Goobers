@@ -18,6 +18,11 @@ public class Projectile : MonoBehaviour
 
     private bool hasHitEnemy = false;
 
+    private void Awake()
+    {
+        GameManager.Instance.audioManager.Play("CannonTowerShoot");
+    }
+
     public void SetTarget(Vector3 targetPosition)
     {
         direction = (targetPosition - transform.position).normalized;

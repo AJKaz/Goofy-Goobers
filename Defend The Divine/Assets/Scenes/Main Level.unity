@@ -1787,6 +1787,7 @@ GameObject:
   - component: {fileID: 500631749}
   - component: {fileID: 500631750}
   - component: {fileID: 500631751}
+  - component: {fileID: 500631752}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1915,6 +1916,7 @@ MonoBehaviour:
   towerUiCanvas: {fileID: 50174059}
   moneyText: {fileID: 1411268898}
   towerPlacement: {fileID: 500631748}
+  audioManager: {fileID: 500631752}
 --- !u!4 &500631745
 Transform:
   m_ObjectHideFlags: 0
@@ -2008,6 +2010,79 @@ MonoBehaviour:
   spell3Button: {fileID: 2078158192}
   FreezeSpellPrefab: {fileID: 8205279509571411624, guid: f71e8f72f4f9b7d40b58e416910a2c76, type: 3}
   freezeSpellCooldown: 15
+--- !u!114 &500631752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500631743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8e5819a9076dde4d82924cabb909c1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: BackgroundMusic
+    clip: {fileID: 8300000, guid: 336f1240e7b93ec428721fbc556d9593, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: EnemyDeath1
+    clip: {fileID: 8300000, guid: 7d8755dfac2bf4245949cda2bf5e3e71, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyDeath2
+    clip: {fileID: 8300000, guid: ae0745549e1f478449416ece0959e7fc, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: EnemyHurt
+    clip: {fileID: 8300000, guid: 2ec60334df747fe42bc8c1e534bebf87, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CannonTowerShoot
+    clip: {fileID: 8300000, guid: 43fa6a87e2e90884ab9e24f810d407dc, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwordTowerSwing
+    clip: {fileID: 8300000, guid: d7ed6f46d3a3ce8418b1ca2ec4bb6576, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TowerPlaced
+    clip: {fileID: 8300000, guid: 2b470439a2d61374487a4f42c7e1edfe, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TowerSold
+    clip: {fileID: 8300000, guid: 305ae6dc20a2c6c489181054862986c4, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TowerUpgrade1
+    clip: {fileID: 8300000, guid: 68b54dcfaf06e78448e90f5b63fd9eb1, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TowerUpgrade2
+    clip: {fileID: 8300000, guid: 5d6f692175203404cb5a5e7f6385c946, type: 3}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

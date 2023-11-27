@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
 
     public TowerPlacement towerPlacement;
 
+    public AudioManager audioManager;
+
     public int Money { get { return money; } }
 
     private void Awake() {
@@ -52,9 +54,8 @@ public class GameManager : MonoBehaviour
         waveManager = GetComponent<WaveManager>();
 
         UpdateMoneyText();
-    }
-    
-    private void Start() {
+
+        audioManager.Play("BackgroundMusic");
     }
 
     public Transform[] GetRandomPath() {
