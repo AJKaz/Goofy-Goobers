@@ -13,9 +13,10 @@ public class TowerPlacement : MonoBehaviour
 
     private bool canPlaceTower = true;
 
-    public enum TowerType {tower1, tower2 };
+    public enum TowerType {tower1, tower2, tower3 };
     [SerializeField] Tower towerType1Prefab;
     [SerializeField] Tower towerType2Prefab;
+    [SerializeField] Tower towerType3Prefab;
 
     void Update()
     {
@@ -58,6 +59,9 @@ public class TowerPlacement : MonoBehaviour
                 break;
             case TowerType.tower2:
                 towerPrefab = towerType2Prefab;
+                break;
+            case TowerType.tower3:
+                towerPrefab = towerType3Prefab;
                 break;
             default:
                 break;

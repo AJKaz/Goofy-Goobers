@@ -21,7 +21,6 @@ public class SpellActivate : MonoBehaviour
     {
         freezeSpellButton.onClick.AddListener(delegate { OnClick(0); });
         spell2Button.onClick.AddListener(delegate { OnClick(1); });
-        spell3Button.onClick.AddListener(delegate { OnClick(2); });
     }
 
     public void OnClick(int index)
