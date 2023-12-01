@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
-  m_Color: {r: 0.062745094, g: 0.991097, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 0c34d1a8681d1b847a07770745889abb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -135,7 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 7
-  range: 5
+  range: 4
   ATTACK_DELAY: 0.5
   cost: 25
   damagingPrefab: {fileID: 474679912698572556, guid: fd7fc8191959b504b8c58dac7eef2f45, type: 3}
