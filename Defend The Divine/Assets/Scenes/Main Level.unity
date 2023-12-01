@@ -2219,6 +2219,7 @@ MonoBehaviour:
   - {fileID: 1116413903}
   startingMoney: 100
   towerUiCanvas: {fileID: 50174059}
+  spellActivate: {fileID: 500631751}
   moneyText: {fileID: 1411268898}
   towerPlacement: {fileID: 500631748}
 --- !u!4 &500631745
@@ -2260,7 +2261,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45367cd45ecbf73489888b44e0579c36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: -7116430699302381254, guid: f3a91c6d2f2ee1e4c8bf7b6c2a101adc, type: 3}
   tower1Ghost: {fileID: 547819842}
   tower2Ghost: {fileID: 1494900835}
   tower3Ghost: {fileID: 106481293}
@@ -2317,6 +2317,7 @@ MonoBehaviour:
   spell3Button: {fileID: 0}
   FreezeSpellPrefab: {fileID: 8205279509571411624, guid: f71e8f72f4f9b7d40b58e416910a2c76, type: 3}
   freezeSpellCooldown: 15
+  isFreezeOnCooldown: 0
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -5584,7 +5585,7 @@ GameObject:
   - component: {fileID: 1237214716}
   - component: {fileID: 1237214717}
   m_Layer: 5
-  m_Name: Tower1
+  m_Name: CannonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

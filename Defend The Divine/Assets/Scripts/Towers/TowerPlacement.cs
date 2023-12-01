@@ -6,29 +6,30 @@ using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
 {
-    [SerializeField]
-    private Tower towerPrefab;
-
     [Header("Ghost Towers")]
     [SerializeField] private TowerGhost tower1Ghost;
     [SerializeField] private TowerGhost tower2Ghost;
     [SerializeField] private TowerGhost tower3Ghost;
-    private TowerGhost currentTowerGhost;
-    private bool canPlaceTower = true;
 
     public enum TowerType {tower1, tower2, tower3 };
     [Header("Towers")]
-    [SerializeField] Tower towerType1Prefab;
-    [SerializeField] Tower towerType2Prefab;
-    [SerializeField] Tower towerType3Prefab;
+    public Tower towerType1Prefab;
+    public Tower towerType2Prefab;
+    public Tower towerType3Prefab;
+
+    private Tower currentTowerPrefab = null;
+    private TowerGhost currentGhostTower;
+    private bool canPlaceTower = true;
 
     private void Awake() {
         /* REMOVE THIS ONCE ONE CLICK PER TOWER PLACEMENT IS IMPLEMENTED */
-        currentTowerGhost = tower1Ghost;
+        currentGhostTower = tower1Ghost;
     }
 
     void Update()
     {
+        if (currentTowerPrefab == null || currentGhostTower == null) return;
+
         /* A tower may be placed when:
          *   player has enough money
          *   the ghost isn't colliding with a path
@@ -36,46 +37,46 @@ public class TowerPlacement : MonoBehaviour
          *   mouse isn't over menu HUD
          */
         canPlaceTower =
-            GameManager.Instance.Money >= towerPrefab.Cost
-            && !currentTowerGhost.CollidingWithPath
+            GameManager.Instance.Money >= currentTowerPrefab.Cost
+            && !currentGhostTower.CollidingWithPath
             && !GameManager.Instance.GetComponent<MouseUICheck>().IsPointerOverUIElement();
 
         Vector2 currentMousePosition = GameManager.Instance.inputManager.MouseWorldPosition;
-        currentTowerGhost.transform.position = new Vector3(currentMousePosition.x, currentMousePosition.y, 0);
+        currentGhostTower.transform.position = new Vector3(currentMousePosition.x, currentMousePosition.y, 0);
 
         // Show when a tower can be placed
-        SpriteRenderer towerGhostSR = currentTowerGhost.GetComponent<SpriteRenderer>();
+        SpriteRenderer towerGhostSR = currentGhostTower.GetComponent<SpriteRenderer>();
         if (!canPlaceTower)
         {
-            towerGhostSR.color = new Color(0.8f, 0f, 0f, 0.8f);
+            towerGhostSR.color = new Color(0.8f, 0f, 0f, 0.75f);
         }
         else {
-            towerGhostSR.color = new Color(1f, 1f, 1f, 0.8f);
+            towerGhostSR.color = new Color(1f, 1f, 1f, 0.75f);
         }
 
         if (GameManager.Instance.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
-            GameObject.Instantiate(towerPrefab, currentTowerGhost.transform.position, Quaternion.identity);
-            GameManager.Instance.AddMoney(-towerPrefab.Cost);
+            Instantiate(currentTowerPrefab, currentGhostTower.transform.position, Quaternion.identity);
+            GameManager.Instance.AddMoney(-currentTowerPrefab.Cost);
+            currentTowerPrefab = null;
+            currentGhostTower.transform.position = new Vector2(0f, 255f);
+            currentGhostTower = null;
         }
     }
 
     public void SetCurrentTowerType(TowerType towerType) {
         switch (towerType) {
             case TowerType.tower1:
-                currentTowerGhost.transform.position = new Vector2(-9f, 255f);
-                towerPrefab = towerType1Prefab;
-                currentTowerGhost = tower1Ghost;
+                currentTowerPrefab = towerType1Prefab;
+                currentGhostTower = tower1Ghost;
                 break;
             case TowerType.tower2:
-                currentTowerGhost.transform.position = new Vector2(0f, 255f);
-                towerPrefab = towerType2Prefab;
-                currentTowerGhost = tower2Ghost;
+                currentTowerPrefab = towerType2Prefab;
+                currentGhostTower = tower2Ghost;
                 break;
             case TowerType.tower3:
-                currentTowerGhost.transform.position = new Vector2(9f, 255f);
-                towerPrefab = towerType3Prefab;
-                currentTowerGhost = tower3Ghost;
+                currentTowerPrefab = towerType3Prefab;
+                currentGhostTower = tower3Ghost;
                 break;
             default:
                 break;

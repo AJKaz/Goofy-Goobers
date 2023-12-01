@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,9 +12,9 @@ public class SpellActivate : MonoBehaviour
     [SerializeField] Button spell3Button;
 
     [Header("Freeze Spell")]
-    [SerializeField] FreezeSpell FreezeSpellPrefab;
+    public FreezeSpell FreezeSpellPrefab;
     [SerializeField] private float freezeSpellCooldown = 15f;
-    private bool isFreezeOnCooldown = false;
+    public bool isFreezeOnCooldown = false;
 
     void Start()
     {
