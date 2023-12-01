@@ -2217,7 +2217,7 @@ MonoBehaviour:
   - {fileID: 942978091}
   - {fileID: 581116052}
   - {fileID: 1116413903}
-  startingMoney: 100
+  startingMoney: 60
   towerUiCanvas: {fileID: 50174059}
   spellActivate: {fileID: 500631751}
   moneyText: {fileID: 1411268898}
@@ -3057,8 +3057,8 @@ Transform:
   m_GameObject: {fileID: 610011738}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.02, y: -0.10502547, z: -3}
-  m_LocalScale: {x: 2.17, y: 11, z: 1}
+  m_LocalPosition: {x: 27, y: -0.10502547, z: -3}
+  m_LocalScale: {x: 35.760246, y: 11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -8998,8 +8998,8 @@ Transform:
   m_GameObject: {fileID: 2051427414}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -10.02, y: -0.10502547, z: -3}
-  m_LocalScale: {x: 2.17, y: 11, z: 1}
+  m_LocalPosition: {x: -19, y: -0.10502547, z: -3}
+  m_LocalScale: {x: 19.909752, y: 11, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

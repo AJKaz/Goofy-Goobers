@@ -147,5 +147,5 @@ MonoBehaviour:
   rangeUpgradeAmount: 0.5
   attackSpeedUpgradeAmount: 0.05
   projectileSpeed: 7
-  numEnemiesToDamage: 1
+  numEnemiesToDamage: 4
   numEnemiesToDamageUpgradeAmount: 2
