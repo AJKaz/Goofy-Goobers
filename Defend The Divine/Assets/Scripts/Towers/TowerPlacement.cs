@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Data.Common;
-using UnityEditor;
 using UnityEngine;
 
 public class TowerPlacement : MonoBehaviour
@@ -59,27 +55,38 @@ public class TowerPlacement : MonoBehaviour
             Instantiate(currentTowerPrefab, currentGhostTower.transform.position, Quaternion.identity);
             GameManager.Instance.AddMoney(-currentTowerPrefab.Cost);
             currentTowerPrefab = null;
-            currentGhostTower.transform.position = new Vector2(0f, 255f);
-            currentGhostTower = null;
+            deselectTower();
+        }
+        else if (GameManager.Instance.inputManager.MouseRightDownThisFrame && currentGhostTower != null) {
+            deselectTower();
         }
     }
 
     public void SetCurrentTowerType(TowerType towerType) {
         switch (towerType) {
             case TowerType.tower1:
+                deselectTower();
                 currentTowerPrefab = towerType1Prefab;
                 currentGhostTower = tower1Ghost;
                 break;
             case TowerType.tower2:
+                deselectTower();
                 currentTowerPrefab = towerType2Prefab;
                 currentGhostTower = tower2Ghost;
                 break;
             case TowerType.tower3:
+                deselectTower();
                 currentTowerPrefab = towerType3Prefab;
                 currentGhostTower = tower3Ghost;
                 break;
             default:
                 break;
         }
+    }
+
+    public void deselectTower() {
+        if (currentGhostTower == null) return;
+        currentGhostTower.transform.position = new Vector2(0f, 255f);
+        currentGhostTower = null;
     }
 }
