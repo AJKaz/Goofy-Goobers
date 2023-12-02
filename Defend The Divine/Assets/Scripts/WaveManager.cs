@@ -21,7 +21,7 @@ public class WaveManager : MonoBehaviour
             Debug.LogError("Enemy spawn positions array is empty in WaveManager");
         }
         currentWave = 0;
-        spellActivateScript = GameManager.Instance.GetComponent<SpellActivate>();
+        spellActivateScript = gameObject.GetComponent<SpellActivate>();
     }
 
     void Update()
@@ -58,7 +58,6 @@ public class WaveManager : MonoBehaviour
                     SpawnEnemyGroups(enemyPrefabs[2], 6, 5000, 6);
                     break;
                 default:
-                    //Debug.LogError("Wave " + currentWave + " has not been made/configured!");
                     break;
             }
         }
@@ -70,8 +69,8 @@ public class WaveManager : MonoBehaviour
         int msBetweenGroups, 
         int numberOfGroups)
     {
-        // gameObject is auto created by unity, and points towards the object this
-        // script is attached to (Game Manager object)
+        // gameObject is auto created by unity, and points towards the object
+        // this script is attached to (Game Manager object)
         gameObject.AddComponent<GroupSpawner>().Initialize(
         enemyType, 
         groupSize, 
