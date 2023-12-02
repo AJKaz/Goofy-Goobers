@@ -14,7 +14,8 @@ public class SpellActivate : MonoBehaviour
     [Header("Freeze Spell")]
     public FreezeSpell FreezeSpellPrefab;
     [SerializeField] private float freezeSpellCooldown = 15f;
-    public bool isFreezeOnCooldown = false;
+    private bool isFreezeOnCooldown = false;
+    public bool IsFreezeOnCooldown { get { return isFreezeOnCooldown; };
 
     void Start()
     {
@@ -53,6 +54,12 @@ public class SpellActivate : MonoBehaviour
 
         isFreezeOnCooldown = false;
         freezeSpellButton.interactable = true;
+    }
+
+    public void ResetAllSpellCooldowns()
+    {
+        isFreezeOnCooldown = false;
+        // Other spells go here
     }
 
 }

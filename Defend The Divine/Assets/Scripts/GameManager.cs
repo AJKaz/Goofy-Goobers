@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
         tower1Button.interactable = money < towerPlacement.towerType1Prefab.Cost ? false : true;
         tower2Button.interactable = money < towerPlacement.towerType2Prefab.Cost ? false : true;
         tower3Button.interactable = money < towerPlacement.towerType3Prefab.Cost ? false : true;
-        spell1Button.interactable = spellActivate.isFreezeOnCooldown || money < spellActivate.FreezeSpellPrefab.Cost ? false : true;
+        spell1Button.interactable = spellActivate.IsFreezeOnCooldown || money < spellActivate.FreezeSpellPrefab.Cost ? false : true;
         
     }
 
@@ -114,5 +114,4 @@ public class GameManager : MonoBehaviour
     public void UpdateMoneyText() {
         moneyText.text = $"${money}";
     }
-
 }

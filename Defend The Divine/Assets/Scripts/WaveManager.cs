@@ -14,22 +14,25 @@ public class WaveManager : MonoBehaviour
     private int currentWave;
     private const int MinTimeBetweenWaves = 10;
     private float waveTimestamp = -(MinTimeBetweenWaves/2);
-    
+    private SpellActivate spellActivateScript;
 
     private void Awake() {
         if (enemySpawnPositions.Length == 0) {
             Debug.LogError("Enemy spawn positions array is empty in WaveManager");
         }
         currentWave = 0;
+        spellActivateScript = GameManager.Instance.GetComponent<SpellActivate>();
     }
 
     void Update()
     {
+        // This code runs each time a wave ends
         if (GameManager.Instance.enemies.Count < 1 &&
             Time.realtimeSinceStartup > MinTimeBetweenWaves + waveTimestamp)
         {
             currentWave++;
             waveTimestamp = Time.realtimeSinceStartup;
+            spellActivateScript.ResetAllSpellCooldowns();
             // At the moment, I've tried to keep waves at ~30s
             switch (currentWave)
             {
