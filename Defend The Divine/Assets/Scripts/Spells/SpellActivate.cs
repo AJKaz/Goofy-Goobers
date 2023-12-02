@@ -15,7 +15,7 @@ public class SpellActivate : MonoBehaviour
     public FreezeSpell FreezeSpellPrefab;
     [SerializeField] private float freezeSpellCooldown = 15f;
     private bool isFreezeOnCooldown = false;
-    public bool IsFreezeOnCooldown { get { return isFreezeOnCooldown; };
+    public bool IsFreezeOnCooldown { get { return isFreezeOnCooldown; } }
 
     void Start()
     {
