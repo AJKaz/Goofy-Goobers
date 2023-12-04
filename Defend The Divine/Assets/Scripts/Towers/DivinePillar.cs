@@ -9,8 +9,8 @@ public class DivinePillar : MonoBehaviour
 
     [SerializeField]
     private GameObject fadeToBlack;
-    
-    private TMP_Text healthText;
+
+    [SerializeField] private TMP_Text healthText;
 
     private int health;
 
