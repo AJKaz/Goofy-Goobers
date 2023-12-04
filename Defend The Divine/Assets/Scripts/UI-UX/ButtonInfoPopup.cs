@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonInfoPopup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float MAX_TIME = 2f;
+    private const float MAX_TIME = 0.75f;
     private float timer = MAX_TIME;
     bool isTimerTicking = false;
     
@@ -24,10 +24,6 @@ public class ButtonInfoPopup : MonoBehaviour, IPointerEnterHandler, IPointerExit
     // Update is called once per frame
     void Update()
     {
-        //if (GameManager.Instance.inputManager.MouseRightDownThisFrame)
-        //{
-        //}
-
         GameObject child = gameObject.transform.GetChild(1).gameObject;
 
 
