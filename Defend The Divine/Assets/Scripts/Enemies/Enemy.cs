@@ -51,7 +51,6 @@ public class Enemy : Entity
     {
         base.Start();
         path = GameManager.Instance.GetRandomPath();
-        //transform.position = path[waypointIndex].transform.position;
     }
 
     private void Update()
@@ -142,10 +141,12 @@ public class Enemy : Entity
     IEnumerator FreezeCoroutine(float freezeDuration)
     {
         isFrozen = true;
+        animator.speed = 0;
 
         yield return new WaitForSeconds(freezeDuration);
 
         isFrozen = false;
+        animator.speed = 1;
     }
 
     IEnumerator DamageFlashCoroutine(float seconds = 0.1f)

@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,16 +7,21 @@ public class DivinePillar : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    [SerializeField]
+    private TMP_Text healthText;
+
     private int health;
 
     public int Health { get { return health; } }
 
     private void Awake() {
         health = maxHealth;
+        TakeDamage(0);
     }
 
     public void TakeDamage(int damage) {
         health -= damage;
+        healthText.text = $"HP: {health}/{maxHealth}";
         if (health <= 0) {
             TowerDestroyed();
         }
