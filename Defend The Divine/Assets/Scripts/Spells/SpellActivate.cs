@@ -25,6 +25,9 @@ public class SpellActivate : MonoBehaviour
 
     public void OnClick(int index)
     {
+        // Trigger camera shake
+        FindFirstObjectByType<ShakeBehavior>().TriggerShake();
+
         switch (index)
         {
             case 0:
