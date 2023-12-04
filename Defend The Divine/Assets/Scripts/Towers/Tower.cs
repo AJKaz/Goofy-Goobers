@@ -3,35 +3,27 @@ using UnityEngine.EventSystems;
 
 public abstract class Tower : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField]
-    protected float damage = 5f;
-
-    [SerializeField]
-    protected float range = 5f;
+    [SerializeField] protected float damage = 5f;
+    [SerializeField] protected float range = 5f;
 
     /* Use as a const, only to be changed in UpgradeAttackSpeed */
-    [SerializeField]
-    protected float ATTACK_DELAY = 0.5f;
+    [SerializeField] protected float ATTACK_DELAY = 0.5f;
 
     protected float attackTimer = 0.05f;
 
-    [SerializeField]
-    protected int cost = 10;
+    [SerializeField] protected int cost = 10;
 
-    [SerializeField]
-    protected GameObject damagingPrefab;
+    [SerializeField] protected GameObject damagingPrefab;
 
     protected bool hasCreatedUI = false;
     protected bool mouseIsOver = false;
     protected GameObject createdUi;
     protected GameObject visibleRange;
 
-    [SerializeField]
-    protected GameObject uiPopupPrefab;
+    [Header("UI Stuff")]
+    [SerializeField] protected GameObject uiPopupPrefab;
+    [SerializeField] protected GameObject rangePrefab;
 
-    [SerializeField]
-    protected GameObject rangePrefab;
-    
     [Header("Upgrades")]
     [SerializeField] protected int upgradeCost = 3;
     [SerializeField] protected int maxUpgradeLevel = 4;

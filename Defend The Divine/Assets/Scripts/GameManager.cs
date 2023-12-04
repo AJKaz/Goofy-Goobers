@@ -25,13 +25,17 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private SpellActivate spellActivate;
 
-    [SerializeField]
-    private TMP_Text moneyText;
-
     private WaveManager waveManager;
     public WaveManager WaveManager { get { return waveManager; } }
 
     public TowerPlacement towerPlacement;
+
+    [Header("UI Stuff")]
+    [SerializeField] private TMP_Text moneyText;
+    [SerializeField] private TMP_Text cannonTowerCost;
+    [SerializeField] private TMP_Text swordTowerCost;
+    [SerializeField] private TMP_Text piercingTowerCost;
+    [SerializeField] private TMP_Text freezeSpellCost;
 
     // Buttons
     private Button tower1Button;
@@ -83,6 +87,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start() {
+        cannonTowerCost.text = $"${towerPlacement.towerType1Prefab.Cost}";
+        swordTowerCost.text = $"${towerPlacement.towerType2Prefab.Cost}";
+        piercingTowerCost.text = $"${towerPlacement.towerType3Prefab.Cost}";
+        freezeSpellCost.text = $"${spellActivate.FreezeSpellPrefab.Cost}";
+    }
+
     public Transform[] GetRandomPath() {
         int randomPath = Random.Range(0, 2);
         switch (randomPath) {
@@ -99,7 +110,7 @@ public class GameManager : MonoBehaviour
         UpdateButtonInteractability();
     }
 
-    private void UpdateButtonInteractability() {
+    public void UpdateButtonInteractability() {
         tower1Button.interactable = money < towerPlacement.towerType1Prefab.Cost ? false : true;
         tower2Button.interactable = money < towerPlacement.towerType2Prefab.Cost ? false : true;
         tower3Button.interactable = money < towerPlacement.towerType3Prefab.Cost ? false : true;

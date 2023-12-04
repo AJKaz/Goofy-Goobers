@@ -33,6 +33,7 @@ public class SpellActivate : MonoBehaviour
                     StartCoroutine(FreezeSpellCoroutine());
                     Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity);
                     GameManager.Instance.AddMoney(-FreezeSpellPrefab.Cost);
+                    GameManager.Instance.towerPlacement.deselectTower();
                 }
                 break;
             case 1:
@@ -53,7 +54,7 @@ public class SpellActivate : MonoBehaviour
         yield return new WaitForSeconds(freezeSpellCooldown);
 
         isFreezeOnCooldown = false;
-        freezeSpellButton.interactable = true;
+        GameManager.Instance.UpdateButtonInteractability();
     }
 
     public void ResetAllSpellCooldowns()
