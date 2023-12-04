@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7568181446551008225}
   - component: {fileID: 1344348285765095254}
   - component: {fileID: 5396992653318890365}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: IceSpike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 3237477865860299860}
   - component: {fileID: 4079116944206575202}
   - component: {fileID: 7691451004181605552}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Trail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4950,7 +4950,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5853213940399920374}
   - component: {fileID: 6343237781112521146}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
