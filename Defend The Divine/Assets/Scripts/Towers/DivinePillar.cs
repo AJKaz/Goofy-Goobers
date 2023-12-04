@@ -8,6 +8,8 @@ public class DivinePillar : MonoBehaviour
     private int maxHealth = 100;
 
     [SerializeField]
+    private GameObject fadeToBlack;
+    
     private TMP_Text healthText;
 
     private int health;
@@ -33,6 +35,8 @@ public class DivinePillar : MonoBehaviour
     /// 2 - If we have a "2nd chance / 2nd life", we can add that here, stays neater
     /// </summary>
     private void TowerDestroyed() {
-        SceneManager.LoadScene("GameOver");
+        // fadeToBlack will load the game over scene when it is done
+        Instantiate(fadeToBlack, new Vector3(0,0,-9.5f), Quaternion.identity);
+        //SceneManager.LoadScene("GameOver");
     }
 }

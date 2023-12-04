@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  fadeToBlack: {fileID: 6794859152628587946, guid: d8c672315d3277e4caefb93740299aa1, type: 3}
   healthText: {fileID: 0}
 --- !u!50 &9168538538306819079
 Rigidbody2D:
