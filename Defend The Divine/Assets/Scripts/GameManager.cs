@@ -54,7 +54,10 @@ public class GameManager : MonoBehaviour
         waveManager = GetComponent<WaveManager>();
 
         UpdateMoneyText();
+    }
 
+    private void Start()
+    {
         audioManager.Play("BackgroundMusic");
     }
 
