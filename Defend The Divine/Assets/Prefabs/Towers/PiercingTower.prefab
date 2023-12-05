@@ -141,11 +141,12 @@ MonoBehaviour:
   damagingPrefab: {fileID: 474679912698572556, guid: fd7fc8191959b504b8c58dac7eef2f45, type: 3}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
-  upgradeCost: 3
-  maxUpgradeLevel: 4
+  upgradeCost: 35
+  maxUpgradeLevel: 5
   damageUpgradeAmount: 0.5
   rangeUpgradeAmount: 0.5
   attackSpeedUpgradeAmount: 0.05
+  isPopupUIActive: 0
   projectileSpeed: 7
   numEnemiesToDamage: 4
   numEnemiesToDamageUpgradeAmount: 2

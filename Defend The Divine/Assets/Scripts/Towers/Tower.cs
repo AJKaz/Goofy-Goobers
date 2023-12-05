@@ -34,10 +34,20 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
     /* Current Upgrade Level*/
     protected int upgradeLevel = 1;
 
+    protected int sellPrice = 0;
+    protected int sellUpgradeIncrement = 0;
     protected int enemiesKilled = 0;
 
+    protected HandlePanelVisibility createdUiReference;
+
+    public bool isPopupUIActive = false;
+
     public int Cost { get { return cost; } }
-    public int EnemiesKilled { get { return enemiesKilled; } }
+    
+    protected void Awake() {
+        sellPrice = cost / 2;
+        sellUpgradeIncrement = upgradeCost / 2;
+    }
 
     protected virtual void Update() {
         attackTimer -= Time.deltaTime;
@@ -46,6 +56,9 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             if (target != null) {
                 Attack(target);
             }
+        }
+        if (isPopupUIActive) {
+            UpdateUpgradeButtonInteractibility();
         }
     }
 
@@ -67,20 +80,14 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             createdUi = GameObject.Instantiate(uiPopupPrefab, transform.position, Quaternion.identity, GameManager.Instance.towerUiCanvas.transform);
             createdUi.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
 
-            createdUi.GetComponent<HandlePanelVisibility>().tower = this;
-            
+            createdUiReference = createdUi.GetComponent<HandlePanelVisibility>();
+            createdUiReference.tower = this;
+
             // Use to calculate position relative to screen
             Vector2 screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
 
             // Check which side of the screen the tower is on and move the UI accordingly
-            if (transform.position.x <= 0)
-            {
-                createdUi.transform.localPosition = new Vector3(250, -113, 0);
-            }
-            else
-            {
-                createdUi.transform.localPosition = new Vector3(-250, -113, 0);
-            }
+            createdUi.transform.localPosition = new Vector3(245, -170, 0);
 
             // Calculate if the ui is clipping out of the vertical camera view
             //float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
@@ -100,16 +107,18 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             visibleRange = GameObject.Instantiate(rangePrefab, transform.position, Quaternion.identity);
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
 
-            createdUi.GetComponent<HandlePanelVisibility>().visibleRange = visibleRange;
+            createdUiReference.visibleRange = visibleRange;
 
             hasCreatedUI = true;
+            UpdatePopupUIText();
         }
         createdUi.SetActive(true);
+        isPopupUIActive = true;
         visibleRange.SetActive(true);
     }
 
     public virtual void Upgrade() {
-        if (upgradeLevel <= maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
+        if (upgradeLevel < maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
             GameManager.Instance.AddMoney(-upgradeCost);
             upgradeLevel++;
 
@@ -117,11 +126,59 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             range += rangeUpgradeAmount;
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
 
+            if (upgradeLevel % 2 == 0) sellPrice += sellUpgradeIncrement + 1;
+            else sellPrice += sellUpgradeIncrement;
+
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
+
+            UpdateUpgradeButtonInteractibility();
+            UpdatePopupUIText();
         }
+    }
+
+    public virtual void Sell(GameObject visibleRange, GameObject popupUI) {
+        GameManager.Instance.AddMoney(sellPrice);
+        Destroy(gameObject);
+
+        if (visibleRange) Destroy(visibleRange);
+        if (popupUI) Destroy(popupUI);
     }
 
     public void KilledEnemy() {
         enemiesKilled++;
+        UpdatePopupUIText();
+    }
+
+    protected void UpdateUpgradeButtonInteractibility() {
+        if (upgradeLevel == maxUpgradeLevel) {
+            createdUiReference.upgradeButton.interactable = false;
+            return;
+        }
+
+        if (GameManager.Instance.Money < upgradeCost) {
+            createdUiReference.upgradeButton.interactable = false;
+        }
+        else {
+            createdUiReference.upgradeButton.interactable = true;
+        }
+    }
+
+    protected void UpdatePopupUIText() {
+        if (createdUiReference == null) return;
+
+        if (createdUiReference.infoText != null) {
+            createdUiReference.infoText.text =
+            $"Demons Killed: {enemiesKilled}\n" +
+            $"Damage: {damage}\n" +
+            $"Range: {range}\n" +
+            $"Level: {upgradeLevel} / {maxUpgradeLevel}\n";
+        }
+        if (createdUiReference.upgradeButtonText != null) {
+            createdUiReference.upgradeButtonText.text = $"Upgrade (${upgradeCost})";
+        }
+        if (createdUiReference.sellButtonText != null) {
+            createdUiReference.sellButtonText.text = $"Sell (+${sellPrice})";
+        }
+        
     }
 }

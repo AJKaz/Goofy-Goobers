@@ -39,7 +39,7 @@ public class PiercingTower : Tower
     }
 
     public override void Upgrade() {
-        if (upgradeLevel <= maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
+        if (upgradeLevel < maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
             GameManager.Instance.AddMoney(-upgradeCost);
             upgradeLevel++;
 
@@ -48,7 +48,13 @@ public class PiercingTower : Tower
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
             numEnemiesToDamage += numEnemiesToDamageUpgradeAmount;
 
+            if (upgradeLevel % 2 == 0) sellPrice += sellUpgradeIncrement + 1;
+            else sellPrice += sellUpgradeIncrement;
+
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
+
+            UpdateUpgradeButtonInteractibility();
+            UpdatePopupUIText();
         }
     }
 }
