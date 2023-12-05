@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class SwordTower : Tower
 {
+    [Header("Tower Specifics")]
     [SerializeField]
     private float rotationSpeed = 360f;
-
     [SerializeField]
     private SpriteRenderer swordSpriteRenderer;
 
@@ -40,7 +40,7 @@ public class SwordTower : Tower
     }
 
     protected override void Attack(Enemy target) {
-        shootTimer = ATTACK_DELAY;
+        attackTimer = ATTACK_DELAY;
         ContinueSwing();
         isSwinging = true;
         swordSpriteRenderer.enabled = true;
@@ -53,7 +53,9 @@ public class SwordTower : Tower
         foreach (Collider2D enemyCollider in enemies) {
             Enemy enemy = enemyCollider.GetComponent<Enemy>();
             if (enemy != null) {
-                enemy.TakeDamage(damage);
+                if (enemy.TakeDamage(damage)) {
+                    KilledEnemy();
+                }
                 enemy.BloodSplatRotation = null;
             }
         }
@@ -68,5 +70,19 @@ public class SwordTower : Tower
             }
         }
         return null;
+    }
+
+    public override void Upgrade() {
+        if (upgradeLevel <= maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
+            GameManager.Instance.AddMoney(-upgradeCost);
+            upgradeLevel++;
+
+            damage += damageUpgradeAmount;
+            range += rangeUpgradeAmount;
+            ATTACK_DELAY -= attackSpeedUpgradeAmount;
+
+            visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
+            swordSpriteRenderer.transform.localScale = new Vector3(swordSpriteRenderer.transform.localScale.x, range * 1.65f);
+        }
     }
 }

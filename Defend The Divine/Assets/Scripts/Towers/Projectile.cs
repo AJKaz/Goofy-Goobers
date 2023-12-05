@@ -18,16 +18,19 @@ public class Projectile : MonoBehaviour
 
     private bool hasHitEnemy = false;
 
+    private Tower parentTower;
+
     public void SetTarget(Vector3 targetPosition)
     {
         direction = (targetPosition - transform.position).normalized;
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 
-    public void SetStats(float damage, float speed)
+    public void SetStats(float damage, float speed, Tower parentTower)
     {
         this.damage = damage;
         this.speed = speed;
+        this.parentTower = parentTower;
     }
 
     private void Update()
@@ -49,7 +52,9 @@ public class Projectile : MonoBehaviour
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy)
             {
-                enemy.TakeDamage(damage);
+                if (enemy.TakeDamage(damage)) {
+                    parentTower.KilledEnemy();
+                }
                 enemy.BloodSplatRotation = transform.rotation.eulerAngles.z + 180 % 360;
             }
 

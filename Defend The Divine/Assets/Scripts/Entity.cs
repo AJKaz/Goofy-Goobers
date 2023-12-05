@@ -23,10 +23,19 @@ public abstract class Entity : MonoBehaviour {
         health = maxHealth;
     }
 
-    public virtual void TakeDamage(float damage) {
+    /// <summary>
+    /// Handles an entity taking damage
+    /// </summary>
+    /// <param name="damage">Amount of damage to take</param>
+    /// <returns>Returns true if entity died, false otherwise</returns>
+    public virtual bool TakeDamage(float damage) {
         health -= damage;
         if (healthBar) healthBar.value = health / maxHealth;
-        if (health <= 0) Die();
+        if (health <= 0) {
+            Die();
+            return true;
+        }
+        return false;
     }
 
     protected abstract void Die();

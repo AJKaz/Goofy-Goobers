@@ -160,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
-  m_Color: {r: 0, g: 0.9339623, b: 0.8586397, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 325e7d1fce0f46340a11da828086bce0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -184,22 +184,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 10
-  projectileSpeed: 15
   range: 2.1
   ATTACK_DELAY: 0.75
   cost: 20
   damagingPrefab: {fileID: 6194810038108574417}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
+  upgradeCost: 5
+  maxUpgradeLevel: 4
   damageUpgradeAmount: 0.5
-  damageUpgradeCost: 3
-  maxDamageUpgradeLevel: 4
   rangeUpgradeAmount: 0.1
-  rangeUpgradeCost: 3
-  maxRangeUpgradeLevel: 4
   attackSpeedUpgradeAmount: 0.05
-  attackSpeedUpgradeCost: 3
-  maxAttackSpeedUpgradeLevel: 4
   rotationSpeed: 2500
   swordSpriteRenderer: {fileID: 1443375537974400236}
 --- !u!58 &-8598380634875836332
