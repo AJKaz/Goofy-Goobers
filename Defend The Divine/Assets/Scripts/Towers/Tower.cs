@@ -126,8 +126,9 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             range += rangeUpgradeAmount;
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
 
-            if (upgradeLevel % 2 == 0) sellPrice += sellUpgradeIncrement + 1;
+            if (upgradeLevel % 2 == 0) sellPrice += (upgradeCost % 2 == 0) ? sellUpgradeIncrement : sellUpgradeIncrement + 1;
             else sellPrice += sellUpgradeIncrement;
+            
 
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
 
