@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6028827511633095666}
   - component: {fileID: 1443375537974400236}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,8 +160,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e859f89337895da49affd3a6c9764042, type: 3}
-  m_Color: {r: 0, g: 0.9339623, b: 0.8586397, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 325e7d1fce0f46340a11da828086bce0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -186,15 +186,16 @@ MonoBehaviour:
   damage: 10
   range: 2.1
   ATTACK_DELAY: 0.75
-  cost: 20
+  cost: 40
   damagingPrefab: {fileID: 6194810038108574417}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
-  upgradeCost: 5
-  maxUpgradeLevel: 4
+  upgradeCost: 30
+  maxUpgradeLevel: 5
   damageUpgradeAmount: 0.5
   rangeUpgradeAmount: 0.1
   attackSpeedUpgradeAmount: 0.05
+  isPopupUIActive: 0
   rotationSpeed: 2500
   swordSpriteRenderer: {fileID: 1443375537974400236}
 --- !u!58 &-8598380634875836332

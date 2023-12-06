@@ -14,6 +14,9 @@ public class TowerSelect : MonoBehaviour
             case TowerPlacement.TowerType.tower2:
                 GameManager.Instance.towerPlacement.SetCurrentTowerType(TowerPlacement.TowerType.tower2);
                 break;
+            case TowerPlacement.TowerType.tower3:
+                GameManager.Instance.towerPlacement.SetCurrentTowerType(TowerPlacement.TowerType.tower3);
+                break;
             default:
                 break;
         }

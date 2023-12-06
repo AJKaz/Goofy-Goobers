@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -13,19 +12,22 @@ public class SpellActivate : MonoBehaviour
     [SerializeField] Button spell3Button;
 
     [Header("Freeze Spell")]
-    [SerializeField] FreezeSpell FreezeSpellPrefab;
+    public FreezeSpell FreezeSpellPrefab;
     [SerializeField] private float freezeSpellCooldown = 15f;
     private bool isFreezeOnCooldown = false;
+    public bool IsFreezeOnCooldown { get { return isFreezeOnCooldown; } }
 
     void Start()
     {
         freezeSpellButton.onClick.AddListener(delegate { OnClick(0); });
         spell2Button.onClick.AddListener(delegate { OnClick(1); });
-        spell3Button.onClick.AddListener(delegate { OnClick(2); });
     }
 
     public void OnClick(int index)
     {
+        // Trigger camera shake
+        FindFirstObjectByType<ShakeBehavior>().TriggerShake();
+
         switch (index)
         {
             case 0:
@@ -34,6 +36,7 @@ public class SpellActivate : MonoBehaviour
                     StartCoroutine(FreezeSpellCoroutine());
                     Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity);
                     GameManager.Instance.AddMoney(-FreezeSpellPrefab.Cost);
+                    GameManager.Instance.towerPlacement.deselectTower();
                 }
                 break;
             case 1:
@@ -54,7 +57,13 @@ public class SpellActivate : MonoBehaviour
         yield return new WaitForSeconds(freezeSpellCooldown);
 
         isFreezeOnCooldown = false;
-        freezeSpellButton.interactable = true;
+        GameManager.Instance.UpdateButtonInteractability();
+    }
+
+    public void ResetAllSpellCooldowns()
+    {
+        isFreezeOnCooldown = false;
+        // Other spells go here
     }
 
 }
