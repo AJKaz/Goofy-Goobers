@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DivinePillar : MonoBehaviour
 {
@@ -23,10 +22,11 @@ public class DivinePillar : MonoBehaviour
 
     public void TakeDamage(int damage) {
         health -= damage;
-        healthText.text = $"HP: {health}/{maxHealth}";
         if (health <= 0) {
+            health = 0;
             TowerDestroyed();
         }
+        healthText.text = $"HP: {health}/{maxHealth}";
     }
 
     /// <summary>

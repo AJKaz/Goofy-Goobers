@@ -17,11 +17,6 @@ public class TowerPlacement : MonoBehaviour
     private TowerGhost currentGhostTower;
     private bool canPlaceTower = true;
 
-    private void Awake() {
-        /* REMOVE THIS ONCE ONE CLICK PER TOWER PLACEMENT IS IMPLEMENTED */
-        currentGhostTower = tower1Ghost;
-    }
-
     void Update()
     {
         if (currentTowerPrefab == null || currentGhostTower == null) return;

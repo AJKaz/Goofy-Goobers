@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
         tower2Button.interactable = money < towerPlacement.towerType2Prefab.Cost ? false : true;
         tower3Button.interactable = money < towerPlacement.towerType3Prefab.Cost ? false : true;
         spell1Button.interactable = spellActivate.IsFreezeOnCooldown || money < spellActivate.FreezeSpellPrefab.Cost ? false : true;
-        
     }
 
     public bool RemoveEnemy(Enemy enemy) {
