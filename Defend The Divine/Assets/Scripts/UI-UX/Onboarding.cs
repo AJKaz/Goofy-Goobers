@@ -48,6 +48,7 @@ public class Onboarding : MonoBehaviour, IPointerClickHandler
             case 5:
                 arrows[stateVal-1].SetActive(false);
                 Time.timeScale = 1;
+                this.gameObject.SetActive(false);
                 break;
             default:
                 break;

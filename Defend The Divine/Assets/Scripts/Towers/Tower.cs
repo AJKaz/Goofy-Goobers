@@ -80,15 +80,7 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             // Use to calculate position relative to screen
             Vector2 screenExtents = new Vector2(Camera.main.orthographicSize * Screen.width / (float)Screen.height, Camera.main.orthographicSize);
 
-            // Check which side of the screen the tower is on and move the UI accordingly
-            if (transform.position.x <= 0)
-            {
-                createdUi.transform.localPosition = new Vector3(250, -113, 0);
-            }
-            else
-            {
-                createdUi.transform.localPosition = new Vector3(-250, -113, 0);
-            }
+            createdUi.transform.localPosition = new Vector3(250, -113, 0);
 
             // Calculate if the ui is clipping out of the vertical camera view
             //float topOfUi = Camera.main.WorldToScreenPoint(transform.position).y + createdUi.GetComponent<RectTransform>().rect.height / 2;
