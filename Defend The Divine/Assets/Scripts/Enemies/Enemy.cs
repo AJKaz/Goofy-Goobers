@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Linq;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -23,6 +24,8 @@ public class Enemy : Entity
     [SerializeField]
     protected Color damageFlash = Color.red;
     protected Color baseColor;
+
+    [SerializeField] private DemonEssence demonEssence;
 
     protected int waypointIndex = 0;
 
@@ -50,7 +53,7 @@ public class Enemy : Entity
     protected override void Start()
     {
         base.Start();
-        path = GameManager.Instance.GetRandomPath();
+        path = GameManager.Instance.GetPath();
     }
 
     private void Update()
@@ -90,6 +93,9 @@ public class Enemy : Entity
             string splatterEffect = BloodSplatRotation == null ? "Blood Splat" : "Directional Blood Splat";
             ParticleSystem splat = bloodSplatter.GetComponentsInChildren<ParticleSystem>().FirstOrDefault(ps => ps.name == splatterEffect);
             Instantiate(splat, transform.position, Quaternion.Euler(0, 0, BloodSplatRotation ?? 0)).Play();
+        }
+        if (demonEssence) {
+            Instantiate(demonEssence, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
         GameManager.Instance.RemoveEnemy(this);
