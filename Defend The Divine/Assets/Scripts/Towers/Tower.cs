@@ -175,10 +175,10 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             $"Level: {upgradeLevel} / {maxUpgradeLevel}\n";
         }
         if (createdUiReference.upgradeButtonText != null) {
-            createdUiReference.upgradeButtonText.text = $"Upgrade (${upgradeCost})";
+            createdUiReference.upgradeButtonText.text = $"{upgradeCost}";
         }
         if (createdUiReference.sellButtonText != null) {
-            createdUiReference.sellButtonText.text = $"Sell (+${sellPrice})";
+            createdUiReference.sellButtonText.text = $"+{sellPrice}";
         }
         
     }

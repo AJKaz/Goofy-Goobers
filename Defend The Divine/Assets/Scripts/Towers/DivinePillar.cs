@@ -26,7 +26,7 @@ public class DivinePillar : MonoBehaviour
             health = 0;
             TowerDestroyed();
         }
-        healthText.text = $"HP: {health}/{maxHealth}";
+        healthText.text = $"{health}";
     }
 
     /// <summary>

@@ -8,9 +8,6 @@ public class IceSpike : MonoBehaviour
     private Vector3 direction;
     private float damage = 5;
     private float speed = 15f;
-    private int numEnemiesToDamage = 5;
-
-    private int numEnemiesHit = 0;
 
     private Tower parentTower;
 
@@ -19,10 +16,9 @@ public class IceSpike : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
     }
 
-    public void SetStats(float damage, float speed, int numEnemiesToDamage, Tower parentTower) {
+    public void SetStats(float damage, float speed, Tower parentTower) {
         this.damage = damage;
         this.speed = speed;
-        this.numEnemiesToDamage = numEnemiesToDamage;
         this.parentTower = parentTower;
     }
 
@@ -36,8 +32,7 @@ public class IceSpike : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (numEnemiesHit < numEnemiesToDamage && collision.gameObject.CompareTag("Enemy")) {
-            numEnemiesHit++;
+        if (collision.gameObject.CompareTag("Enemy")) {
             Enemy enemy = collision.gameObject.GetComponent<Enemy>();
             if (enemy) {
                 if (enemy.TakeDamage(damage)) {
@@ -45,7 +40,8 @@ public class IceSpike : MonoBehaviour
                 }
                 enemy.BloodSplatRotation = transform.rotation.eulerAngles.z + 180 % 360;
             }
-            if (numEnemiesHit >= numEnemiesToDamage) Destroy(gameObject);
+            damage--;
+            if (damage <= 0) Destroy(gameObject);
         }
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 
 public class ButtonInfoPopup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float MAX_TIME = 0.25f;
+    private const float MAX_TIME = 0.75f;
     private float timer = MAX_TIME;
     bool isTimerTicking = false;
     

@@ -8,15 +8,12 @@ public class PiercingTower : Tower
     [SerializeField]
     protected float projectileSpeed = 15f;
 
-    [SerializeField] protected int numEnemiesToDamage = 5;
-    [SerializeField] private int numEnemiesToDamageUpgradeAmount = 2;
-
     protected override void Attack(Enemy target) {
         attackTimer = ATTACK_DELAY;
         GameObject obj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
         IceSpike iceSpike = obj.GetComponent<IceSpike>();
         iceSpike.SetDirection(target.transform.position);
-        iceSpike.SetStats(damage, projectileSpeed, numEnemiesToDamage, this);
+        iceSpike.SetStats(damage, projectileSpeed, this);
     }
 
     protected override Enemy GetTarget() {
@@ -46,7 +43,6 @@ public class PiercingTower : Tower
             damage += damageUpgradeAmount;
             range += rangeUpgradeAmount;
             ATTACK_DELAY -= attackSpeedUpgradeAmount;
-            numEnemiesToDamage += numEnemiesToDamageUpgradeAmount;
 
             if (upgradeLevel % 2 == 0) sellPrice += (upgradeCost % 2 == 0) ? sellUpgradeIncrement : sellUpgradeIncrement + 1;
             else sellPrice += sellUpgradeIncrement;

@@ -12,9 +12,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] 
     public List<Enemy> enemies;
 
-    [SerializeField] private Transform[] path1;
-    [SerializeField] private Transform[] path2;
-    [SerializeField] private Transform[] path3;
+    [SerializeField] private Transform[] path;
 
     [SerializeField] private int startingMoney = 100;
 
@@ -88,20 +86,14 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        cannonTowerCost.text = $"${towerPlacement.towerType1Prefab.Cost}";
-        swordTowerCost.text = $"${towerPlacement.towerType2Prefab.Cost}";
-        piercingTowerCost.text = $"${towerPlacement.towerType3Prefab.Cost}";
-        freezeSpellCost.text = $"${spellActivate.FreezeSpellPrefab.Cost}";
+        cannonTowerCost.text = $"{towerPlacement.towerType1Prefab.Cost}";
+        swordTowerCost.text = $"{towerPlacement.towerType2Prefab.Cost}";
+        piercingTowerCost.text = $"{towerPlacement.towerType3Prefab.Cost}";
+        freezeSpellCost.text = $"{spellActivate.FreezeSpellPrefab.Cost}";
     }
 
-    public Transform[] GetRandomPath() {
-        int randomPath = Random.Range(0, 2);
-        switch (randomPath) {
-            case 0: return path1;
-            case 1: return path2;
-            case 2: return path3;
-            default: return path1;
-        }
+    public Transform[] GetPath() {
+        return path;
     }
 
     public void AddMoney(int amount) {
@@ -122,6 +114,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateMoneyText() {
-        moneyText.text = $"${money}";
+        moneyText.text = $"{money}";
     }
 }
