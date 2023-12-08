@@ -26,6 +26,10 @@ public class GroupSpawner : MonoBehaviour
     float groupSpawnTimestamp;
     WaveManager waveManager;
 
+    private float maxHealthIncreaseOverride;
+    private int moneyValuesOverride;
+    private float moveSpeedIncreaseOverride;
+
     /// <summary>
     /// "Constructor" for GroupSpawner
     /// </summary>
@@ -33,12 +37,15 @@ public class GroupSpawner : MonoBehaviour
         GameObject enemyType,
         int groupSize,
         int msBetweenGroups,
-        int numberOfGroups)
+        int numberOfGroups, float maxHealthIncreaseOverride = -1, int moneyValuesOverride = -1, float moveSpeedIncreaseOverride = -1)
     {
         this.enemyType = enemyType;
         this.groupSize = groupSize;
         this.msBetweenGroups = msBetweenGroups;
         this.numberOfGroups = numberOfGroups;
+        this.maxHealthIncreaseOverride = maxHealthIncreaseOverride;
+        this.moneyValuesOverride = moneyValuesOverride;
+        this.moveSpeedIncreaseOverride = moveSpeedIncreaseOverride;
 
         waveManager = GameManager.Instance.WaveManager;
         // First waves spawns instantly
@@ -77,11 +84,15 @@ public class GroupSpawner : MonoBehaviour
     {
         for (int i = 0; i < groupSize; i++)
         {
-            GameObject enemy = null;
+            GameObject enemyObj = null;
             try
             {
-                enemy = Object.Instantiate(enemyType);
-                GameManager.Instance.enemies.Add(enemy.GetComponent<Enemy>());
+                enemyObj = Object.Instantiate(enemyType);
+                Enemy enemy = enemyObj.GetComponent<Enemy>();
+                GameManager.Instance.enemies.Add(enemy);
+                if (maxHealthIncreaseOverride != -1) enemy.IncreaseMaxHealthBy(maxHealthIncreaseOverride);
+                if (moneyValuesOverride != -1) enemy.UpdateMoneyValue(moneyValuesOverride);
+                if (moveSpeedIncreaseOverride != -1) enemy.IncreaseSpeedBy(moveSpeedIncreaseOverride);
             }
             catch
             {
@@ -90,7 +101,7 @@ public class GroupSpawner : MonoBehaviour
                 Destroy(this);
             }
             Vector3[] spawnVectors = GetRandomSpawnPosition();
-            enemy.transform.position = (spawnVectors[0] + spawnVectors[1] * i);
+            enemyObj.transform.position = (spawnVectors[0] + spawnVectors[1] * i);
         }
     }
 

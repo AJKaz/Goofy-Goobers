@@ -4757,7 +4757,7 @@ MonoBehaviour:
   - {fileID: 201514178}
   - {fileID: 142517694}
   - {fileID: 1906842667}
-  startingMoney: 150
+  startingMoney: 125
   towerUiCanvas: {fileID: 50174059}
   spellActivate: {fileID: 500631751}
   towerPlacement: {fileID: 500631748}

@@ -183,14 +183,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd59eb6053ef50b4f8aefb229a179f6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 8
   range: 1.5
-  ATTACK_DELAY: 1
-  cost: 55
+  ATTACK_DELAY: 1.25
+  cost: 75
   damagingPrefab: {fileID: 6194810038108574417}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
-  upgradeCost: 30
+  upgradeCost: 40
   maxUpgradeLevel: 5
   damageUpgradeAmount: 0.5
   rangeUpgradeAmount: 0.1

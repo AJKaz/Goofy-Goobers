@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using TMPro;
 
 public class Enemy : Entity
 {
@@ -165,13 +162,13 @@ public class Enemy : Entity
         yield return new WaitForSeconds(seconds);
         sprite.color = baseColor;
     }
-
     public void UpdateMoneyValue(int newMoneyValue) {
         moneyValue = newMoneyValue;
     }
 
-    public void IncreaseMaxHealthBy(int amountToIncrease) {
+    public void IncreaseMaxHealthBy(float amountToIncrease) {
         maxHealth += amountToIncrease;
+        health = maxHealth;
     }
 
     public void IncreaseSpeedBy(float amountToIncrease) {

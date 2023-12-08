@@ -39,13 +39,13 @@ public class WaveManager : MonoBehaviour
                 case 1: // 8, 0, 0
                     // 8 basic enemies in groups of 1, 3.75s between each group
                     // total wave spawn time: 30s
-                    SpawnEnemyGroups(enemyType: enemyPrefabs[0], groupSize: 1, msBetweenGroups: 3750, numberOfGroups: 8);
+                    SpawnEnemyGroups(enemyType: enemyPrefabs[0], groupSize: 1, msBetweenGroups: 3750, numberOfGroups: 8, -15);  // First wave, enemy has 15 less hp
                     break;                      
                 case 2: // 12, 0, 0
                     GameManager.Instance.AddMoney(40);
                     // 12 basic enemies in groups of 2, 5s between each group
                     // total wave spawn time: 30s
-                    SpawnEnemyGroups(enemyPrefabs[0], groupSize: 2, 5000, numberOfGroups: 6);
+                    SpawnEnemyGroups(enemyPrefabs[0], groupSize: 2, 5000, numberOfGroups: 6, -5);   // Second wave, enemy has 5 less hp
                     break;                      
                 case 3: // 18, 12, 0
                     GameManager.Instance.AddMoney(75);
@@ -103,20 +103,20 @@ public class WaveManager : MonoBehaviour
                     break;
                 default:
                     GameManager.Instance.divinePillar.IncreaseHealthBy(1);
-                    if (currentWave == 8) SetAllEnemyMoneysToOne();
                     // For every wave beyond 7:
                     int moneyToAdd = 175 + (currentWave - 7) * 25;
                     if (moneyToAdd > 250) moneyToAdd = 250;
                     GameManager.Instance.AddMoney(moneyToAdd);
 
-                    // Each wave increase enemy health by 1-5 each wave
-                    if (currentWave < 10) IncreaseAllEnemyMaxHealthBy(1);
-                    else if (currentWave < 15) IncreaseAllEnemyMaxHealthBy(2);
-                    else if (currentWave < 20) IncreaseAllEnemyMaxHealthBy(3);
-                    else if (currentWave < 25) IncreaseAllEnemyMaxHealthBy(4);
-                    else IncreaseAllEnemyMaxHealthBy(5);
+                    float enemyMaxHealthIncrease = 0;
 
-                    IncreaseAllEnemySpeed();
+                    // Each wave increase enemy health by 1-5 each wave
+                    if (currentWave < 10) enemyMaxHealthIncrease = 1;
+                    else if (currentWave < 15) enemyMaxHealthIncrease = 2;
+                    else if (currentWave < 20) enemyMaxHealthIncrease = 3;
+                    else if (currentWave < 25) enemyMaxHealthIncrease = 4;
+                    else enemyMaxHealthIncrease = 5;
+
 
                     int basicGroupSize = 4 + (currentWave - 4); // Increase group size by 4 every wave
                     int fastGroupSize = 2 + (currentWave - 4); // Increase group size by 2 every wave
@@ -130,37 +130,19 @@ public class WaveManager : MonoBehaviour
                     int fastDelay = 2500 - (currentWave - 7) * 200; // Decrease delay by 200ms each wave
                     int tankDelay = 3000 - (currentWave - 7) * 200; // Decrease delay by 200ms each wave
 
-                    SpawnEnemyGroups(enemyPrefabs[0], groupSize: basicGroupSize, basicDelay, basicEnemies / basicGroupSize);
-                    SpawnEnemyGroups(enemyPrefabs[1], groupSize: fastGroupSize, fastDelay, fastEnemies / fastGroupSize);
-                    SpawnEnemyGroups(enemyPrefabs[2], groupSize: tankGroupSize, tankDelay, tankEnemies / tankGroupSize);
+                    SpawnEnemyGroups(enemyPrefabs[0], groupSize: basicGroupSize, basicDelay, basicEnemies / basicGroupSize, enemyMaxHealthIncrease, 1, 0.05f);
+                    SpawnEnemyGroups(enemyPrefabs[1], groupSize: fastGroupSize, fastDelay, fastEnemies / fastGroupSize, enemyMaxHealthIncrease, 1, 0.05f);
+                    SpawnEnemyGroups(enemyPrefabs[2], groupSize: tankGroupSize, tankDelay, tankEnemies / tankGroupSize, enemyMaxHealthIncrease, 1, 0.05f);
                     break;
             }
         }
     }
 
-    private void IncreaseAllEnemyMaxHealthBy(int amountToIncrease) {
-        foreach (var enemy in enemyPrefabs) {
-            enemy.GetComponent<Enemy>().IncreaseMaxHealthBy(amountToIncrease);
-        }
-    }
-
-    private void IncreaseAllEnemySpeed() {
-        foreach (var enemy in enemyPrefabs) {
-            enemy.GetComponent<Enemy>().IncreaseSpeedBy(0.05f);
-        }
-    }
-
-    private void SetAllEnemyMoneysToOne() {
-        foreach (var enemy in enemyPrefabs) {
-            enemy.GetComponent<Enemy>().UpdateMoneyValue(1);
-        }
-    }
-
     private void SpawnEnemyGroups(
-        GameObject enemyType, 
-        int groupSize, 
-        int msBetweenGroups, 
-        int numberOfGroups)
+        GameObject enemyType,
+        int groupSize,
+        int msBetweenGroups,
+        int numberOfGroups, float maxHealthIncreaseOverride = -1, int moneyValuesOverride = -1, float moveSpeedIncreaseOverride = -1)
     {
         // gameObject is auto created by unity, and points towards the object
         // this script is attached to (Game Manager object)
@@ -168,6 +150,6 @@ public class WaveManager : MonoBehaviour
         enemyType, 
         groupSize, 
         msBetweenGroups, 
-        numberOfGroups);
+        numberOfGroups, maxHealthIncreaseOverride, moneyValuesOverride, moveSpeedIncreaseOverride);
 ;    }
 }
