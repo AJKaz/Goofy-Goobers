@@ -24,10 +24,6 @@ public class ButtonInfoPopup : MonoBehaviour, IPointerEnterHandler, IPointerExit
     // Update is called once per frame
     void Update()
     {
-        //if (GameManager.Instance.inputManager.MouseRightDownThisFrame)
-        //{
-        //}
-
         GameObject child = gameObject.transform.GetChild(1).gameObject;
 
 

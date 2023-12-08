@@ -277,6 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   healthBar: {fileID: 4050941158215385982}
+  textPrefab: {fileID: 1467744647318337620, guid: 36595b03af8750c44b354fada827c15a, type: 3}
   damage: 5
   moveSpeed: 1.2
   moneyValue: 1
