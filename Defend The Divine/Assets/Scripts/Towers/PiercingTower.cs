@@ -7,13 +7,15 @@ public class PiercingTower : Tower
     [Header("Tower Specifics")]
     [SerializeField]
     protected float projectileSpeed = 15f;
+    [SerializeField] 
+    protected float damageDecay = 0.5f;
 
     protected override void Attack(Enemy target) {
         attackTimer = ATTACK_DELAY;
         GameObject obj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
         IceSpike iceSpike = obj.GetComponent<IceSpike>();
         iceSpike.SetDirection(target.transform.position);
-        iceSpike.SetStats(damage, projectileSpeed, this);
+        iceSpike.SetStats(damage, projectileSpeed, this, damageDecay);
     }
 
     protected override Enemy GetTarget() {
