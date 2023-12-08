@@ -91,4 +91,8 @@ public class SwordTower : Tower
             UpdatePopupUIText();
         }
     }
+
+    // The Sword tower only has one attack mode
+    public override void CycleTargetingMode() { }
+    protected override string ParseTargetingMode() { return "N/A"; }
 }

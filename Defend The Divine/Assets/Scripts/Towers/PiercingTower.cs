@@ -18,7 +18,9 @@ public class PiercingTower : Tower
 
     protected override Enemy GetTarget() {
         Enemy target = null;
-        int highestWaypointIndex = -1;
+        int currentBestTargetIndex;
+        if (targetingMode == 0) { currentBestTargetIndex = -1; }
+        else { currentBestTargetIndex = 9999; }
 
         for (int i = 0; i < GameManager.Instance.enemies.Count; i++) {
             if (GameManager.Instance.enemies[i] == null) continue;
@@ -26,8 +28,13 @@ public class PiercingTower : Tower
             Vector3 offset = transform.position - GameManager.Instance.enemies[i].transform.position;
             if (offset.sqrMagnitude <= range * range) {
                 int enemyWaypointIndex = GameManager.Instance.enemies[i].WaypointIndex;
-                if (enemyWaypointIndex > highestWaypointIndex) {
-                    highestWaypointIndex = enemyWaypointIndex;
+                // First (closest to pillar) enemy in range
+                if (enemyWaypointIndex > currentBestTargetIndex && targetingMode == 0) {
+                    currentBestTargetIndex = enemyWaypointIndex;
+                    target = GameManager.Instance.enemies[i];
+                } // Last (farthest from pillar) enemy in range
+                else if (enemyWaypointIndex < currentBestTargetIndex && targetingMode == 1) {
+                    currentBestTargetIndex = enemyWaypointIndex;
                     target = GameManager.Instance.enemies[i];
                 }
             }

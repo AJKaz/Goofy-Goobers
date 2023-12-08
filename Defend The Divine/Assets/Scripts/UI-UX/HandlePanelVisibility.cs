@@ -8,6 +8,7 @@ public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEn
     private bool mouseIsOver = false;
     [HideInInspector] public GameObject visibleRange;
     [HideInInspector] public Tower tower;
+    public Button targetingButton;
     public Button upgradeButton;
     public Button sellButton;
     public TMP_Text upgradeButtonText;
@@ -22,6 +23,7 @@ public class HandlePanelVisibility : MonoBehaviour, IDeselectHandler, IPointerEn
 
     private void Start()
     {
+        targetingButton.onClick.AddListener(delegate { tower.CycleTargetingMode(); });
         upgradeButton.onClick.AddListener(delegate { tower.Upgrade(); });
         sellButton.onClick.AddListener(delegate { tower.Sell(visibleRange, gameObject); });
     }
