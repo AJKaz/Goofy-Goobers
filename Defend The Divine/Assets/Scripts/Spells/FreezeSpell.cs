@@ -7,13 +7,10 @@ public class FreezeSpell : MonoBehaviour
 {
     [SerializeField] Vector3 initialDirection;
 
-    [Range(2f, 7f)]
     [SerializeField] private float despawnTimer = 5f;
 
-    [Range(3f, 7f)]
     [SerializeField] private float freezeDuration = 4f;
 
-    [Range(3f, 9f)]
     [SerializeField] private float speed = 5f;
 
     [SerializeField] private int cost = 30;

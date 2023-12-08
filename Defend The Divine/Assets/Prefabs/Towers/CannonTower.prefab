@@ -98,10 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6182c2bc898233c48a3c4c1b34828987, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 4
-  range: 3.75
-  ATTACK_DELAY: 0.2
-  cost: 30
+  damage: 6
+  range: 3.25
+  ATTACK_DELAY: 0.5
+  cost: 45
   damagingPrefab: {fileID: 474679912698572556, guid: d760f47b006601e43a3027800f6f82b2, type: 3}
   uiPopupPrefab: {fileID: 5480922836673919474, guid: c64acfdfba45b3244a6a8d3fd3ee2e76, type: 3}
   rangePrefab: {fileID: 5404175338507898556, guid: 55cd93df1269c08478f7016ced343dd9, type: 3}
@@ -111,7 +111,7 @@ MonoBehaviour:
   rangeUpgradeAmount: 0.5
   attackSpeedUpgradeAmount: 0.01
   isPopupUIActive: 0
-  projectileSpeed: 20
+  projectileSpeed: 25
 --- !u!58 &557187313376879698
 CircleCollider2D:
   m_ObjectHideFlags: 0

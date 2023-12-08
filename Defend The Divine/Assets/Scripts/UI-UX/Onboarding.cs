@@ -10,17 +10,12 @@ public class Onboarding : MonoBehaviour, IPointerClickHandler
     [SerializeField] GameObject tutorialText;
     [SerializeField] List<GameObject> arrows = new List<GameObject>();
 
-    // Start is called before the first frame update
     void Start()
     {
-        Time.timeScale = 0;
+        GameManager.Instance.UpdateButtonInteractability();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       
-    }
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         stateVal++;
@@ -47,8 +42,9 @@ public class Onboarding : MonoBehaviour, IPointerClickHandler
                 break;
             case 5:
                 arrows[stateVal-1].SetActive(false);
-                Time.timeScale = 1;
-                this.gameObject.SetActive(false);
+                GameManager.Instance.isInOnboarding = false;
+                GameManager.Instance.UpdateButtonInteractability();
+                gameObject.SetActive(false);
                 break;
             default:
                 break;

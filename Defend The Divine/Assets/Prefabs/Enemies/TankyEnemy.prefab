@@ -172,7 +172,7 @@ MonoBehaviour:
   textPrefab: {fileID: 1467744647318337620, guid: 36595b03af8750c44b354fada827c15a, type: 3}
   damage: 10
   moveSpeed: 1
-  moneyValue: 4
+  moneyValue: 3
   bloodSplatter: {fileID: 8344524889168070583, guid: 6a2ea6338722cdb47a9a805b804848c6, type: 3}
   damageFlash: {r: 1, g: 0, b: 0, a: 1}
   demonEssence: {fileID: -3210995304410717472, guid: bcb755a531b93824d9435b745e07ebf0, type: 3}

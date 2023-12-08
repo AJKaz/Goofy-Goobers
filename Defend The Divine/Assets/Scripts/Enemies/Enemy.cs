@@ -1,10 +1,7 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using TMPro;
 
 public class Enemy : Entity
 {
@@ -151,12 +148,12 @@ public class Enemy : Entity
     IEnumerator FreezeCoroutine(float freezeDuration)
     {
         isFrozen = true;
-        animator.speed = 0;
+        if (animator) animator.speed = 0;
 
         yield return new WaitForSeconds(freezeDuration);
 
         isFrozen = false;
-        animator.speed = 1;
+        if (animator) animator.speed = 1;
     }
 
     IEnumerator DamageFlashCoroutine(float seconds = 0.1f)
@@ -164,6 +161,18 @@ public class Enemy : Entity
         sprite.color = damageFlash;
         yield return new WaitForSeconds(seconds);
         sprite.color = baseColor;
+    }
+    public void UpdateMoneyValue(int newMoneyValue) {
+        moneyValue = newMoneyValue;
+    }
+
+    public void IncreaseMaxHealthBy(float amountToIncrease) {
+        maxHealth += amountToIncrease;
+        health = maxHealth;
+    }
+
+    public void IncreaseSpeedBy(float amountToIncrease) {
+        moveSpeed += amountToIncrease;
     }
 
     //private void OnDrawGizmos()
