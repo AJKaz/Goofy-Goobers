@@ -34,6 +34,8 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
     /* Current Upgrade Level*/
     protected int upgradeLevel = 1;
 
+    protected int targetingMode = 0;
+
     protected int sellPrice = 0;
     protected int sellUpgradeIncrement = 0;
     protected int enemiesKilled = 0;
@@ -117,6 +119,14 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
         visibleRange.SetActive(true);
     }
 
+    // Will be overridden in Sword tower, as it only has 1 possible way of attacking
+    public virtual void CycleTargetingMode()
+    {
+        // Doesnt work if ++ is placed after the variable
+        targetingMode = ++targetingMode % 2;
+        UpdatePopupUIText();
+    }
+
     public virtual void Upgrade() {
         if (upgradeLevel < maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
             GameManager.Instance.AddMoney(-upgradeCost);
@@ -164,6 +174,21 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
         }
     }
 
+    // Will be overridden in Sword tower, as it only has 1 possible way of attacking
+    protected virtual string ParseTargetingMode()
+    {
+        switch (targetingMode)
+        {
+            case 0:
+                return "First";
+            case 1:
+                return "Last";
+            default:
+                Debug.LogError("targetingMode value out of bounds (" + targetingMode + ")");
+                return "targetingMode value out of bounds (" + targetingMode + ")";
+        }
+    }
+
     protected void UpdatePopupUIText() {
         if (createdUiReference == null) return;
 
@@ -172,7 +197,8 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
             $"Demons Killed: {enemiesKilled}\n" +
             $"Damage: {damage}\n" +
             $"Range: {range}\n" +
-            $"Level: {upgradeLevel} / {maxUpgradeLevel}\n";
+            $"Level: {upgradeLevel} / {maxUpgradeLevel}\n" +
+            $"Targeting: {ParseTargetingMode()}\n";
         }
         if (createdUiReference.upgradeButtonText != null) {
             createdUiReference.upgradeButtonText.text = $"{upgradeCost}";
