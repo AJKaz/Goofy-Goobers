@@ -53,7 +53,7 @@ public class WaveManager : MonoBehaviour
                     // 12 fast enemies in groups of 2, 5s between groups
                     // total wave spawn time: 30s
                     SpawnEnemyGroups(enemyPrefabs[0], groupSize: 6, 10000, numberOfGroups: 3);
-                    SpawnEnemyGroups(enemyPrefabs[1], groupSize: 2, 5000, numberOfGroups: 6);
+                    SpawnEnemyGroups(enemyPrefabs[1], groupSize: 2, 5000, numberOfGroups: 6, moveSpeedIncreaseOverride: -0.1f); // first time seeing fast enemy, make it slightly slower
                     break;                      
                 case 4: // 24, 30, 6
                     GameManager.Instance.AddMoney(100);
@@ -63,7 +63,7 @@ public class WaveManager : MonoBehaviour
                     // total wave spawn time: 30s
                     SpawnEnemyGroups(enemyPrefabs[0], groupSize: 2, 2500, numberOfGroups: 12);
                     SpawnEnemyGroups(enemyPrefabs[1], groupSize: 3, 3000, numberOfGroups: 10);
-                    SpawnEnemyGroups(enemyPrefabs[2], groupSize: 1, 6000, numberOfGroups: 5);
+                    SpawnEnemyGroups(enemyPrefabs[2], groupSize: 1, 6000, numberOfGroups: 5, -50); // first time seeing tank, make it slightly weaker
                     break;
                 case 5: // 41, 36, 15
                     GameManager.Instance.AddMoney(125);
