@@ -48,9 +48,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialDirection: {x: -10, y: 0, z: 0}
-  despawnTimer: 5
-  freezeDuration: 4
-  speed: 5
+  despawnTimer: 3
+  freezeDuration: 5
+  speed: 15
   cost: 30
 --- !u!212 &6887716025907406454
 SpriteRenderer:

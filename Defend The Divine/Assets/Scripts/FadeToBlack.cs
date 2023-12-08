@@ -11,6 +11,7 @@ public class FadeToBlack : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         color = new Color(0f, 0f, 0f, 0f);
+        FindFirstObjectByType<ShakeBehavior>().TriggerShake(0.75f, 0.75f);
     }
     // Update is called once per frame
     void Update()

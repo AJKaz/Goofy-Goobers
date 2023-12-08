@@ -3356,7 +3356,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
+  m_LocalScale: {x: 6.5, y: 6.5, z: 6.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 547819839}
@@ -4757,15 +4757,17 @@ MonoBehaviour:
   - {fileID: 201514178}
   - {fileID: 142517694}
   - {fileID: 1906842667}
-  startingMoney: 200
+  startingMoney: 150
   towerUiCanvas: {fileID: 50174059}
   spellActivate: {fileID: 500631751}
   towerPlacement: {fileID: 500631748}
+  divinePillar: {fileID: 1322684056}
   moneyText: {fileID: 1411268898}
   cannonTowerCost: {fileID: 847215456}
   swordTowerCost: {fileID: 152013811}
   piercingTowerCost: {fileID: 327545527}
   freezeSpellCost: {fileID: 155105858}
+  isInOnboarding: 1
 --- !u!4 &500631745
 Transform:
   m_ObjectHideFlags: 0
@@ -11484,7 +11486,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.21470462}
   m_AnchorMax: {x: 1, y: 0.7854899}
-  m_AnchoredPosition: {x: 0, y: 0.000015258789}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -504.1103, y: -75.6561}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1322190969
@@ -11530,6 +11532,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5995002482926310397, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
   m_PrefabInstance: {fileID: 6351206887532597114}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1322684056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5698748551656801754, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
+  m_PrefabInstance: {fileID: 6351206887532597114}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322684054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d08ec9f8553e35d488831c6995f8ebc6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1335046087
 GameObject:
   m_ObjectHideFlags: 0
@@ -12464,7 +12477,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.1, y: 0}
   m_AnchorMax: {x: 0.1, y: 0}
-  m_AnchoredPosition: {x: 28.6, y: 36.3}
+  m_AnchoredPosition: {x: 28.599976, y: 36.3}
   m_SizeDelta: {x: 45.8656, y: 36.646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1411268898
@@ -17031,7 +17044,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_LocalScale: {x: 5.5, y: 5.5, z: 5.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 106481289}
@@ -17249,7 +17262,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.21470462}
   m_AnchorMax: {x: 1, y: 0.7854899}
-  m_AnchoredPosition: {x: 0.6478882, y: -6.612503}
+  m_AnchoredPosition: {x: 0.6478882, y: -6.612488}
   m_SizeDelta: {x: -502.8145, y: -75.6383}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2007496778
@@ -17909,7 +17922,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 4.2, y: 4.2, z: 4.2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1494900831}
@@ -18768,6 +18781,10 @@ PrefabInstance:
     - target: {fileID: 3935120429759372376, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5698748551656801754, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 5698748551656801754, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
       propertyPath: healthText

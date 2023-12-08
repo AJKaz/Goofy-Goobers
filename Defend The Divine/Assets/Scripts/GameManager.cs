@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public TowerPlacement towerPlacement;
 
+    public DivinePillar divinePillar;
+
     [Header("UI Stuff")]
     [SerializeField] private TMP_Text moneyText;
     [SerializeField] private TMP_Text cannonTowerCost;
@@ -40,6 +42,8 @@ public class GameManager : MonoBehaviour
     private Button tower2Button;
     private Button tower3Button;
     private Button spell1Button;
+
+    [HideInInspector] public bool isInOnboarding = true;
 
     public int Money { get { return money; } }
 
@@ -98,15 +102,18 @@ public class GameManager : MonoBehaviour
 
     public void AddMoney(int amount) {
         money += amount;
+        // Clamp money between 0-750
+        if (money > 750) money = 750;
+        if (money < 0) money = 0;
         UpdateMoneyText();
         UpdateButtonInteractability();
     }
 
     public void UpdateButtonInteractability() {
-        tower1Button.interactable = money < towerPlacement.towerType1Prefab.Cost ? false : true;
-        tower2Button.interactable = money < towerPlacement.towerType2Prefab.Cost ? false : true;
-        tower3Button.interactable = money < towerPlacement.towerType3Prefab.Cost ? false : true;
-        spell1Button.interactable = spellActivate.IsFreezeOnCooldown || money < spellActivate.FreezeSpellPrefab.Cost ? false : true;
+        tower1Button.interactable = isInOnboarding || money < towerPlacement.towerType1Prefab.Cost ? false : true;
+        tower2Button.interactable = isInOnboarding || money < towerPlacement.towerType2Prefab.Cost ? false : true;
+        tower3Button.interactable = isInOnboarding || money < towerPlacement.towerType3Prefab.Cost ? false : true;
+        spell1Button.interactable = isInOnboarding || spellActivate.IsFreezeOnCooldown || money < spellActivate.FreezeSpellPrefab.Cost ? false : true;
     }
 
     public bool RemoveEnemy(Enemy enemy) {

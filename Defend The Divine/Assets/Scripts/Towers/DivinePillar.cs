@@ -6,6 +6,8 @@ public class DivinePillar : MonoBehaviour
     [SerializeField]
     private int maxHealth = 100;
 
+    [SerializeField] private int maxExtraHealth = 150;
+
     [SerializeField]
     private GameObject fadeToBlack;
 
@@ -38,5 +40,11 @@ public class DivinePillar : MonoBehaviour
         // fadeToBlack will load the game over scene when it is done
         Instantiate(fadeToBlack, new Vector3(0,0,-9.5f), Quaternion.identity);
         //SceneManager.LoadScene("GameOver");
+    }
+
+    public void IncreaseHealthBy(int amount) {
+        health += amount;
+        if (health > maxExtraHealth) health = maxExtraHealth;
+        TakeDamage(0);
     }
 }
