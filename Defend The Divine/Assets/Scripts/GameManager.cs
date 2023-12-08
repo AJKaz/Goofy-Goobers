@@ -86,10 +86,10 @@ public class GameManager : MonoBehaviour
     }
 
     private void Start() {
-        cannonTowerCost.text = $"${towerPlacement.towerType1Prefab.Cost}";
-        swordTowerCost.text = $"${towerPlacement.towerType2Prefab.Cost}";
-        piercingTowerCost.text = $"${towerPlacement.towerType3Prefab.Cost}";
-        freezeSpellCost.text = $"${spellActivate.FreezeSpellPrefab.Cost}";
+        cannonTowerCost.text = $"{towerPlacement.towerType1Prefab.Cost}";
+        swordTowerCost.text = $"{towerPlacement.towerType2Prefab.Cost}";
+        piercingTowerCost.text = $"{towerPlacement.towerType3Prefab.Cost}";
+        freezeSpellCost.text = $"{spellActivate.FreezeSpellPrefab.Cost}";
     }
 
     public Transform[] GetPath() {
@@ -114,6 +114,6 @@ public class GameManager : MonoBehaviour
     }
 
     public void UpdateMoneyText() {
-        moneyText.text = $"${money}";
+        moneyText.text = $"{money}";
     }
 }
