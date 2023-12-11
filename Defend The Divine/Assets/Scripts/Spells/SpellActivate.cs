@@ -8,19 +8,29 @@ public class SpellActivate : MonoBehaviour
 
     [Header("Spell UI Buttons")]
     [SerializeField] Button freezeSpellButton;
-    [SerializeField] Button spell2Button;
-    [SerializeField] Button spell3Button;
 
     [Header("Freeze Spell")]
     public FreezeSpell FreezeSpellPrefab;
-    [SerializeField] private float freezeSpellCooldown = 15f;
+    [SerializeField] private float freezeSpellCooldown = 30f;
     private bool isFreezeOnCooldown = false;
+    private float freezeSpellTimer;
     public bool IsFreezeOnCooldown { get { return isFreezeOnCooldown; } }
 
     void Start()
     {
         freezeSpellButton.onClick.AddListener(delegate { OnClick(0); });
-        spell2Button.onClick.AddListener(delegate { OnClick(1); });
+        freezeSpellTimer = freezeSpellCooldown;
+    }
+
+    private void Update() {
+        if (isFreezeOnCooldown) {
+            freezeSpellTimer -= Time.deltaTime;
+            if (freezeSpellTimer <= 0f) {
+                freezeSpellTimer = freezeSpellCooldown;
+                isFreezeOnCooldown = false;
+                GameManager.Instance.UpdateButtonInteractability();
+            }
+        }
     }
 
     public void OnClick(int index)
@@ -33,24 +43,20 @@ public class SpellActivate : MonoBehaviour
             case 0:
                 // Can cast spell if they have enough money & spell's not on cooldown
                 if (GameManager.Instance.Money >= FreezeSpellPrefab.Cost && !isFreezeOnCooldown) {
-                    StartCoroutine(FreezeSpellCoroutine());
+                    //StartCoroutine(FreezeSpellCoroutine());
+                    isFreezeOnCooldown = true;
+                    freezeSpellButton.interactable = false;
                     Instantiate(FreezeSpellPrefab, divinePillar.transform.position, Quaternion.identity);
                     GameManager.Instance.AddMoney(-FreezeSpellPrefab.Cost);
                     GameManager.Instance.towerPlacement.deselectTower();
                 }
-                break;
-            case 1:
-                Debug.Log("spell 2 activate");
-                break;
-            case 2:
-                Debug.Log("spell 3 activate");
                 break;
             default:
                 break;
         }
     }
 
-    IEnumerator FreezeSpellCoroutine() {
+    /*IEnumerator FreezeSpellCoroutine() {
         isFreezeOnCooldown = true;
         freezeSpellButton.interactable = false;
 
@@ -58,11 +64,13 @@ public class SpellActivate : MonoBehaviour
 
         isFreezeOnCooldown = false;
         GameManager.Instance.UpdateButtonInteractability();
-    }
+    }*/
 
     public void ResetAllSpellCooldowns()
     {
         isFreezeOnCooldown = false;
+        freezeSpellTimer = freezeSpellCooldown;
+        GameManager.Instance.UpdateButtonInteractability();
         // Other spells go here
     }
 
