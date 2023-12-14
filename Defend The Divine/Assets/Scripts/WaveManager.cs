@@ -33,6 +33,9 @@ public class WaveManager : MonoBehaviour
             currentWave++;
             waveTimestamp = Time.realtimeSinceStartup;
             spellActivateScript.ResetAllSpellCooldowns();
+
+            GameManager.Instance.UpdateWaveNumber(currentWave);
+
             // At the moment, I've tried to keep waves at ~30s
             switch (currentWave)
             {
