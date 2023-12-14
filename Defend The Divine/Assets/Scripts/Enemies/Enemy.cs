@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : Entity
@@ -35,6 +36,8 @@ public class Enemy : Entity
 
     private Vector2 direction;
     private Animator animator;
+
+    public Vector2 Direction => direction;
 
     [HideInInspector] public float? BloodSplatRotation { get; set; } = null;
 
@@ -95,7 +98,8 @@ public class Enemy : Entity
             ParticleSystem splat = bloodSplatter.GetComponentsInChildren<ParticleSystem>().FirstOrDefault(ps => ps.name == splatterEffect);
             Instantiate(splat, transform.position, Quaternion.Euler(0, 0, BloodSplatRotation ?? 0)).Play();
         }
-        if (demonEssence) {
+        if (demonEssence)
+        {
             Instantiate(demonEssence, transform.position, Quaternion.identity);
         }
         Destroy(gameObject);
@@ -141,7 +145,8 @@ public class Enemy : Entity
                          angle >= 307.5f && angle < 322.5f ? 315 :
                          angle >= 322.5f && angle < 345 ? 330 :
                          animationAngle;
-        animator?.SetInteger("angle", animationAngle);
+        if (animator?.parameters.Any(p => p.name == "angle") ?? false)
+            animator?.SetInteger("angle", animationAngle);
 
     }
 
@@ -162,16 +167,19 @@ public class Enemy : Entity
         yield return new WaitForSeconds(seconds);
         sprite.color = baseColor;
     }
-    public void UpdateMoneyValue(int newMoneyValue) {
+    public void UpdateMoneyValue(int newMoneyValue)
+    {
         moneyValue = newMoneyValue;
     }
 
-    public void IncreaseMaxHealthBy(float amountToIncrease) {
+    public void IncreaseMaxHealthBy(float amountToIncrease)
+    {
         maxHealth += amountToIncrease;
         health = maxHealth;
     }
 
-    public void IncreaseSpeedBy(float amountToIncrease) {
+    public void IncreaseSpeedBy(float amountToIncrease)
+    {
         moveSpeed += amountToIncrease;
     }
 
