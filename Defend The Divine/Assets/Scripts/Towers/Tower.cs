@@ -128,6 +128,8 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
     }
 
     public virtual void Upgrade() {
+        AudioManager.instance.PlaySound("TowerUpgrade" + Random.Range(1, 3));
+
         if (upgradeLevel < maxUpgradeLevel && GameManager.Instance.Money >= upgradeCost) {
             GameManager.Instance.AddMoney(-upgradeCost);
             upgradeLevel++;
@@ -148,6 +150,8 @@ public abstract class Tower : MonoBehaviour, IPointerClickHandler
     }
 
     public virtual void Sell(GameObject visibleRange, GameObject popupUI) {
+        AudioManager.instance.PlaySound("TowerSell");
+
         GameManager.Instance.AddMoney(sellPrice);
         Destroy(gameObject);
 

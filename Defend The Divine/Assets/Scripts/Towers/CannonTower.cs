@@ -7,6 +7,8 @@ public class CannonTower : Tower
     protected float projectileSpeed = 15f;
 
     protected override void Attack(Enemy target) {
+        AudioManager.instance.PlaySound("CannonTower");
+
         attackTimer = ATTACK_DELAY;
         GameObject proj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
         Projectile projectile = proj.GetComponent<Projectile>();

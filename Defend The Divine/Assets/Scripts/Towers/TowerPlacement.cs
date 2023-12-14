@@ -47,6 +47,8 @@ public class TowerPlacement : MonoBehaviour
 
         if (GameManager.Instance.inputManager.MouseLeftDownThisFrame && canPlaceTower)
         {
+            AudioManager.instance.PlaySound("TowerPlaced");
+
             Instantiate(currentTowerPrefab, currentGhostTower.transform.position, Quaternion.identity);
             GameManager.Instance.AddMoney(-currentTowerPrefab.Cost);
             currentTowerPrefab = null;

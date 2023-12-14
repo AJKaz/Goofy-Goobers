@@ -83,6 +83,7 @@ public class Enemy : Entity
 
     public override bool TakeDamage(float damage)
     {
+        AudioManager.instance.PlaySound("EnemyHit");
         // GameObject text = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
         // text.GetComponent<TextMeshPro>().text = damage.ToString();
 
@@ -92,6 +93,7 @@ public class Enemy : Entity
 
     override protected void Die()
     {
+        AudioManager.instance.PlaySound("EnemyDie" + Random.Range(1, 4));
         if (bloodSplatter)
         {
             string splatterEffect = BloodSplatRotation == null ? "Blood Splat" : "Directional Blood Splat";
