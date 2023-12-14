@@ -6,10 +6,14 @@ using UnityEngine.EventSystems;
 
 public class ButtonInfoPopup : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float MAX_TIME = 0.75f;
-    private float timer = MAX_TIME;
+    public static float MAX_TIME = 0.1f;    // Onboarding.cs sets time after onboarding is complete, keep as 0.1f for onboarding
+    private float timer;
     bool isTimerTicking = false;
-    
+
+    private void Start() {
+        timer = MAX_TIME;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         isTimerTicking = true;

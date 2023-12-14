@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TMP_Text swordTowerCost;
     [SerializeField] private TMP_Text piercingTowerCost;
     [SerializeField] private TMP_Text freezeSpellCost;
+    [SerializeField] private TMP_Text waveNumber;
 
     // Buttons
     private Button tower1Button;
@@ -122,5 +123,9 @@ public class GameManager : MonoBehaviour
 
     public void UpdateMoneyText() {
         moneyText.text = $"{money}";
+    }
+
+    public void UpdateWaveNumber(int currentWave) {
+        waveNumber.text = $"{currentWave}";
     }
 }
