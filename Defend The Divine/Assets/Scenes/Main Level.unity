@@ -21082,6 +21082,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1952535400728379901, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
+      propertyPath: m_Size.x
+      value: 0.85003257
+      objectReference: {fileID: 0}
+    - target: {fileID: 1952535400728379901, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.044983745
+      objectReference: {fileID: 0}
     - target: {fileID: 3935120429759372376, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 9.12
@@ -21121,6 +21129,10 @@ PrefabInstance:
     - target: {fileID: 3935120429759372376, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5151521330826098644, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 5698748551656801754, guid: 5c43ba7f4eedca045959c9c24fd56a4b, type: 3}
       propertyPath: maxHealth
