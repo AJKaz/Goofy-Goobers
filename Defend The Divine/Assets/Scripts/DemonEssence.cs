@@ -17,7 +17,7 @@ public class DemonEssence : MonoBehaviour
     {
         transform.position = Vector2.MoveTowards(transform.position, destination.position, currentSpeed * Time.deltaTime);
 
-        if ((transform.position - destination.position).sqrMagnitude < 0.1f) {
+        if (((Vector2)(transform.position - destination.position)).sqrMagnitude < 0.1f) {
             Destroy(gameObject);
         }
 
