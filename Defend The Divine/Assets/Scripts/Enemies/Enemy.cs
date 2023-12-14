@@ -83,8 +83,8 @@ public class Enemy : Entity
 
     public override bool TakeDamage(float damage)
     {
-        GameObject text = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
-        text.GetComponent<TextMeshPro>().text = damage.ToString();
+        // GameObject text = Instantiate(textPrefab, transform.position, Quaternion.identity, transform);
+        // text.GetComponent<TextMeshPro>().text = damage.ToString();
 
         StartCoroutine(DamageFlashCoroutine(0.1f));
         return base.TakeDamage(damage);
