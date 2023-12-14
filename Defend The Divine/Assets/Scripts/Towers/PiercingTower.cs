@@ -11,6 +11,8 @@ public class PiercingTower : Tower
     protected float damageDecay = 0.5f;
 
     protected override void Attack(Enemy target) {
+        AudioManager.instance.PlaySound("PiercingTower");
+
         attackTimer = ATTACK_DELAY;
         GameObject obj = Instantiate(damagingPrefab, transform.position, Quaternion.identity);
         IceSpike iceSpike = obj.GetComponent<IceSpike>();

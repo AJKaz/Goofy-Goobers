@@ -48,6 +48,8 @@ public class SwordTower : Tower
     }
 
     protected override void Attack(Enemy target) {
+        AudioManager.instance.PlaySound("SwordTower");
+
         attackTimer = ATTACK_DELAY;
         ContinueSwing();
         isSwinging = true;
