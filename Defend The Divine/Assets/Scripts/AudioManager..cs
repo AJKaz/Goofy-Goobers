@@ -45,8 +45,9 @@ public class AudioManager : MonoBehaviour
         Debug.Log("Playing sound " + soundName);
         source.name = soundName;
         source.loop = false;
-        source.volume = 1.0f;
-        source.clip = sounds.Find(x  => x.name == soundName).source.clip;
+        AudioSource storedSource = sounds.Find(x => x.name == soundName).source;
+        source.volume = storedSource.volume;
+        source.clip = storedSource.clip;
         Destroy(source, source.clip.length);
         source.Play();
     }

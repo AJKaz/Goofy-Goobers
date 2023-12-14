@@ -5836,7 +5836,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: b11a04dcb99b2204cbc7f06d478f4076, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -12567,67 +12567,67 @@ MonoBehaviour:
   sounds:
   - name: CannonTower
     clip: {fileID: 8300000, guid: 941fcb619fd26e04c9d3d619eaa48500, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: SwordTower
     clip: {fileID: 8300000, guid: ca975c8df8b8b46458c962dfb2474f89, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PiercingTower
     clip: {fileID: 8300000, guid: 2e98c501895b3ff42b99cb7b2245c67f, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyHit
     clip: {fileID: 8300000, guid: 4c18d3f13cfd2004e84c92b22065bc32, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyDie1
     clip: {fileID: 8300000, guid: 908825c546d0d764ba6e0b84231ce58d, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyDie2
     clip: {fileID: 8300000, guid: 06cedefe56e340f489faf42f284fdf4c, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: EnemyDie3
     clip: {fileID: 8300000, guid: f0f1845cd3717de4da3662d0b3a6441b, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: TowerSell
     clip: {fileID: 8300000, guid: 0fe1dd30ed01dae48bc0929534b0ad0f, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: TowerUpgrade2
     clip: {fileID: 8300000, guid: aa5b834960d87bd4da8c9fae5fafec01, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: TowerUpgrade1
     clip: {fileID: 8300000, guid: b5222a65c37dc2a4ab2b66accd918995, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: TowerPlaced
     clip: {fileID: 8300000, guid: 37d37048df1e73b46a97fcb690734567, type: 3}
-    volume: 0.5
+    volume: 0.25
     pitch: 1
     loop: 0
     source: {fileID: 0}
