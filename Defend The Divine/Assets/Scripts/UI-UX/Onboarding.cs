@@ -1,8 +1,6 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 
 public class Onboarding : MonoBehaviour, IPointerClickHandler
 {
@@ -20,34 +18,18 @@ public class Onboarding : MonoBehaviour, IPointerClickHandler
     {
         stateVal++;
 
-        switch (stateVal)
-        {
-            case 0:
-                break;
-            case 1:
-                arrows[stateVal].SetActive(true);
-                arrows[stateVal-1].SetActive(false);
-                break;
-            case 2:
-                arrows[stateVal].SetActive(true);
-                arrows[stateVal-1].SetActive(false);
-                break;
-            case 3:
-                arrows[stateVal].SetActive(true);
-                arrows[stateVal-1].SetActive(false);
-                break;
-            case 4:
-                arrows[stateVal].SetActive(true);
-                arrows[stateVal-1].SetActive(false);
-                break;
-            case 5:
-                arrows[stateVal-1].SetActive(false);
-                GameManager.Instance.isInOnboarding = false;
-                GameManager.Instance.UpdateButtonInteractability();
-                gameObject.SetActive(false);
-                break;
-            default:
-                break;
+        if (stateVal == 0 || stateVal > arrows.Count) return;
+
+        if (stateVal == arrows.Count) {
+            arrows[stateVal - 1].SetActive(false);
+            GameManager.Instance.isInOnboarding = false;
+            GameManager.Instance.UpdateButtonInteractability();
+            gameObject.SetActive(false);
+            ButtonInfoPopup.MAX_TIME = 0.75f;
+            return;
         }
+
+        arrows[stateVal].SetActive(true);
+        arrows[stateVal - 1].SetActive(false);
     }
 }
