@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class DemonEssence : MonoBehaviour
 {
-    [SerializeField] Vector3 destination;
+    //[SerializeField] Vector3 destination;
+    [SerializeField] Transform destination;
     [SerializeField] float initialSpeed = 4.0f;
     [SerializeField] float acceleration = 0.1f;
 
@@ -14,9 +15,9 @@ public class DemonEssence : MonoBehaviour
 
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination, currentSpeed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, destination.position, currentSpeed * Time.deltaTime);
 
-        if (transform.position == destination) {
+        if ((transform.position - destination.position).sqrMagnitude < 0.1f) {
             Destroy(gameObject);
         }
 

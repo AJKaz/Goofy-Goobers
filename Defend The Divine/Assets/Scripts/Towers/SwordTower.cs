@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class SwordTower : Tower
@@ -5,19 +6,25 @@ public class SwordTower : Tower
     [Header("Tower Specifics")]
     [SerializeField]
     private float rotationSpeed = 360f;
+    //[SerializeField]
+    //private SpriteRenderer swordSpriteRenderer;
     [SerializeField]
-    private SpriteRenderer swordSpriteRenderer;
+    private TrailRenderer trailRenderer;
 
     private bool isSwinging = false;
     private float currentRotation = 0f;
     private Quaternion initialRotation;
+    private Vector3 initialSwordPosition;
+
+    //private float attackTime = 0;
 
     private void Start() {
         initialRotation = damagingPrefab.transform.rotation;
-        if (swordSpriteRenderer == null) {
-            swordSpriteRenderer = damagingPrefab.GetComponent<SpriteRenderer>();
-        }
-        swordSpriteRenderer.enabled = false;
+        initialSwordPosition = damagingPrefab.transform.position;
+        //if (swordSpriteRenderer == null) {
+        //    swordSpriteRenderer = damagingPrefab.GetComponent<SpriteRenderer>();
+        //}
+        //swordSpriteRenderer.enabled = false;
     }
 
     protected override void Update() {
@@ -35,7 +42,8 @@ public class SwordTower : Tower
             isSwinging = false;
             currentRotation = 0f;
             damagingPrefab.transform.rotation = initialRotation;
-            swordSpriteRenderer.enabled = false;
+            damagingPrefab.transform.position = initialSwordPosition;
+            //swordSpriteRenderer.enabled = false;
         }
     }
 
@@ -43,7 +51,7 @@ public class SwordTower : Tower
         attackTimer = ATTACK_DELAY;
         ContinueSwing();
         isSwinging = true;
-        swordSpriteRenderer.enabled = true;
+        //swordSpriteRenderer.enabled = true;
 
         // Damage all enemies in range
         // Using this instead of colliders because:
@@ -85,12 +93,16 @@ public class SwordTower : Tower
             else sellPrice += sellUpgradeIncrement;
 
             visibleRange.transform.localScale = new Vector3(range * 2, range * 2);
-            swordSpriteRenderer.transform.localScale = new Vector3(swordSpriteRenderer.transform.localScale.x, range * 1.65f);
+            //swordSpriteRenderer.transform.localScale = new Vector3(swordSpriteRenderer.transform.localScale.x, range * 1.65f);
+            trailRenderer.transform.localScale = new Vector3(range * 0.3f / 1.5f, range * 1.5f * 0.3f);
+            trailRenderer.transform.localPosition += Vector3.right * rangeUpgradeAmount;
+            trailRenderer.Clear();
 
             UpdateUpgradeButtonInteractibility();
             UpdatePopupUIText();
         }
     }
+
 
     // The Sword tower only has one attack mode
     public override void CycleTargetingMode() { }

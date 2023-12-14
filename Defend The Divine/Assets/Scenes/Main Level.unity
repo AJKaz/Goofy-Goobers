@@ -4844,7 +4844,7 @@ MonoBehaviour:
   enemySpawnPositions:
   - {fileID: 1473024243}
   - {fileID: 940715083}
-  currentWave: 0
+  currentWave: 2
 --- !u!114 &500631751
 MonoBehaviour:
   m_ObjectHideFlags: 0
